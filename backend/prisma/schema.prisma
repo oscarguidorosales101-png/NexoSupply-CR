@@ -1,0 +1,867 @@
+// ==============================================================================
+// NexoSupply CR - Prisma Schema Definitive Definition
+// Motor: MySQL 8 (InnoDB, utf8mb4)
+// Arquitectura: SaaS Multi-Tenant con discriminador estricto (empresa_id)
+// ==============================================================================
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+// ------------------------------------------------------------------------------
+// ENUMS DE DOMINIO Y GOBERNANZA EMPRESARIAL
+// ------------------------------------------------------------------------------
+
+enum Moneda {
+  CRC
+  USD
+}
+
+enum ClasificacionProveedor {
+  A
+  B
+  C
+}
+
+enum EstadoSolicitudCompra {
+  BORRADOR
+  PENDIENTE
+  APROBADA
+  RECHAZADA
+  CONVERTIDA_EN_ORDEN
+  CANCELADA
+}
+
+enum DecisionAprobacion {
+  APROBADA
+  RECHAZADA
+}
+
+enum EstadoOrdenCompra {
+  BORRADOR
+  EMITIDA
+  EN_TRANSITO
+  PARCIALMENTE_RECIBIDA
+  COMPLETADA
+  CANCELADA
+}
+
+enum EstadoRecepcion {
+  CONFORME
+  CON_DIFERENCIAS
+  RECHAZADA
+}
+
+enum TipoMovimientoInventario {
+  ENTRADA_COMPRA
+  SALIDA_DESPACHO
+  ENTRADA_AJUSTE
+  SALIDA_AJUSTE
+  TRANSFERENCIA_ENTRADA
+  TRANSFERENCIA_SALIDA
+}
+
+enum CategoriaDesempeno {
+  EXCELENTE
+  CONFIABLE
+  EN_OBSERVACION
+  CRITICO
+}
+
+enum TipoIncidencia {
+  RETRASO
+  FALTANTE
+  PRODUCTO_DEFECTUOSO
+  PRECIO_DISCREPANCIA
+  DOCUMENTACION_INCORRECTA
+}
+
+enum SeveridadIncidencia {
+  BAJA
+  MEDIA
+  ALTA
+  CRITICA
+}
+
+enum TipoRiesgo {
+  STOCK_MINIMO
+  RETRASO_PROVEEDOR
+  CONCENTRACION_PROVEEDOR
+  FLUCTUACION_PRECIO
+}
+
+enum NivelSeveridadAlerta {
+  INFO
+  ADVERTENCIA
+  CRITICO
+}
+
+enum TipoAccionAuditoria {
+  CREATE
+  UPDATE
+  DELETE
+  APROBACION
+  RECHAZO
+  RECEPCION
+  AJUSTE_KARDEX
+  LOGIN
+  SWITCH_TENANT
+}
+
+enum EstadoInvitacion {
+  PENDIENTE
+  ACEPTADA
+  EXPIRADA
+  REVOCADA
+}
+
+enum TipoDocumentoEmpresa {
+  POLITICA_COMPRAS
+  CONTRATO_PROVEEDOR
+  COTIZACION
+  FICHA_TECNICA
+  OTRO
+}
+
+// ------------------------------------------------------------------------------
+// MODULO 1: IDENTIDAD, TENANTS Y ACCESO MULTIEMPRESA (RBAC)
+// ------------------------------------------------------------------------------
+
+model Empresa {
+  id               String   @id @default(uuid()) @db.VarChar(36)
+  rfc_cedula       String   @unique @db.VarChar(30)
+  razon_social     String   @db.VarChar(150)
+  nombre_comercial String   @db.VarChar(150)
+  email_contacto   String   @db.VarChar(100)
+  telefono         String?  @db.VarChar(30)
+  direccion        String?  @db.Text
+  moneda_base      Moneda   @default(CRC)
+  logo_url         String?  @db.VarChar(255)
+  tema_visual      String   @default("CORPORATE_BLUE") @db.VarChar(40)
+  activa           Boolean  @default(true)
+  createdAt        DateTime @default(now()) @map("created_at")
+  updatedAt        DateTime @updatedAt @map("updated_at")
+
+  // Relaciones Multiempresa
+  membresias            MembresiaEmpresa[]
+  roles                 Rol[]
+  invitaciones          InvitacionEmpresa[]
+  configuracion         ConfiguracionEmpresa?
+  almacenes             Almacen[]
+  categorias            Categoria[]
+  unidades_medida       UnidadMedida[]
+  proveedores           Proveedor[]
+  contactos_proveedores ContactoProveedor[]
+  productos             Producto[]
+  productos_proveedores ProductoProveedor[]
+  solicitudes_compra    SolicitudCompra[]
+  ordenes_compra        OrdenCompra[]
+  recepciones_compra    RecepcionCompra[]
+  inventario_stock      InventarioStock[]
+  movimientos_inventario MovimientoInventario[]
+  evaluaciones_proveedor EvaluacionProveedor[]
+  incidencias_proveedor IncidenciaProveedor[]
+  historial_precios     HistorialPrecio[]
+  alertas_riesgo        AlertaRiesgo[]
+  simulaciones          SimulacionContinuidad[]
+  documentos            DocumentoEmpresa[]
+  consultas_chatbot     ConsultaChatbotLog[]
+
+  @@map("empresas")
+}
+
+model Usuario {
+  id              String   @id @default(uuid()) @db.VarChar(36)
+  email           String   @unique @db.VarChar(120)
+  password_hash   String   @db.VarChar(255)
+  nombre_completo String   @db.VarChar(120)
+  telefono        String?  @db.VarChar(30)
+  avatar_url      String?  @db.VarChar(255)
+  es_superadmin   Boolean  @default(false)
+  activo          Boolean  @default(true)
+  createdAt       DateTime @default(now()) @map("created_at")
+  updatedAt       DateTime @updatedAt @map("updated_at")
+
+  // Relaciones
+  membresias             MembresiaEmpresa[]
+  solicitudes_creadas    SolicitudCompra[]       @relation("SolicitanteUsuario")
+  aprobaciones_decididas AprobacionSolicitud[]   @relation("AprobadorUsuario")
+  ordenes_creadas        OrdenCompra[]           @relation("CreadorOrden")
+  recepciones_realizadas RecepcionCompra[]       @relation("ReceptorUsuario")
+  movimientos_kardex     MovimientoInventario[]  @relation("AutorKardex")
+  simulaciones_creadas   SimulacionContinuidad[] @relation("CreadorSimulacion")
+  auditorias             RegistroAuditoria[]     @relation("UsuarioAuditoria")
+  consultas_chatbot      ConsultaChatbotLog[]    @relation("UsuarioChatbot")
+
+  @@map("usuarios")
+}
+
+model MembresiaEmpresa {
+  id         String   @id @default(uuid()) @db.VarChar(36)
+  usuario_id String   @db.VarChar(36)
+  empresa_id String   @db.VarChar(36)
+  rol_id     String   @db.VarChar(36)
+  activa     Boolean  @default(true)
+  createdAt  DateTime @default(now()) @map("created_at")
+  updatedAt  DateTime @updatedAt @map("updated_at")
+
+  usuario Usuario @relation(fields: [usuario_id], references: [id], onDelete: Cascade)
+  empresa Empresa @relation(fields: [empresa_id], references: [id], onDelete: Cascade)
+  rol     Rol     @relation(fields: [rol_id], references: [id], onDelete: Restrict)
+
+  @@unique([usuario_id, empresa_id], name: "uk_usuario_empresa")
+  @@index([empresa_id], name: "idx_membresia_empresa")
+  @@index([usuario_id], name: "idx_membresia_usuario")
+  @@map("membresias_empresa")
+}
+
+model Rol {
+  id          String   @id @default(uuid()) @db.VarChar(36)
+  empresa_id  String?  @db.VarChar(36)
+  codigo      String   @db.VarChar(50)
+  nombre      String   @db.VarChar(100)
+  descripcion String?  @db.VarChar(255)
+  es_sistema  Boolean  @default(false)
+  createdAt   DateTime @default(now()) @map("created_at")
+  updatedAt   DateTime @updatedAt @map("updated_at")
+
+  empresa        Empresa?            @relation(fields: [empresa_id], references: [id], onDelete: Cascade)
+  membresias     MembresiaEmpresa[]
+  roles_permisos RolPermiso[]
+  invitaciones   InvitacionEmpresa[]
+
+  @@unique([empresa_id, codigo], name: "uk_rol_empresa_codigo")
+  @@map("roles")
+}
+
+model Permiso {
+  id          String   @id @default(uuid()) @db.VarChar(36)
+  codigo      String   @unique @db.VarChar(60)
+  modulo      String   @db.VarChar(50)
+  descripcion String   @db.VarChar(200)
+
+  roles_permisos RolPermiso[]
+
+  @@map("permisos")
+}
+
+model RolPermiso {
+  id         String @id @default(uuid()) @db.VarChar(36)
+  rol_id     String @db.VarChar(36)
+  permiso_id String @db.VarChar(36)
+
+  rol     Rol     @relation(fields: [rol_id], references: [id], onDelete: Cascade)
+  permiso Permiso @relation(fields: [permiso_id], references: [id], onDelete: Cascade)
+
+  @@unique([rol_id, permiso_id], name: "uk_rol_permiso")
+  @@map("roles_permisos")
+}
+
+model InvitacionEmpresa {
+  id         String           @id @default(uuid()) @db.VarChar(36)
+  empresa_id String           @db.VarChar(36)
+  email      String           @db.VarChar(120)
+  rol_id     String           @db.VarChar(36)
+  token      String           @unique @db.VarChar(120)
+  estado     EstadoInvitacion @default(PENDIENTE)
+  expira_en  DateTime
+  createdAt  DateTime         @default(now()) @map("created_at")
+  updatedAt  DateTime         @updatedAt @map("updated_at")
+
+  empresa Empresa @relation(fields: [empresa_id], references: [id], onDelete: Cascade)
+  rol     Rol     @relation(fields: [rol_id], references: [id], onDelete: Restrict)
+
+  @@index([empresa_id, email], name: "idx_invitacion_empresa_email")
+  @@map("invitaciones_empresa")
+}
+
+model ConfiguracionEmpresa {
+  id                          String   @id @default(uuid()) @db.VarChar(36)
+  empresa_id                  String   @unique @db.VarChar(36)
+  monto_max_autoaprobacion    Decimal  @default(500000.00) @db.Decimal(12, 2)
+  tolerancia_sobrentrega_porc Decimal  @default(0.00) @db.Decimal(5, 2)
+  dias_credito_default        Int      @default(30)
+  notificar_alertas_stock     Boolean  @default(true)
+  notificar_retrasos          Boolean  @default(true)
+  createdAt                   DateTime @default(now()) @map("created_at")
+  updatedAt                   DateTime @updatedAt @map("updated_at")
+
+  empresa Empresa @relation(fields: [empresa_id], references: [id], onDelete: Cascade)
+
+  @@map("configuraciones_empresa")
+}
+
+// ------------------------------------------------------------------------------
+// MODULO 2: PROVEEDORES Y CONTACTOS
+// ------------------------------------------------------------------------------
+
+model Proveedor {
+  id                     String                 @id @default(uuid()) @db.VarChar(36)
+  empresa_id             String                 @db.VarChar(36)
+  identificador_fiscal   String                 @db.VarChar(50)
+  nombre_legal           String                 @db.VarChar(150)
+  nombre_fantasia        String?                @db.VarChar(150)
+  clasificacion          ClasificacionProveedor @default(B)
+  terminos_pago_dias     Int                    @default(30)
+  moneda_preferida       Moneda                 @default(CRC)
+  lead_time_promedio_dias Int                   @default(7)
+  email                  String?                @db.VarChar(100)
+  telefono               String?                @db.VarChar(30)
+  direccion              String?                @db.Text
+  activo                 Boolean                @default(true)
+  createdAt              DateTime               @default(now()) @map("created_at")
+  updatedAt              DateTime               @updatedAt @map("updated_at")
+
+  empresa               Empresa                 @relation(fields: [empresa_id], references: [id], onDelete: Restrict)
+  contactos             ContactoProveedor[]
+  productos_proveedores ProductoProveedor[]
+  ordenes_compra        OrdenCompra[]
+  evaluaciones          EvaluacionProveedor[]
+  incidencias           IncidenciaProveedor[]
+  historial_precios     HistorialPrecio[]
+  simulaciones_como_afectado SimulacionContinuidad[] @relation("ProveedorAfectadoSimulacion")
+
+  @@unique([empresa_id, identificador_fiscal], name: "uk_proveedor_empresa_fiscal")
+  @@index([empresa_id, activo], name: "idx_proveedor_empresa_activo")
+  @@map("proveedores")
+}
+
+model ContactoProveedor {
+  id           String   @id @default(uuid()) @db.VarChar(36)
+  empresa_id   String   @db.VarChar(36)
+  proveedor_id String   @db.VarChar(36)
+  nombre       String   @db.VarChar(120)
+  cargo        String?  @db.VarChar(80)
+  email        String?  @db.VarChar(100)
+  telefono     String?  @db.VarChar(30)
+  es_principal Boolean  @default(false)
+  createdAt    DateTime @default(now()) @map("created_at")
+  updatedAt    DateTime @updatedAt @map("updated_at")
+
+  empresa   Empresa   @relation(fields: [empresa_id], references: [id], onDelete: Restrict)
+  proveedor Proveedor @relation(fields: [proveedor_id], references: [id], onDelete: Cascade)
+
+  @@index([empresa_id, proveedor_id], name: "idx_contacto_empresa_proveedor")
+  @@map("contactos_proveedores")
+}
+
+// ------------------------------------------------------------------------------
+// MODULO 3: PRODUCTOS, CATEGORIAS Y UNIDADES DE MEDIDA
+// ------------------------------------------------------------------------------
+
+model Categoria {
+  id          String   @id @default(uuid()) @db.VarChar(36)
+  empresa_id  String   @db.VarChar(36)
+  codigo      String   @db.VarChar(30)
+  nombre      String   @db.VarChar(100)
+  descripcion String?  @db.VarChar(255)
+  activa      Boolean  @default(true)
+  createdAt   DateTime @default(now()) @map("created_at")
+  updatedAt   DateTime @updatedAt @map("updated_at")
+
+  empresa   Empresa    @relation(fields: [empresa_id], references: [id], onDelete: Restrict)
+  productos Producto[]
+
+  @@unique([empresa_id, codigo], name: "uk_categoria_empresa_codigo")
+  @@map("categorias")
+}
+
+model UnidadMedida {
+  id         String   @id @default(uuid()) @db.VarChar(36)
+  empresa_id String   @db.VarChar(36)
+  codigo     String   @db.VarChar(20)
+  nombre     String   @db.VarChar(60)
+  simbolo    String   @db.VarChar(10)
+  activa     Boolean  @default(true)
+  createdAt  DateTime @default(now()) @map("created_at")
+  updatedAt  DateTime @updatedAt @map("updated_at")
+
+  empresa   Empresa    @relation(fields: [empresa_id], references: [id], onDelete: Restrict)
+  productos Producto[]
+
+  @@unique([empresa_id, codigo], name: "uk_unidad_empresa_codigo")
+  @@map("unidades_medida")
+}
+
+model Producto {
+  id                  String   @id @default(uuid()) @db.VarChar(36)
+  empresa_id          String   @db.VarChar(36)
+  categoria_id        String?  @db.VarChar(36)
+  unidad_medida_id    String   @db.VarChar(36)
+  sku                 String   @db.VarChar(60)
+  codigo_barras       String?  @db.VarChar(60)
+  nombre              String   @db.VarChar(150)
+  descripcion         String?  @db.Text
+  costo_promedio      Decimal  @default(0.0000) @db.Decimal(12, 4)
+  precio_referencia   Decimal  @default(0.00) @db.Decimal(12, 2)
+  stock_minimo_global Decimal  @default(0.00) @db.Decimal(12, 2)
+  stock_seguridad     Decimal  @default(0.00) @db.Decimal(12, 2)
+  activo              Boolean  @default(true)
+  createdAt           DateTime @default(now()) @map("created_at")
+  updatedAt           DateTime @updatedAt @map("updated_at")
+
+  empresa              Empresa                 @relation(fields: [empresa_id], references: [id], onDelete: Restrict)
+  categoria            Categoria?              @relation(fields: [categoria_id], references: [id], onDelete: SetNull)
+  unidad_medida        UnidadMedida            @relation(fields: [unidad_medida_id], references: [id], onDelete: Restrict)
+  productos_proveedores ProductoProveedor[]
+  detalles_solicitud   DetalleSolicitudCompra[]
+  detalles_orden       DetalleOrdenCompra[]
+  detalles_recepcion   DetalleRecepcionCompra[]
+  inventario_stock     InventarioStock[]
+  movimientos_inventario MovimientoInventario[]
+  historial_precios    HistorialPrecio[]
+
+  @@unique([empresa_id, sku], name: "uk_producto_empresa_sku")
+  @@index([empresa_id, activo], name: "idx_producto_empresa_activo")
+  @@index([empresa_id, categoria_id], name: "idx_producto_empresa_categoria")
+  @@map("productos")
+}
+
+model ProductoProveedor {
+  id                        String   @id @default(uuid()) @db.VarChar(36)
+  empresa_id                String   @db.VarChar(36)
+  producto_id               String   @db.VarChar(36)
+  proveedor_id              String   @db.VarChar(36)
+  codigo_producto_proveedor String?  @db.VarChar(60)
+  precio_unitario_acordado  Decimal  @db.Decimal(12, 4)
+  moneda                    Moneda   @default(CRC)
+  dias_entrega_esperados    Int      @default(7)
+  es_preferido              Boolean  @default(false)
+  createdAt                 DateTime @default(now()) @map("created_at")
+  updatedAt                 DateTime @updatedAt @map("updated_at")
+
+  empresa   Empresa   @relation(fields: [empresa_id], references: [id], onDelete: Restrict)
+  producto  Producto  @relation(fields: [producto_id], references: [id], onDelete: Cascade)
+  proveedor Proveedor @relation(fields: [proveedor_id], references: [id], onDelete: Cascade)
+
+  @@unique([empresa_id, producto_id, proveedor_id], name: "uk_producto_proveedor")
+  @@index([empresa_id, producto_id], name: "idx_pp_empresa_producto")
+  @@index([empresa_id, proveedor_id], name: "idx_pp_empresa_proveedor")
+  @@map("productos_proveedores")
+}
+
+// ------------------------------------------------------------------------------
+// MODULO 4: SOLICITUDES Y ORDENES DE COMPRA
+// ------------------------------------------------------------------------------
+
+model SolicitudCompra {
+  id               String                @id @default(uuid()) @db.VarChar(36)
+  empresa_id       String                @db.VarChar(36)
+  solicitante_id   String                @db.VarChar(36)
+  numero_solicitud String                @db.VarChar(40)
+  fecha_solicitud  DateTime              @default(now())
+  justificacion    String                @db.Text
+  estado           EstadoSolicitudCompra @default(PENDIENTE)
+  moneda           Moneda                @default(CRC)
+  total_estimado   Decimal               @default(0.00) @db.Decimal(12, 2)
+  createdAt        DateTime              @default(now()) @map("created_at")
+  updatedAt        DateTime              @updatedAt @map("updated_at")
+
+  empresa         Empresa                  @relation(fields: [empresa_id], references: [id], onDelete: Restrict)
+  solicitante     Usuario                  @relation("SolicitanteUsuario", fields: [solicitante_id], references: [id], onDelete: Restrict)
+  detalles        DetalleSolicitudCompra[]
+  aprobaciones    AprobacionSolicitud[]
+  orden_generada  OrdenCompra?
+
+  @@unique([empresa_id, numero_solicitud], name: "uk_solicitud_empresa_numero")
+  @@index([empresa_id, estado], name: "idx_solicitud_empresa_estado")
+  @@map("solicitudes_compra")
+}
+
+model DetalleSolicitudCompra {
+  id                       String   @id @default(uuid()) @db.VarChar(36)
+  solicitud_id             String   @db.VarChar(36)
+  producto_id              String   @db.VarChar(36)
+  cantidad_solicitada      Decimal  @db.Decimal(12, 2)
+  precio_unitario_estimado Decimal  @db.Decimal(12, 4)
+  subtotal                 Decimal  @db.Decimal(12, 2)
+  observaciones            String?  @db.VarChar(255)
+
+  solicitud SolicitudCompra @relation(fields: [solicitud_id], references: [id], onDelete: Cascade)
+  producto  Producto        @relation(fields: [producto_id], references: [id], onDelete: Restrict)
+
+  @@index([solicitud_id], name: "idx_det_solicitud_id")
+  @@index([producto_id], name: "idx_det_solicitud_producto")
+  @@map("detalles_solicitud")
+}
+
+model AprobacionSolicitud {
+  id             String             @id @default(uuid()) @db.VarChar(36)
+  solicitud_id   String             @db.VarChar(36)
+  aprobador_id   String             @db.VarChar(36)
+  decision       DecisionAprobacion
+  comentario     String?            @db.Text
+  fecha_decision DateTime           @default(now())
+
+  solicitud SolicitudCompra @relation(fields: [solicitud_id], references: [id], onDelete: Cascade)
+  aprobador Usuario         @relation("AprobadorUsuario", fields: [aprobador_id], references: [id], onDelete: Restrict)
+
+  @@index([solicitud_id], name: "idx_aprobacion_solicitud")
+  @@index([aprobador_id], name: "idx_aprobacion_usuario")
+  @@map("aprobaciones_solicitud")
+}
+
+model OrdenCompra {
+  id                      String            @id @default(uuid()) @db.VarChar(36)
+  empresa_id              String            @db.VarChar(36)
+  solicitud_origen_id     String?           @unique @db.VarChar(36)
+  proveedor_id            String            @db.VarChar(36)
+  almacen_destino_id      String            @db.VarChar(36)
+  creada_por_id           String            @db.VarChar(36)
+  numero_orden            String            @db.VarChar(40)
+  fecha_emision           DateTime          @default(now())
+  fecha_prometida_entrega DateTime
+  estado                  EstadoOrdenCompra @default(BORRADOR)
+  moneda                  Moneda            @default(CRC)
+  tasa_cambio             Decimal           @default(1.0000) @db.Decimal(10, 4)
+  subtotal                Decimal           @default(0.00) @db.Decimal(12, 2)
+  impuestos               Decimal           @default(0.00) @db.Decimal(12, 2)
+  total                   Decimal           @default(0.00) @db.Decimal(12, 2)
+  condiciones_pago        String?           @db.VarChar(120)
+  notas                   String?           @db.Text
+  createdAt               DateTime          @default(now()) @map("created_at")
+  updatedAt               DateTime          @updatedAt @map("updated_at")
+
+  empresa           Empresa               @relation(fields: [empresa_id], references: [id], onDelete: Restrict)
+  solicitud_origen  SolicitudCompra?      @relation(fields: [solicitud_origen_id], references: [id], onDelete: SetNull)
+  proveedor         Proveedor             @relation(fields: [proveedor_id], references: [id], onDelete: Restrict)
+  almacen_destino   Almacen               @relation(fields: [almacen_destino_id], references: [id], onDelete: Restrict)
+  creada_por        Usuario               @relation("CreadorOrden", fields: [creada_por_id], references: [id], onDelete: Restrict)
+  detalles          DetalleOrdenCompra[]
+  recepciones       RecepcionCompra[]
+  incidencias       IncidenciaProveedor[]
+  historial_precios HistorialPrecio[]
+
+  @@unique([empresa_id, numero_orden], name: "uk_orden_empresa_numero")
+  @@index([empresa_id, estado], name: "idx_orden_empresa_estado")
+  @@index([empresa_id, proveedor_id], name: "idx_orden_empresa_proveedor")
+  @@map("ordenes_compra")
+}
+
+model DetalleOrdenCompra {
+  id                   String   @id @default(uuid()) @db.VarChar(36)
+  orden_id             String   @db.VarChar(36)
+  producto_id          String   @db.VarChar(36)
+  cantidad_ordenada    Decimal  @db.Decimal(12, 2)
+  cantidad_recibida    Decimal  @default(0.00) @db.Decimal(12, 2)
+  precio_unitario      Decimal  @db.Decimal(12, 4)
+  porcentaje_descuento Decimal  @default(0.00) @db.Decimal(5, 2)
+  impuesto_porcentaje  Decimal  @default(13.00) @db.Decimal(5, 2)
+  subtotal             Decimal  @db.Decimal(12, 2)
+
+  orden              OrdenCompra              @relation(fields: [orden_id], references: [id], onDelete: Cascade)
+  producto           Producto                 @relation(fields: [producto_id], references: [id], onDelete: Restrict)
+  detalles_recepcion DetalleRecepcionCompra[]
+
+  @@index([orden_id], name: "idx_det_orden_id")
+  @@index([producto_id], name: "idx_det_orden_producto")
+  @@map("detalles_orden")
+}
+
+// ------------------------------------------------------------------------------
+// MODULO 5 Y 6: ALMACENES, INVENTARIO, RECEPCIONES Y KARDEX
+// ------------------------------------------------------------------------------
+
+model Almacen {
+  id           String   @id @default(uuid()) @db.VarChar(36)
+  empresa_id   String   @db.VarChar(36)
+  codigo       String   @db.VarChar(30)
+  nombre       String   @db.VarChar(100)
+  ubicacion    String?  @db.VarChar(200)
+  responsable  String?  @db.VarChar(120)
+  es_principal Boolean  @default(false)
+  activo       Boolean  @default(true)
+  createdAt    DateTime @default(now()) @map("created_at")
+  updatedAt    DateTime @updatedAt @map("updated_at")
+
+  empresa                Empresa                @relation(fields: [empresa_id], references: [id], onDelete: Restrict)
+  inventario_stock       InventarioStock[]
+  movimientos_inventario MovimientoInventario[]
+  ordenes_compra         OrdenCompra[]
+  recepciones_compra     RecepcionCompra[]
+
+  @@unique([empresa_id, codigo], name: "uk_almacen_empresa_codigo")
+  @@index([empresa_id, activo], name: "idx_almacen_empresa_activo")
+  @@map("almacenes")
+}
+
+model InventarioStock {
+  id                 String   @id @default(uuid()) @db.VarChar(36)
+  empresa_id         String   @db.VarChar(36)
+  almacen_id         String   @db.VarChar(36)
+  producto_id        String   @db.VarChar(36)
+  cantidad_actual    Decimal  @default(0.00) @db.Decimal(12, 2)
+  cantidad_reservada Decimal  @default(0.00) @db.Decimal(12, 2)
+  stock_minimo       Decimal  @default(0.00) @db.Decimal(12, 2)
+  ubicacion_pasillo  String?  @db.VarChar(60)
+  updatedAt          DateTime @updatedAt @map("updated_at")
+
+  empresa  Empresa  @relation(fields: [empresa_id], references: [id], onDelete: Restrict)
+  almacen  Almacen  @relation(fields: [almacen_id], references: [id], onDelete: Restrict)
+  producto Producto @relation(fields: [producto_id], references: [id], onDelete: Restrict)
+
+  @@unique([empresa_id, almacen_id, producto_id], name: "uk_inventario_empresa_alm_prod")
+  @@index([empresa_id, producto_id], name: "idx_inv_empresa_producto")
+  @@index([empresa_id, almacen_id], name: "idx_inv_empresa_almacen")
+  @@map("inventario_stock")
+}
+
+model MovimientoInventario {
+  id               String                   @id @default(uuid()) @db.VarChar(36)
+  empresa_id       String                   @db.VarChar(36)
+  almacen_id       String                   @db.VarChar(36)
+  producto_id      String                   @db.VarChar(36)
+  usuario_id       String                   @db.VarChar(36)
+  tipo_movimiento  TipoMovimientoInventario
+  cantidad         Decimal                  @db.Decimal(12, 2)
+  costo_unitario   Decimal                  @db.Decimal(12, 4)
+  stock_anterior   Decimal                  @db.Decimal(12, 2)
+  stock_posterior  Decimal                  @db.Decimal(12, 2)
+  referencia_tipo  String                   @db.VarChar(50) // 'RECEPCION', 'AJUSTE', 'INVENTARIO_INICIAL'
+  referencia_id    String?                  @db.VarChar(36)
+  motivo           String                   @db.VarChar(255)
+  createdAt        DateTime                 @default(now()) @map("created_at")
+
+  empresa  Empresa  @relation(fields: [empresa_id], references: [id], onDelete: Restrict)
+  almacen  Almacen  @relation(fields: [almacen_id], references: [id], onDelete: Restrict)
+  producto Producto @relation(fields: [producto_id], references: [id], onDelete: Restrict)
+  usuario  Usuario  @relation("AutorKardex", fields: [usuario_id], references: [id], onDelete: Restrict)
+
+  @@index([empresa_id, producto_id, createdAt], name: "idx_kardex_empresa_prod_fecha")
+  @@index([empresa_id, almacen_id], name: "idx_kardex_empresa_almacen")
+  @@map("movimientos_inventario")
+}
+
+model RecepcionCompra {
+  id                  String          @id @default(uuid()) @db.VarChar(36)
+  empresa_id          String          @db.VarChar(36)
+  orden_compra_id     String          @db.VarChar(36)
+  almacen_id          String          @db.VarChar(36)
+  recibido_por_id     String          @db.VarChar(36)
+  numero_recepcion    String          @db.VarChar(40)
+  numero_guia_factura String?         @db.VarChar(80)
+  fecha_recepcion     DateTime        @default(now())
+  observaciones       String?         @db.Text
+  estado              EstadoRecepcion @default(CONFORME)
+  createdAt           DateTime        @default(now()) @map("created_at")
+  updatedAt           DateTime        @updatedAt @map("updated_at")
+
+  empresa      Empresa                  @relation(fields: [empresa_id], references: [id], onDelete: Restrict)
+  orden_compra OrdenCompra              @relation(fields: [orden_compra_id], references: [id], onDelete: Restrict)
+  almacen      Almacen                  @relation(fields: [almacen_id], references: [id], onDelete: Restrict)
+  recibido_por Usuario                  @relation("ReceptorUsuario", fields: [recibido_por_id], references: [id], onDelete: Restrict)
+  detalles     DetalleRecepcionCompra[]
+  incidencias  IncidenciaProveedor[]
+
+  @@unique([empresa_id, numero_recepcion], name: "uk_recepcion_empresa_numero")
+  @@index([empresa_id, orden_compra_id], name: "idx_recepcion_empresa_orden")
+  @@map("recepciones_compra")
+}
+
+model DetalleRecepcionCompra {
+  id                 String   @id @default(uuid()) @db.VarChar(36)
+  recepcion_id       String   @db.VarChar(36)
+  detalle_orden_id   String   @db.VarChar(36)
+  producto_id        String   @db.VarChar(36)
+  cantidad_recibida  Decimal  @db.Decimal(12, 2)
+  cantidad_rechazada Decimal  @default(0.00) @db.Decimal(12, 2)
+  motivo_rechazo     String?  @db.VarChar(255)
+  costo_unitario_real Decimal @db.Decimal(12, 4)
+
+  recepcion     RecepcionCompra    @relation(fields: [recepcion_id], references: [id], onDelete: Cascade)
+  detalle_orden DetalleOrdenCompra @relation(fields: [detalle_orden_id], references: [id], onDelete: Restrict)
+  producto      Producto           @relation(fields: [producto_id], references: [id], onDelete: Restrict)
+
+  @@index([recepcion_id], name: "idx_det_recepcion_id")
+  @@index([detalle_orden_id], name: "idx_det_recepcion_orden_det")
+  @@index([producto_id], name: "idx_det_recepcion_producto")
+  @@map("detalles_recepcion")
+}
+
+// ------------------------------------------------------------------------------
+// MODULO 7 Y 8: EVALUACION DE PROVEEDORES, INCIDENCIAS, PRECIOS Y RIESGOS
+// ------------------------------------------------------------------------------
+
+model EvaluacionProveedor {
+  id                       String             @id @default(uuid()) @db.VarChar(36)
+  empresa_id               String             @db.VarChar(36)
+  proveedor_id             String             @db.VarChar(36)
+  periodo                  String             @db.VarChar(20) // '2026-T1' o '2026-11'
+  ordenes_evaluadas        Int                @default(0)
+  indice_puntualidad       Decimal            @default(100.00) @db.Decimal(5, 2)
+  indice_cumplimiento_cant Decimal            @default(100.00) @db.Decimal(5, 2)
+  indice_incidencias       Decimal            @default(100.00) @db.Decimal(5, 2)
+  indice_precios           Decimal            @default(100.00) @db.Decimal(5, 2)
+  calificacion_global      Decimal            @default(100.00) @db.Decimal(5, 2)
+  categoria_desempeno      CategoriaDesempeno @default(EXCELENTE)
+  observaciones            String?            @db.Text
+  createdAt                DateTime           @default(now()) @map("created_at")
+
+  empresa   Empresa   @relation(fields: [empresa_id], references: [id], onDelete: Restrict)
+  proveedor Proveedor @relation(fields: [proveedor_id], references: [id], onDelete: Cascade)
+
+  @@unique([empresa_id, proveedor_id, periodo], name: "uk_evaluacion_empresa_prov_periodo")
+  @@index([empresa_id, calificacion_global], name: "idx_eval_empresa_score")
+  @@map("evaluaciones_proveedor")
+}
+
+model IncidenciaProveedor {
+  id                    String              @id @default(uuid()) @db.VarChar(36)
+  empresa_id            String              @db.VarChar(36)
+  proveedor_id          String              @db.VarChar(36)
+  orden_compra_id       String?             @db.VarChar(36)
+  recepcion_id          String?             @db.VarChar(36)
+  tipo_incidencia       TipoIncidencia
+  severidad             SeveridadIncidencia @default(MEDIA)
+  descripcion           String              @db.Text
+  costo_impacto_estimado Decimal            @default(0.00) @db.Decimal(12, 2)
+  resuelta              Boolean             @default(false)
+  fecha_resolucion      DateTime?
+  solucion_aplicada     String?             @db.Text
+  createdAt             DateTime            @default(now()) @map("created_at")
+  updatedAt             DateTime            @updatedAt @map("updated_at")
+
+  empresa      Empresa          @relation(fields: [empresa_id], references: [id], onDelete: Restrict)
+  proveedor    Proveedor        @relation(fields: [proveedor_id], references: [id], onDelete: Restrict)
+  orden_compra OrdenCompra?     @relation(fields: [orden_compra_id], references: [id], onDelete: SetNull)
+  recepcion    RecepcionCompra? @relation(fields: [recepcion_id], references: [id], onDelete: SetNull)
+
+  @@index([empresa_id, proveedor_id], name: "idx_incidencia_empresa_proveedor")
+  @@index([empresa_id, resuelta], name: "idx_incidencia_empresa_resuelta")
+  @@map("incidencias_proveedor")
+}
+
+model HistorialPrecio {
+  id              String   @id @default(uuid()) @db.VarChar(36)
+  empresa_id      String   @db.VarChar(36)
+  producto_id     String   @db.VarChar(36)
+  proveedor_id    String   @db.VarChar(36)
+  orden_compra_id String?  @db.VarChar(36)
+  precio_unitario Decimal  @db.Decimal(12, 4)
+  moneda          Moneda   @default(CRC)
+  fecha_vigencia  DateTime @default(now())
+  motivo_cambio   String?  @db.VarChar(200)
+  createdAt       DateTime @default(now()) @map("created_at")
+
+  empresa      Empresa      @relation(fields: [empresa_id], references: [id], onDelete: Restrict)
+  producto     Producto     @relation(fields: [producto_id], references: [id], onDelete: Restrict)
+  proveedor    Proveedor    @relation(fields: [proveedor_id], references: [id], onDelete: Restrict)
+  orden_compra OrdenCompra? @relation(fields: [orden_compra_id], references: [id], onDelete: SetNull)
+
+  @@index([empresa_id, producto_id, fecha_vigencia], name: "idx_hp_empresa_prod_fecha")
+  @@index([empresa_id, proveedor_id], name: "idx_hp_empresa_proveedor")
+  @@map("historial_precios")
+}
+
+model AlertaRiesgo {
+  id              String               @id @default(uuid()) @db.VarChar(36)
+  empresa_id      String               @db.VarChar(36)
+  tipo_riesgo     TipoRiesgo
+  nivel_severidad NivelSeveridadAlerta @default(ADVERTENCIA)
+  titulo          String               @db.VarChar(150)
+  mensaje         String               @db.Text
+  recurso_tipo    String               @db.VarChar(40) // 'PRODUCTO', 'PROVEEDOR', 'ORDEN'
+  recurso_id      String               @db.VarChar(36)
+  leida           Boolean              @default(false)
+  resuelta        Boolean              @default(false)
+  createdAt       DateTime             @default(now()) @map("created_at")
+  updatedAt       DateTime             @updatedAt @map("updated_at")
+
+  empresa Empresa @relation(fields: [empresa_id], references: [id], onDelete: Restrict)
+
+  @@index([empresa_id, resuelta, nivel_severidad], name: "idx_alerta_empresa_estado")
+  @@map("alertas_riesgo")
+}
+
+// ------------------------------------------------------------------------------
+// MODULO 9: SIMULADOR DE CONTINUIDAD OPERATIVA (SANDBOX AISLADO)
+// ------------------------------------------------------------------------------
+
+model SimulacionContinuidad {
+  id                                  String   @id @default(uuid()) @db.VarChar(36)
+  empresa_id                          String   @db.VarChar(36)
+  creado_por_id                       String   @db.VarChar(36)
+  nombre_escenario                    String   @db.VarChar(120)
+  descripcion                         String?  @db.Text
+  proveedor_afectado_id               String   @db.VarChar(36)
+  dias_retraso_simulados              Int
+  parametros_json                     Json
+  productos_afectados_json            Json
+  impacto_quiebre_stock_estimado_dias Int
+  proveedores_alternos_json           Json
+  sobrecosto_estimado                 Decimal  @default(0.00) @db.Decimal(12, 2)
+  fecha_simulacion                    DateTime @default(now())
+  createdAt                           DateTime @default(now()) @map("created_at")
+  updatedAt                           DateTime @updatedAt @map("updated_at")
+
+  empresa            Empresa   @relation(fields: [empresa_id], references: [id], onDelete: Restrict)
+  creado_por         Usuario   @relation("CreadorSimulacion", fields: [creado_por_id], references: [id], onDelete: Restrict)
+  proveedor_afectado Proveedor @relation("ProveedorAfectadoSimulacion", fields: [proveedor_afectado_id], references: [id], onDelete: Restrict)
+
+  @@index([empresa_id, fecha_simulacion], name: "idx_sim_empresa_fecha")
+  @@map("simulaciones_continuidad")
+}
+
+// ------------------------------------------------------------------------------
+// MODULO 10 Y TRANSVERSAL: AUDITORIA, CHATBOT Y DOCUMENTOS
+// ------------------------------------------------------------------------------
+
+model RegistroAuditoria {
+  id                   String              @id @default(uuid()) @db.VarChar(36)
+  empresa_id           String?             @db.VarChar(36)
+  usuario_id           String              @db.VarChar(36)
+  accion               TipoAccionAuditoria
+  entidad              String              @db.VarChar(60)
+  entidad_id           String              @db.VarChar(36)
+  datos_anteriores_json Json?
+  datos_nuevos_json    Json?
+  ip_origen            String?             @db.VarChar(45)
+  user_agent           String?             @db.VarChar(255)
+  createdAt            DateTime            @default(now()) @map("created_at")
+
+  usuario Usuario @relation("UsuarioAuditoria", fields: [usuario_id], references: [id], onDelete: Restrict)
+
+  @@index([empresa_id, entidad, createdAt], name: "idx_auditoria_empresa_entidad")
+  @@index([usuario_id, createdAt], name: "idx_auditoria_usuario_fecha")
+  @@map("registros_auditoria")
+}
+
+model DocumentoEmpresa {
+  id              String               @id @default(uuid()) @db.VarChar(36)
+  empresa_id      String               @db.VarChar(36)
+  titulo          String               @db.VarChar(150)
+  tipo_documento  TipoDocumentoEmpresa @default(POLITICA_COMPRAS)
+  archivo_url     String?              @db.VarChar(255)
+  contenido_texto String?              @db.LongText
+  metadata_json   Json?
+  activo          Boolean              @default(true)
+  createdAt       DateTime             @default(now()) @map("created_at")
+  updatedAt       DateTime             @updatedAt @map("updated_at")
+
+  empresa Empresa @relation(fields: [empresa_id], references: [id], onDelete: Restrict)
+
+  @@index([empresa_id, tipo_documento], name: "idx_doc_empresa_tipo")
+  @@map("documentos_empresa")
+}
+
+model ConsultaChatbotLog {
+  id                String   @id @default(uuid()) @db.VarChar(36)
+  empresa_id        String   @db.VarChar(36)
+  usuario_id        String   @db.VarChar(36)
+  pregunta          String   @db.Text
+  respuesta_resumen String?  @db.Text
+  tokens_usados     Int      @default(0)
+  fue_exitosa       Boolean  @default(true)
+  createdAt         DateTime @default(now()) @map("created_at")
+
+  empresa Empresa @relation(fields: [empresa_id], references: [id], onDelete: Restrict)
+  usuario Usuario @relation("UsuarioChatbot", fields: [usuario_id], references: [id], onDelete: Restrict)
+
+  @@index([empresa_id, createdAt], name: "idx_chatbot_empresa_fecha")
+  @@map("consultas_chatbot_log")
+}

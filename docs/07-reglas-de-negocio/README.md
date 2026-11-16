@@ -1,50 +1,53 @@
 # 07. Reglas de Negocio Oficiales — NexoSupply CR
 
-El sistema implementa rigurosamente el conjunto de reglas de negocio para garantizar consistencia operativa, control financiero y auditoría en cada transacción.
+El esquema de base de datos en MySQL 8 y Prisma ORM garantiza a nivel de integridad física y transaccional el cumplimiento de las siguientes reglas de negocio:
 
 ---
 
 ### RN-01. Unicidad de Proveedores en Contexto Empresarial
-Cada proveedor posee un identificador fiscal único dentro de cada empresa (`empresa_id` + `identificador_fiscal`). Un mismo proveedor físico puede existir en dos empresas distintas sin compartir datos comerciales, cotizaciones ni historial de compras.
+- **Implementación Física**: Restricción `@@unique([empresa_id, identificador_fiscal])` en tabla `proveedores`.
+- **Efecto**: Impide duplicados de un mismo proveedor dentro de una misma empresa, pero permite que dos empresas distintas compartan o contraten al mismo proveedor con condiciones comerciales totalmente independientes.
 
 ### RN-02. Restricción de Proveedores Inactivos
-Un proveedor en estado `activo = false` queda bloqueado inmediatamente para la creación de nuevas solicitudes de compra, órdenes de compra y cotizaciones. Las órdenes previamente emitidas continúan su ciclo de recepción hasta cerrarse.
+- **Implementación Física**: Columna `activo BOOLEAN DEFAULT true` con índice `@@index([empresa_id, activo])`.
+- **Efecto**: Los servicios de backend y Prisma Client filtran `activo = true` al generar órdenes y solicitudes de compra.
 
 ### RN-03. Integridad Mínima de Solicitud de Compra
-Toda solicitud de compra debe contener al menos un producto con cantidad estrictamente mayor a cero (`cantidad > 0`). No se permiten solicitudes vacías.
+- **Implementación Física**: Clave foránea `solicitud_id` en `detalles_solicitud` vinculada en cascada a `solicitudes_compra`. Toda solicitud requiere al menos un detalle con `cantidad_solicitada > 0` y `precio_unitario_estimado >= 0`.
 
 ### RN-04. Aprobación Previa Obligatoria de Solicitudes
-Ninguna orden de compra puede emitirse vinculada a una solicitud a menos que dicha solicitud cuente con el estado `APROBADA`. Se implementa separación de funciones: el solicitante no puede autoaprobar su propia solicitud si el monto excede el umbral de política configurado para su rol.
+- **Implementación Física**: Enum `EstadoSolicitudCompra` (`PENDIENTE`, `APROBADA`, etc.). Relación 1:1 opcional entre `SolicitudCompra` y `OrdenCompra` (`solicitud_origen_id UNIQUE`). Solo solicitudes con estado `APROBADA` admiten la creación de su orden derivada.
 
-### RN-05. Recepción Parcial Permitida
-Una orden de compra admite múltiples recepciones parciales. Cada recepción disminuye la cantidad pendiente de los ítems de la orden. El estado de la orden conmuta a `PARCIALMENTE_RECIBIDA` hasta que todas las partidas hayan sido entregadas o canceladas justificadamente.
+### RN-05. Recepción Parcial Permitida y Control de Saldos
+- **Implementación Física**: Columnas `cantidad_ordenada` y `cantidad_recibida` en `detalles_orden`.
+- **Efecto**: Cada registro en `detalles_recepcion` incrementa `cantidad_recibida`. Cuando $\sum \text{cantidad\_recibida} < \sum \text{cantidad\_ordenada}$, el estado de la orden es `PARCIALMENTE_RECIBIDA`. Al completarse, el estado transiciona a `COMPLETADA`.
 
 ### RN-06. Vinculación Obligatoria de Recepciones Físicas
-Toda recepción de mercancía debe originarse a partir de una orden de compra válida y emitida. No existen recepciones huérfanas en almacén.
+- **Implementación Física**: Clave foránea `orden_compra_id` en `recepciones_compra` con `ON DELETE RESTRICT`. No existen recepciones sin orden previa emitida.
 
 ### RN-07. Control de Tolerancia de Sobrentregas
-Las cantidades recibidas no pueden superar las cantidades autorizadas en la orden de compra a menos que la empresa tenga habilitado un porcentaje de tolerancia (ej. 5% para granel/líquidos) o medie una aprobación expresa del administrador de compras.
+- **Implementación Física**: Columna `tolerancia_sobrentrega_porc` en `configuraciones_empresa`. El backend verifica que `cantidad_recibida <= cantidad_ordenada * (1 + tolerancia / 100)`.
 
-### RN-08. Generación Automática de Kardex
-Toda entrada o salida física de existencias en un almacén genera obligatoriamente un registro en `movimientos_inventario`. No existen modificaciones directas a la columna de existencias (`cantidad_actual`) fuera de una transacción que inserte su respectivo movimiento de trazabilidad.
+### RN-08. Kardex Inmutable y Obligatorio
+- **Implementación Física**: Tabla `movimientos_inventario` con trazabilidad completa de `stock_anterior`, `stock_posterior`, `usuario_id`, `almacen_id` y `referencia_tipo`. Toda modificación a `inventario_stock.cantidad_actual` debe acompañarse de un movimiento dentro de un bloque `prisma.$transaction`.
 
 ### RN-09. Prohibición de Saldos Negativos en Inventario
-Ninguna operación de salida o ajuste puede dejar las existencias de un producto en un almacén con un valor menor a cero (`cantidad_actual >= 0`). Si una salida solicitada excede el disponible físico, la transacción es abortada inmediatamente.
+- **Implementación Física**: Verificación en la capa de persistencia y validación previa a la actualización del stock disponible. Si `cantidad_actual - salida < 0`, se revierte la transacción.
 
 ### RN-10. Justificación y Firma de Ajustes de Inventario
-Todo ajuste manual de inventario (positivo o negativo) debe registrar obligatoriamente: motivo formal, usuario que lo ejecuta, fecha/hora y diferencias encontradas.
+- **Implementación Física**: Campos obligatorios `motivo VARCHAR(255)`, `usuario_id VARCHAR(36)` y `created_at DATETIME(3)` en `movimientos_inventario`.
 
 ### RN-11. Conservación Inmutable del Historial de Precios
-Cada vez que se aprueba una orden de compra o se actualiza el precio acordado de un producto-proveedor, se almacena una entrada en el histórico con fecha de vigencia, moneda y proveedor. Los precios de órdenes pasadas no se modifican retroactivamente.
+- **Implementación Física**: Tabla `historial_precios` donde cada registro preserva `precio_unitario`, `moneda`, `fecha_vigencia` y `motivo_cambio`. No se permite sobreescritura destructiva de precios pasados.
 
 ### RN-12. Tipificación y Trazabilidad de Incidencias
-Toda incidencia con un proveedor debe estar catalogada por tipo (retraso, faltante, avería, discrepancia de precio), registrar fecha y estar asociada a una orden o recepción específica.
+- **Implementación Física**: Tabla `incidencias_proveedor` con enums tipificados (`TipoIncidencia`, `SeveridadIncidencia`) y claves foráneas opcionales a `orden_compra_id` y `recepcion_id`.
 
 ### RN-13. Objetividad en la Evaluación de Proveedores
-La calificación de un proveedor se calcula exclusivamente mediante fórmulas aritméticas transparentes basadas en entregas reales, fechas de cumplimiento e incidencias registradas en MySQL. Quedan prohibidas las calificaciones arbitrarias sin sustento transaccional.
+- **Implementación Física**: Tabla `evaluaciones_proveedor` con índices decimales exactos (`indice_puntualidad`, `indice_cumplimiento_cant`, `indice_incidencias`, `indice_precios`, `calificacion_global`) calculados de forma determinista desde recepciones reales.
 
 ### RN-14. Aislamiento Estricto de Simulaciones de Continuidad
-El módulo de simulación operativa opera en modo estrictamente analítico. Bajo ninguna circunstancia una simulación de contingencia altera las existencias de almacén, las órdenes de compra activas ni las reservas de inventario reales.
+- **Implementación Física**: Tabla `simulaciones_continuidad` con columnas JSON (`parametros_json`, `productos_afectados_json`, `proveedores_alternos_json`). Las simulaciones se ejecutan en memoria y se guardan como registros analíticos sin tocar `inventario_stock` ni `ordenes_compra`.
 
 ### RN-15. Auditoría Inmutable de Operaciones Críticas
-Se registran de forma automática e irreversible los eventos de: creación/modificación de usuarios, aprobaciones de compra, cancelaciones de órdenes, ajustes manuales de kardex y cambios en parámetros de configuración empresarial.
+- **Implementación Física**: Tabla `registros_auditoria` con trazabilidad de `usuario_id`, `empresa_id`, `accion`, `entidad`, `datos_anteriores_json`, `datos_nuevos_json` e IP de origen.
