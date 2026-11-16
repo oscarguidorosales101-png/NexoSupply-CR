@@ -3,6 +3,7 @@ import { prisma } from '../config/database';
 import { BadRequestError, ConflictError, NotFoundError, UnauthorizedError } from '../errors/app-error';
 import { generateAccessToken, generateRefreshToken } from '../utils/jwt';
 import { registrarAuditoria } from './auditoria.service';
+import { sendVerificationEmail } from './email.service';
 import { TipoAccionAuditoria } from '@prisma/client';
 
 export interface RegisterDTO {
@@ -33,22 +34,38 @@ export async function registerUser(dto: RegisterDTO) {
   const salt = await bcrypt.genSalt(10);
   const passwordHash = await bcrypt.hash(dto.password, salt);
 
-  return await prisma.$transaction(async (tx) => {
-    // 1. Crear usuario
+  // Generar código numérico seguro de 6 dígitos
+  const rawCode = String(Math.floor(100000 + Math.random() * 900000));
+  const codeHash = await bcrypt.hash(rawCode, 10);
+  const expiration = new Date(Date.now() + 15 * 60 * 1000); // 15 minutos
+
+  const result = await prisma.$transaction(async (tx) => {
+    // 1. Crear usuario en estado pendiente de verificación
     const nuevoUsuario = await tx.usuario.create({
       data: {
         email: dto.email.toLowerCase().trim(),
         password_hash: passwordHash,
         nombre_completo: dto.nombreCompleto.trim(),
         telefono: dto.telefono,
-        activo: true,
+        email_verificado: false,
+        activo: false, // Inactivo hasta verificar correo
+      },
+    });
+
+    // 2. Guardar código de verificación
+    await tx.codigoVerificacion.create({
+      data: {
+        email: nuevoUsuario.email,
+        codigo_hash: codeHash,
+        tipo: 'REGISTRO',
+        expira_en: expiration,
       },
     });
 
     let empresaCreada = null;
     let rolAdmin = null;
 
-    // 2. Si incluyó datos de empresa, crear organización y membresía
+    // 3. Si incluyó datos de empresa, crear organización y membresía
     if (dto.empresa) {
       const existingEmpresa = await tx.empresa.findUnique({
         where: { rfc_cedula: dto.empresa.rfcCedula.trim() },
@@ -106,7 +123,7 @@ export async function registerUser(dto: RegisterDTO) {
         });
       }
 
-      // Crear membresía activa
+      // Crear membresía
       await tx.membresiaEmpresa.create({
         data: {
           usuario_id: nuevoUsuario.id,
@@ -116,15 +133,6 @@ export async function registerUser(dto: RegisterDTO) {
         },
       });
     }
-
-    await registrarAuditoria({
-      usuarioId: nuevoUsuario.id,
-      empresaId: empresaCreada?.id,
-      accion: TipoAccionAuditoria.CREATE,
-      entidad: 'USUARIO',
-      entidadId: nuevoUsuario.id,
-      datosNuevos: { email: nuevoUsuario.email, nombre: nuevoUsuario.nombre_completo },
-    });
 
     return {
       usuario: {
@@ -140,7 +148,200 @@ export async function registerUser(dto: RegisterDTO) {
           }
         : null,
     };
+  }, { timeout: 15000 });
+
+  await registrarAuditoria({
+    usuarioId: result.usuario.id,
+    empresaId: result.empresa?.id,
+    accion: TipoAccionAuditoria.CREATE,
+    entidad: 'USUARIO_REGISTRO_PENDIENTE',
+    entidadId: result.usuario.id,
+    datosNuevos: { email: result.usuario.email, nombre: result.usuario.nombreCompleto },
   });
+
+  // Enviar código al correo (o registrar en log si falta SMTP)
+  const emailResult = await sendVerificationEmail(dto.email.toLowerCase().trim(), rawCode);
+
+  return {
+    ...result,
+    requiereVerificacion: true,
+    email: dto.email.toLowerCase().trim(),
+    mensaje: emailResult.message,
+    // Para ambientes de desarrollo/demostración local:
+    codigoDemo: emailResult.simulated ? rawCode : undefined,
+  };
+}
+
+export async function verifyEmailCodeService(email: string, code: string) {
+  const normalizedEmail = email.toLowerCase().trim();
+
+  const usuario = await prisma.usuario.findUnique({
+    where: { email: normalizedEmail },
+    include: {
+      membresias: {
+        where: { activa: true, empresa: { activa: true } },
+        include: {
+          empresa: true,
+          rol: {
+            include: {
+              roles_permisos: {
+                include: { permiso: true },
+              },
+            },
+          },
+        },
+      },
+    },
+  });
+
+  if (!usuario) {
+    throw new NotFoundError('Usuario no encontrado');
+  }
+
+  if (usuario.email_verificado && usuario.activo) {
+    return {
+      message: 'La cuenta ya se encuentra verificada y activa.',
+      yaVerificado: true,
+    };
+  }
+
+  // Buscar el código más reciente no usado
+  const codigoRecord = await prisma.codigoVerificacion.findFirst({
+    where: {
+      email: normalizedEmail,
+      usado: false,
+    },
+    orderBy: { createdAt: 'desc' },
+  });
+
+  if (!codigoRecord) {
+    throw new BadRequestError('No se encontró un código de verificación pendiente o ya fue utilizado.');
+  }
+
+  if (codigoRecord.expira_en < new Date()) {
+    throw new BadRequestError('El código de verificación ha expirado. Solicite uno nuevo.');
+  }
+
+  if (codigoRecord.intentos >= 5) {
+    throw new BadRequestError('Ha excedido el número máximo de intentos permitidos (5). Solicite un nuevo código.');
+  }
+
+  const esValido = await bcrypt.compare(code.trim(), codigoRecord.codigo_hash);
+  if (!esValido) {
+    await prisma.codigoVerificacion.update({
+      where: { id: codigoRecord.id },
+      data: { intentos: { increment: 1 } },
+    });
+    throw new BadRequestError('Código de verificación incorrecto.');
+  }
+
+  // Marcar código como usado y activar usuario
+  await prisma.$transaction([
+    prisma.codigoVerificacion.update({
+      where: { id: codigoRecord.id },
+      data: { usado: true },
+    }),
+    prisma.usuario.update({
+      where: { id: usuario.id },
+      data: { email_verificado: true, activo: true },
+    }),
+  ]);
+
+  await registrarAuditoria({
+    usuarioId: usuario.id,
+    accion: TipoAccionAuditoria.UPDATE,
+    entidad: 'USUARIO_EMAIL_VERIFICADO',
+    entidadId: usuario.id,
+    datosNuevos: { email_verificado: true, activo: true },
+  });
+
+  // Generar tokens para login automático inmediato
+  const membresiaActiva = usuario.membresias.length > 0 ? usuario.membresias[0] : null;
+  const payload = {
+    userId: usuario.id,
+    email: usuario.email,
+    esSuperadmin: usuario.es_superadmin,
+    empresaActivaId: membresiaActiva?.empresa_id,
+  };
+
+  const accessToken = generateAccessToken(payload);
+  const refreshToken = generateRefreshToken(payload);
+
+  return {
+    accessToken,
+    refreshToken,
+    usuario: {
+      id: usuario.id,
+      email: usuario.email,
+      nombreCompleto: usuario.nombre_completo,
+      esSuperadmin: usuario.es_superadmin,
+      emailVerificado: true,
+    },
+    empresaActiva: membresiaActiva
+      ? {
+          id: membresiaActiva.empresa.id,
+          rfcCedula: membresiaActiva.empresa.rfc_cedula,
+          razonSocial: membresiaActiva.empresa.razon_social,
+          nombreComercial: membresiaActiva.empresa.nombre_comercial,
+          monedaBase: membresiaActiva.empresa.moneda_base,
+          temaVisual: membresiaActiva.empresa.tema_visual,
+          rol: {
+            codigo: membresiaActiva.rol.codigo,
+            nombre: membresiaActiva.rol.nombre,
+            permisos: membresiaActiva.rol.roles_permisos.map((rp) => rp.permiso.codigo),
+          },
+        }
+      : null,
+    empresasDisponibles: usuario.membresias.map((m) => ({
+      id: m.empresa.id,
+      razonSocial: m.empresa.razon_social,
+      nombreComercial: m.empresa.nombre_comercial,
+      rol: m.rol.nombre,
+    })),
+    message: '¡Correo verificado con éxito! Cuenta activada.',
+  };
+}
+
+export async function resendVerificationCodeService(email: string) {
+  const normalizedEmail = email.toLowerCase().trim();
+  const usuario = await prisma.usuario.findUnique({
+    where: { email: normalizedEmail },
+  });
+
+  if (!usuario) {
+    throw new NotFoundError('Usuario no encontrado');
+  }
+
+  if (usuario.email_verificado && usuario.activo) {
+    throw new BadRequestError('Esta cuenta ya se encuentra verificada y activa');
+  }
+
+  // Invalidar códigos anteriores
+  await prisma.codigoVerificacion.updateMany({
+    where: { email: normalizedEmail, usado: false },
+    data: { usado: true },
+  });
+
+  const rawCode = String(Math.floor(100000 + Math.random() * 900000));
+  const codeHash = await bcrypt.hash(rawCode, 10);
+  const expiration = new Date(Date.now() + 15 * 60 * 1000);
+
+  await prisma.codigoVerificacion.create({
+    data: {
+      email: normalizedEmail,
+      codigo_hash: codeHash,
+      tipo: 'REGISTRO',
+      expira_en: expiration,
+    },
+  });
+
+  const emailResult = await sendVerificationEmail(normalizedEmail, rawCode);
+
+  return {
+    sent: emailResult.sent,
+    message: emailResult.message,
+    codigoDemo: emailResult.simulated ? rawCode : undefined,
+  };
 }
 
 export async function loginUser(email: string, passwordPlain: string, requestedEmpresaId?: string) {
@@ -164,6 +365,9 @@ export async function loginUser(email: string, passwordPlain: string, requestedE
   });
 
   if (!usuario || !usuario.activo) {
+    if (usuario && !usuario.email_verificado) {
+      throw new UnauthorizedError('La cuenta no ha sido verificada. Ingrese el código enviado a su correo electrónico.');
+    }
     throw new UnauthorizedError('Credenciales inválidas o cuenta inactiva');
   }
 
@@ -188,6 +392,7 @@ export async function loginUser(email: string, passwordPlain: string, requestedE
     email: usuario.email,
     esSuperadmin: usuario.es_superadmin,
     empresaActivaId: membresiaActiva?.empresa_id,
+    proveedorId: usuario.proveedor_id || undefined,
   };
 
   const accessToken = generateAccessToken(payload);
@@ -209,6 +414,8 @@ export async function loginUser(email: string, passwordPlain: string, requestedE
       email: usuario.email,
       nombreCompleto: usuario.nombre_completo,
       esSuperadmin: usuario.es_superadmin,
+      proveedorId: usuario.proveedor_id || null,
+      emailVerificado: usuario.email_verificado,
     },
     empresaActiva: membresiaActiva
       ? {
@@ -333,6 +540,8 @@ export async function getAuthenticatedUserProfile(userId: string, currentEmpresa
       telefono: usuario.telefono,
       avatarUrl: usuario.avatar_url,
       esSuperadmin: usuario.es_superadmin,
+      proveedorId: usuario.proveedor_id || null,
+      emailVerificado: usuario.email_verificado,
     },
     empresaActiva: activa
       ? {

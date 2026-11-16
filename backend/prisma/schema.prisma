@@ -171,6 +171,7 @@ model Empresa {
   simulaciones          SimulacionContinuidad[]
   documentos            DocumentoEmpresa[]
   consultas_chatbot     ConsultaChatbotLog[]
+  conversaciones_chatbot ConversacionChatbot[]
 
   @@map("empresas")
 }
@@ -183,6 +184,8 @@ model Usuario {
   telefono        String?  @db.VarChar(30)
   avatar_url      String?  @db.VarChar(255)
   es_superadmin   Boolean  @default(false)
+  email_verificado Boolean  @default(true) @map("email_verificado")
+  proveedor_id    String?  @db.VarChar(36) @map("proveedor_id")
   activo          Boolean  @default(true)
   createdAt       DateTime @default(now()) @map("created_at")
   updatedAt       DateTime @updatedAt @map("updated_at")
@@ -197,6 +200,8 @@ model Usuario {
   simulaciones_creadas   SimulacionContinuidad[] @relation("CreadorSimulacion")
   auditorias             RegistroAuditoria[]     @relation("UsuarioAuditoria")
   consultas_chatbot      ConsultaChatbotLog[]    @relation("UsuarioChatbot")
+  conversaciones_chatbot ConversacionChatbot[]
+  alertas_resueltas      AlertaRiesgo[]          @relation("ResueltoPorUsuario")
 
   @@map("usuarios")
 }
@@ -759,22 +764,28 @@ model HistorialPrecio {
 }
 
 model AlertaRiesgo {
-  id              String               @id @default(uuid()) @db.VarChar(36)
-  empresa_id      String               @db.VarChar(36)
-  tipo_riesgo     TipoRiesgo
-  nivel_severidad NivelSeveridadAlerta @default(ADVERTENCIA)
-  titulo          String               @db.VarChar(150)
-  mensaje         String               @db.Text
-  recurso_tipo    String               @db.VarChar(40) // 'PRODUCTO', 'PROVEEDOR', 'ORDEN'
-  recurso_id      String               @db.VarChar(36)
-  leida           Boolean              @default(false)
-  resuelta        Boolean              @default(false)
-  createdAt       DateTime             @default(now()) @map("created_at")
-  updatedAt       DateTime             @updatedAt @map("updated_at")
+  id                String               @id @default(uuid()) @db.VarChar(36)
+  empresa_id        String               @db.VarChar(36)
+  tipo_riesgo       TipoRiesgo
+  nivel_severidad   NivelSeveridadAlerta @default(ADVERTENCIA)
+  titulo            String               @db.VarChar(150)
+  mensaje           String               @db.Text
+  recurso_tipo      String               @db.VarChar(40) // 'PRODUCTO', 'PROVEEDOR', 'ORDEN'
+  recurso_id        String               @db.VarChar(36)
+  leida             Boolean              @default(false)
+  resuelta          Boolean              @default(false)
+  estado            String               @default("CRITICO") @db.VarChar(30) // 'CRITICO', 'EN_SEGUIMIENTO', 'RESUELTO'
+  resuelto_por_id   String?              @db.VarChar(36)
+  fecha_resolucion  DateTime?
+  accion_resolucion String?              @db.Text
+  createdAt         DateTime             @default(now()) @map("created_at")
+  updatedAt         DateTime             @updatedAt @map("updated_at")
 
-  empresa Empresa @relation(fields: [empresa_id], references: [id], onDelete: Restrict)
+  empresa      Empresa  @relation(fields: [empresa_id], references: [id], onDelete: Restrict)
+  resuelto_por Usuario? @relation("ResueltoPorUsuario", fields: [resuelto_por_id], references: [id], onDelete: SetNull)
 
   @@index([empresa_id, resuelta, nivel_severidad], name: "idx_alerta_empresa_estado")
+  @@index([empresa_id, estado], name: "idx_alerta_empresa_lifecycle")
   @@map("alertas_riesgo")
 }
 
@@ -864,4 +875,50 @@ model ConsultaChatbotLog {
 
   @@index([empresa_id, createdAt], name: "idx_chatbot_empresa_fecha")
   @@map("consultas_chatbot_log")
+}
+
+model CodigoVerificacion {
+  id          String   @id @default(uuid()) @db.VarChar(36)
+  email       String   @db.VarChar(120)
+  codigo_hash String   @db.VarChar(255)
+  tipo        String   @default("REGISTRO") @db.VarChar(30)
+  intentos    Int      @default(0)
+  usado       Boolean  @default(false)
+  expira_en   DateTime
+  createdAt   DateTime @default(now()) @map("created_at")
+
+  @@index([email, usado], name: "idx_cod_verif_email")
+  @@map("codigos_verificacion")
+}
+
+model ConversacionChatbot {
+  id               String           @id @default(uuid()) @db.VarChar(36)
+  empresa_id       String           @db.VarChar(36)
+  usuario_id       String           @db.VarChar(36)
+  categoria_opcion Int              @default(1) // 1: Consultar info, 2: Analizar empresa, 3: Detectar problemas, 4: Ayuda
+  titulo           String           @default("Nueva Consulta") @db.VarChar(150)
+  estado           String           @default("ACTIVA") @db.VarChar(30)
+  createdAt        DateTime         @default(now()) @map("created_at")
+  updatedAt        DateTime         @updatedAt @map("updated_at")
+
+  empresa  Empresa          @relation(fields: [empresa_id], references: [id], onDelete: Restrict)
+  usuario  Usuario          @relation(fields: [usuario_id], references: [id], onDelete: Restrict)
+  mensajes MensajeChatbot[]
+
+  @@index([empresa_id, usuario_id, createdAt], name: "idx_conv_empresa_usuario")
+  @@map("conversaciones_chatbot")
+}
+
+model MensajeChatbot {
+  id              String   @id @default(uuid()) @db.VarChar(36)
+  conversacion_id String   @db.VarChar(36)
+  remitente       String   @db.VarChar(20) // 'USUARIO' o 'ASISTENTE'
+  contenido       String   @db.Text
+  tokens_usados   Int      @default(0)
+  createdAt       DateTime @default(now()) @map("created_at")
+
+  conversacion ConversacionChatbot @relation(fields: [conversacion_id], references: [id], onDelete: Cascade)
+
+  @@index([conversacion_id, createdAt], name: "idx_msg_conversacion")
+  @@map("mensajes_chatbot")
 }

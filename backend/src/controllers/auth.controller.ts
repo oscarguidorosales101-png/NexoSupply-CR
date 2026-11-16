@@ -1,6 +1,8 @@
 import { Request, Response, NextFunction } from 'express';
 import {
   registerUser,
+  verifyEmailCodeService,
+  resendVerificationCodeService,
   loginUser,
   switchTenantService,
   getAuthenticatedUserProfile,
@@ -13,6 +15,36 @@ export async function registerHandler(req: Request, res: Response, next: NextFun
   try {
     const result = await registerUser(req.body);
     sendSuccess(res, result, 201);
+  } catch (error) {
+    next(error);
+  }
+}
+
+export async function verifyEmailHandler(req: Request, res: Response, next: NextFunction): Promise<void> {
+  try {
+    const { email, code } = req.body;
+    const result = await verifyEmailCodeService(email, code);
+
+    if (result.accessToken) {
+      res.cookie('token', result.accessToken, {
+        httpOnly: true,
+        secure: env.NODE_ENV === 'production',
+        sameSite: 'strict',
+        maxAge: 8 * 60 * 60 * 1000,
+      });
+    }
+
+    sendSuccess(res, result, 200);
+  } catch (error) {
+    next(error);
+  }
+}
+
+export async function resendCodeHandler(req: Request, res: Response, next: NextFunction): Promise<void> {
+  try {
+    const { email } = req.body;
+    const result = await resendVerificationCodeService(email);
+    sendSuccess(res, result, 200);
   } catch (error) {
     next(error);
   }

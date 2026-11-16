@@ -20,7 +20,7 @@ export async function runEvaluacionHandler(req: Request, res: Response, next: Ne
 
 export async function listEvaluacionesHandler(req: Request, res: Response, next: NextFunction): Promise<void> {
   try {
-    const proveedorId = req.query.proveedorId as string;
+    const proveedorId = req.user?.proveedorId || (req.query.proveedorId as string);
     const evaluaciones = await listEvaluaciones(req.tenant!.id, { proveedorId });
     sendSuccess(res, evaluaciones, 200);
   } catch (error) {
@@ -49,7 +49,7 @@ export async function resolveIncidenciaHandler(req: Request, res: Response, next
 
 export async function listIncidenciasHandler(req: Request, res: Response, next: NextFunction): Promise<void> {
   try {
-    const proveedorId = req.query.proveedorId as string;
+    const proveedorId = req.user?.proveedorId || (req.query.proveedorId as string);
     const resuelta = req.query.resuelta !== undefined ? req.query.resuelta === 'true' : undefined;
     const incidencias = await listIncidencias(req.tenant!.id, { proveedorId, resuelta });
     sendSuccess(res, incidencias, 200);

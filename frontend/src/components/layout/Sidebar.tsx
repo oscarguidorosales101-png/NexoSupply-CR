@@ -20,9 +20,15 @@ import { useAuth } from '../../context/AuthContext';
 
 interface SidebarProps {
   onOpenSwitchCompany?: () => void;
+  mobileOpen?: boolean;
+  onCloseMobile?: () => void;
 }
 
-export const Sidebar: React.FC<SidebarProps> = ({ onOpenSwitchCompany }) => {
+export const Sidebar: React.FC<SidebarProps> = ({
+  onOpenSwitchCompany,
+  mobileOpen = false,
+  onCloseMobile,
+}) => {
   const { user, activeCompany, logout } = useAuth();
   const navigate = useNavigate();
 
@@ -55,34 +61,63 @@ export const Sidebar: React.FC<SidebarProps> = ({ onOpenSwitchCompany }) => {
   };
 
   return (
-    <aside className="w-64 bg-[#0B192C] text-slate-300 flex flex-col h-screen select-none sticky top-0 flex-shrink-0 z-30 shadow-xl border-r border-[#142742]">
-      {/* Brand Header */}
-      <div className="px-6 py-5 flex items-center space-x-3 border-b border-[#142742]/80">
-        <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-blue-600 to-sky-400 flex items-center justify-center text-white font-black text-xl shadow-lg shadow-blue-500/25">
-          N
-        </div>
-        <div>
-          <h1 className="text-white font-bold text-base leading-tight tracking-tight">NexoSupply CR</h1>
-          <p className="text-[11px] text-blue-300 font-medium tracking-wide">Conectando tu cadena</p>
-        </div>
-      </div>
+    <>
+      {/* Backdrop for mobile */}
+      {mobileOpen && (
+        <div
+          onClick={onCloseMobile}
+          className="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-40 md:hidden animate-in fade-in"
+        />
+      )}
 
-      {/* Navigation Links */}
-      <nav className="flex-1 px-3 py-4 space-y-1 overflow-y-auto custom-scrollbar">
-        {navItems.map((item) => {
-          const Icon = item.icon;
-          return (
-            <NavLink
-              key={item.path}
-              to={item.path}
-              className={({ isActive }) =>
-                `flex items-center px-3.5 py-2.5 text-sm font-medium rounded-xl transition-all duration-150 group ${
-                  isActive
-                    ? 'bg-blue-600 text-white shadow-md shadow-blue-600/30'
-                    : 'text-slate-400 hover:text-white hover:bg-[#142742]/60'
-                }`
-              }
-            >
+      <aside
+        className={`fixed md:sticky top-0 inset-y-0 left-0 w-64 bg-[#0B192C] text-slate-300 flex flex-col h-screen select-none z-50 md:z-30 shadow-2xl md:shadow-xl border-r border-[#142742] transition-transform duration-300 ease-in-out flex-shrink-0 ${
+          mobileOpen ? 'translate-x-0' : '-translate-x-full md:translate-x-0'
+        }`}
+      >
+        {/* Brand Header */}
+        <div className="px-6 py-5 flex items-center justify-between border-b border-[#142742]/80">
+          <div className="flex items-center space-x-3">
+            <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-blue-600 to-sky-400 flex items-center justify-center text-white font-black text-xl shadow-lg shadow-blue-500/25">
+              N
+            </div>
+            <div>
+              <h1 className="text-white font-bold text-base leading-tight tracking-tight">
+                NexoSupply CR
+              </h1>
+              <p className="text-[11px] text-blue-300 font-medium tracking-wide">
+                Conectando tu cadena
+              </p>
+            </div>
+          </div>
+          {/* Close button for mobile */}
+          <button
+            onClick={onCloseMobile}
+            className="md:hidden text-slate-400 hover:text-white p-1 rounded-lg"
+          >
+            ✕
+          </button>
+        </div>
+
+        {/* Navigation Links */}
+        <nav className="flex-1 px-3 py-4 space-y-1 overflow-y-auto custom-scrollbar">
+          {navItems.map((item) => {
+            const Icon = item.icon;
+            return (
+              <NavLink
+                key={item.path}
+                to={item.path}
+                onClick={() => {
+                  if (onCloseMobile) onCloseMobile();
+                }}
+                className={({ isActive }) =>
+                  `flex items-center px-3.5 py-2.5 text-sm font-medium rounded-xl transition-all duration-150 group ${
+                    isActive
+                      ? 'bg-blue-600 text-white shadow-md shadow-blue-600/30'
+                      : 'text-slate-400 hover:text-white hover:bg-[#142742]/60'
+                  }`
+                }
+              >
               {({ isActive }) => (
                 <>
                   <Icon
@@ -161,5 +196,6 @@ export const Sidebar: React.FC<SidebarProps> = ({ onOpenSwitchCompany }) => {
         </div>
       </div>
     </aside>
+    </>
   );
 };

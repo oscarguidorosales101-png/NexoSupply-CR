@@ -7,6 +7,7 @@ import {
   Check,
   AlertCircle,
   Calendar,
+  Menu,
 } from 'lucide-react';
 import { useAuth } from '../../context/AuthContext';
 import { listAlertas, AlertaRiesgo } from '../../api/riesgos.api';
@@ -14,9 +15,10 @@ import { useNavigate } from 'react-router-dom';
 
 interface TopbarProps {
   onOpenSwitchCompany?: () => void;
+  onToggleMobileSidebar?: () => void;
 }
 
-export const Topbar: React.FC<TopbarProps> = ({ onOpenSwitchCompany }) => {
+export const Topbar: React.FC<TopbarProps> = ({ onOpenSwitchCompany, onToggleMobileSidebar }) => {
   const { user, activeCompany, availableCompanies, switchCompany } = useAuth();
   const [showCompanyMenu, setShowCompanyMenu] = useState(false);
   const [showAlertsMenu, setShowAlertsMenu] = useState(false);
@@ -66,9 +68,18 @@ export const Topbar: React.FC<TopbarProps> = ({ onOpenSwitchCompany }) => {
   };
 
   return (
-    <header className="h-16 bg-white border-b border-slate-200/80 sticky top-0 z-20 px-6 flex items-center justify-between">
-      {/* Left: Enterprise Selector Dropdown */}
-      <div className="flex items-center space-x-4">
+    <header className="h-16 bg-white border-b border-slate-200/80 sticky top-0 z-20 px-4 sm:px-6 flex items-center justify-between">
+      {/* Left: Mobile Menu & Enterprise Selector Dropdown */}
+      <div className="flex items-center space-x-2 sm:space-x-4">
+        {onToggleMobileSidebar && (
+          <button
+            onClick={onToggleMobileSidebar}
+            className="md:hidden p-2 rounded-xl text-slate-600 hover:text-slate-900 hover:bg-slate-100 transition-colors"
+            title="Abrir menú de navegación"
+          >
+            <Menu className="w-5 h-5" />
+          </button>
+        )}
         <div className="relative" ref={companyMenuRef}>
           <button
             onClick={() => setShowCompanyMenu(!showCompanyMenu)}

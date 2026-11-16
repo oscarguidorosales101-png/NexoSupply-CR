@@ -13,6 +13,12 @@ const envSchema = z.object({
   JWT_REFRESH_EXPIRES_IN: z.string().default('7d'),
   CORS_ORIGIN: z.string().default('http://localhost:5173'),
   AI_API_KEY: z.string().optional().default(''),
+  DEEPSEEK_API_KEY: z.string().optional().default(''),
+  SMTP_HOST: z.string().optional().default(''),
+  SMTP_PORT: z.string().optional().default(''),
+  SMTP_USER: z.string().optional().default(''),
+  SMTP_PASS: z.string().optional().default(''),
+  SMTP_FROM: z.string().optional().default('noreply@nexosupply.cr'),
 });
 
 const parsed = envSchema.safeParse(process.env);

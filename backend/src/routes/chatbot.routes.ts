@@ -1,5 +1,11 @@
 import { Router } from 'express';
-import { chatbotQueryHandler, chatbotStatusHandler } from '../controllers/chatbot.controller';
+import {
+  createConversacionHandler,
+  listConversacionesHandler,
+  getConversacionHandler,
+  sendMensajeHandler,
+  chatbotStatusHandler,
+} from '../controllers/chatbot.controller';
 import { authenticate } from '../middlewares/auth.middleware';
 import { requireTenant } from '../middlewares/tenant.middleware';
 
@@ -7,8 +13,10 @@ const router = Router();
 
 router.use(authenticate, requireTenant);
 
-// Consulta al asistente (preparado pero desactivado de forma segura sin API key en Etapa 3)
-router.post('/query', chatbotQueryHandler);
 router.get('/status', chatbotStatusHandler);
+router.post('/conversaciones', createConversacionHandler);
+router.get('/conversaciones', listConversacionesHandler);
+router.get('/conversaciones/:id', getConversacionHandler);
+router.post('/conversaciones/:id/mensajes', sendMensajeHandler);
 
 export default router;

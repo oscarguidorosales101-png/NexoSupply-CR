@@ -5,6 +5,8 @@ export interface User {
   email: string;
   nombreCompleto: string;
   esSuperadmin: boolean;
+  emailVerificado?: boolean;
+  proveedorId?: string | null;
 }
 
 export interface ActiveCompany {
@@ -42,10 +44,32 @@ export async function login(email: string, password: string, empresaId?: string)
   });
 }
 
-export async function register(data: any): Promise<any> {
+export async function register(data: any): Promise<{
+  usuario: { id: string; email: string; nombreCompleto: string };
+  requiereVerificacion: boolean;
+  codigoSimulado?: string;
+  mensaje: string;
+}> {
   return await apiClient('/auth/register', {
     method: 'POST',
     body: JSON.stringify(data),
+  });
+}
+
+export async function verifyEmail(email: string, code: string): Promise<LoginResponse> {
+  return await apiClient<LoginResponse>('/auth/verify-email', {
+    method: 'POST',
+    body: JSON.stringify({ email, code }),
+  });
+}
+
+export async function resendVerificationCode(email: string): Promise<{
+  message: string;
+  codigoSimulado?: string;
+}> {
+  return await apiClient('/auth/resend-code', {
+    method: 'POST',
+    body: JSON.stringify({ email }),
   });
 }
 

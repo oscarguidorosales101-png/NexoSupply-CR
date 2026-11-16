@@ -32,6 +32,7 @@ export async function authenticate(req: Request, _res: Response, next: NextFunct
         email: true,
         nombre_completo: true,
         es_superadmin: true,
+        proveedor_id: true,
         activo: true,
       },
     });
@@ -45,6 +46,7 @@ export async function authenticate(req: Request, _res: Response, next: NextFunct
       email: usuario.email,
       nombreCompleto: usuario.nombre_completo,
       esSuperadmin: usuario.es_superadmin,
+      proveedorId: usuario.proveedor_id || undefined,
     };
 
     next();

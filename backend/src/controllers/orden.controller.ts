@@ -6,12 +6,13 @@ import {
   createOrdenDirecta,
 } from '../services/orden.service';
 import { sendSuccess } from '../utils/response';
+import { NotFoundError } from '../errors/app-error';
 import { EstadoOrdenCompra } from '@prisma/client';
 
 export async function listOrdenesHandler(req: Request, res: Response, next: NextFunction): Promise<void> {
   try {
     const estado = req.query.estado as EstadoOrdenCompra;
-    const proveedorId = req.query.proveedorId as string;
+    const proveedorId = req.user?.proveedorId || (req.query.proveedorId as string);
     const ordenes = await listOrdenes(req.tenant!.id, { estado, proveedorId });
     sendSuccess(res, ordenes, 200);
   } catch (error) {
@@ -23,6 +24,9 @@ export async function getOrdenHandler(req: Request, res: Response, next: NextFun
   try {
     const id = req.params.id as string;
     const orden = await getOrdenById(req.tenant!.id, id);
+    if (req.user?.proveedorId && orden.proveedor_id !== req.user.proveedorId) {
+      throw new NotFoundError('La orden solicitada no pertenece a este proveedor');
+    }
     sendSuccess(res, orden, 200);
   } catch (error) {
     next(error);

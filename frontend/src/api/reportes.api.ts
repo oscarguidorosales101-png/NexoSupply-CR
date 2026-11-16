@@ -10,7 +10,17 @@ export interface DashboardKPIs {
     valorTotalInventario: number;
     promedioDesempenoProveedores: number;
     alertasPendientes: number;
+    distribucionInventario?: {
+      optimo: number;
+      bajoMinimo: number;
+      sinStock: number;
+    };
   };
+  comprasMensuales?: Array<{
+    mes: string;
+    compras: number;
+    presupuesto: number;
+  }>;
   ordenesRecientes: Array<{
     id: string;
     numeroOrden: string;

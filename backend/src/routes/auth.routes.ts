@@ -2,6 +2,8 @@ import { Router } from 'express';
 import {
   loginHandler,
   registerHandler,
+  verifyEmailHandler,
+  resendCodeHandler,
   logoutHandler,
   meHandler,
   switchTenantHandler,
@@ -12,6 +14,8 @@ import { validateBody } from '../middlewares/validate.middleware';
 import {
   loginSchema,
   registerSchema,
+  verifyEmailSchema,
+  resendCodeSchema,
   switchTenantSchema,
   changePasswordSchema,
 } from '../validators/auth.validator';
@@ -21,6 +25,8 @@ const router = Router();
 
 router.post('/login', authRateLimiter, validateBody(loginSchema), loginHandler);
 router.post('/register', authRateLimiter, validateBody(registerSchema), registerHandler);
+router.post('/verify-email', authRateLimiter, validateBody(verifyEmailSchema), verifyEmailHandler);
+router.post('/resend-code', authRateLimiter, validateBody(resendCodeSchema), resendCodeHandler);
 router.post('/logout', authenticate, logoutHandler);
 router.get('/me', authenticate, meHandler);
 router.post('/switch-tenant', authenticate, validateBody(switchTenantSchema), switchTenantHandler);

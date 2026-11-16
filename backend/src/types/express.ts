@@ -3,6 +3,7 @@ export interface AuthenticatedUser {
   email: string;
   nombreCompleto: string;
   esSuperadmin: boolean;
+  proveedorId?: string;
 }
 
 export interface TenantContext {
