@@ -1,0 +1,31 @@
+{
+  "name": "nexosupply-cr",
+  "version": "1.0.0",
+  "description": "NexoSupply CR - Sistema Inteligente de Gestión de Abastecimiento e Inventario Multi-Tenant",
+  "private": true,
+  "workspaces": [
+    "backend",
+    "frontend"
+  ],
+  "scripts": {
+    "dev:backend": "npm --prefix backend run dev",
+    "dev:frontend": "npm --prefix frontend run dev",
+    "build": "npm --prefix backend run build && npm --prefix frontend run build",
+    "prisma:studio": "npm --prefix backend run prisma:studio",
+    "prisma:migrate": "npm --prefix backend run prisma:migrate",
+    "prisma:seed": "npm --prefix backend run prisma:seed"
+  },
+  "keywords": [
+    "saas",
+    "multi-tenant",
+    "supply-chain",
+    "procurement",
+    "inventory",
+    "prisma",
+    "mysql",
+    "react",
+    "express"
+  ],
+  "author": "NexoSupply CR Team",
+  "license": "UNLICENSED"
+}
