@@ -12,6 +12,7 @@ import { EvaluacionesPage } from './pages/evaluaciones/EvaluacionesPage';
 import { RiesgosPage } from './pages/riesgos/RiesgosPage';
 import { SimulacionesPage } from './pages/simulaciones/SimulacionesPage';
 import { ReportesPage } from './pages/reportes/ReportesPage';
+import { ConocimientoPage } from './pages/conocimiento/ConocimientoPage';
 import { ConfiguracionPage } from './pages/configuracion/ConfiguracionPage';
 
 const ProtectedRoute: React.FC<{ children: React.ReactNode }> = ({ children }) => {
@@ -61,6 +62,7 @@ export const App: React.FC = () => {
           <Route path="riesgos" element={<RiesgosPage />} />
           <Route path="simulaciones" element={<SimulacionesPage />} />
           <Route path="reportes" element={<ReportesPage />} />
+          <Route path="conocimiento" element={<ConocimientoPage />} />
           <Route path="configuracion" element={<ConfiguracionPage />} />
         </Route>
 

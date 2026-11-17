@@ -172,6 +172,10 @@ model Empresa {
   documentos            DocumentoEmpresa[]
   consultas_chatbot     ConsultaChatbotLog[]
   conversaciones_chatbot ConversacionChatbot[]
+  carpetas_drive        CarpetaDrive[]
+  documentos_drive      DocumentoDrive[]
+  sincronizaciones_drive SincronizacionDrive[]
+  configuracion_rag     ConfiguracionRag?
 
   @@map("empresas")
 }
@@ -921,4 +925,167 @@ model MensajeChatbot {
 
   @@index([conversacion_id, createdAt], name: "idx_msg_conversacion")
   @@map("mensajes_chatbot")
+}
+
+// ==========================================
+// MODELOS DE CONOCIMIENTO DOCUMENTAL Y RAG (ETAPA 5)
+// ==========================================
+
+model CarpetaDrive {
+  id               String   @id @default(uuid()) @db.VarChar(128)
+  empresa_id       String   @db.VarChar(36)
+  drive_folder_id  String?  @db.VarChar(100)
+  nombre           String   @db.VarChar(150)
+  categoria        String   @db.VarChar(80)
+  ruta_relativa    String   @db.VarChar(255)
+  activa           Boolean  @default(true)
+  createdAt        DateTime @default(now()) @map("created_at")
+  updatedAt        DateTime @updatedAt @map("updated_at")
+
+  empresa    Empresa          @relation(fields: [empresa_id], references: [id], onDelete: Restrict)
+  documentos DocumentoDrive[]
+
+  @@index([empresa_id, categoria], name: "idx_carpeta_empresa_categoria")
+  @@map("carpetas_drive")
+}
+
+model DocumentoDrive {
+  id                        String    @id @default(uuid()) @db.VarChar(128)
+  empresa_id                String    @db.VarChar(36)
+  carpeta_id                String?   @db.VarChar(128)
+  drive_file_id             String    @db.VarChar(100)
+  nombre                    String    @db.VarChar(255)
+  tipo_mime                 String    @db.VarChar(120)
+  tamanio_bytes             BigInt?
+  url_web_view              String?   @db.Text
+  etag                      String?   @db.VarChar(120)
+  version                   String?   @db.VarChar(50)
+  estado_indexacion         String    @default("PENDIENTE") @db.VarChar(40) // PENDIENTE, EXTRAYENDO, FRAGMENTADO, INDEXADO, ERROR, REQUIERE_OCR
+  ultimo_error              String?   @db.Text
+  total_fragmentos          Int       @default(0)
+  hash_contenido            String?   @db.VarChar(128)
+  fecha_modificacion_drive  DateTime?
+  fecha_sincronizacion      DateTime?
+  createdAt                 DateTime  @default(now()) @map("created_at")
+  updatedAt                 DateTime  @updatedAt @map("updated_at")
+
+  empresa    Empresa               @relation(fields: [empresa_id], references: [id], onDelete: Restrict)
+  carpeta    CarpetaDrive?         @relation(fields: [carpeta_id], references: [id], onDelete: SetNull)
+  fragmentos FragmentoDocumental[]
+
+  @@index([empresa_id, estado_indexacion], name: "idx_doc_empresa_estado")
+  @@index([drive_file_id], name: "idx_doc_drive_file_id")
+  @@map("documentos_drive")
+}
+
+model FragmentoDocumental {
+  id                String   @id @default(uuid()) @db.VarChar(128)
+  empresa_id        String   @db.VarChar(36)
+  documento_id      String   @db.VarChar(128)
+  numero_fragmento  Int
+  contenido         String   @db.LongText
+  tokens_estimados  Int      @default(0)
+  vector_id         String?  @db.VarChar(128)
+  metadatos         Json?
+  createdAt         DateTime @default(now()) @map("created_at")
+  updatedAt         DateTime @updatedAt @map("updated_at")
+
+  documento DocumentoDrive @relation(fields: [documento_id], references: [id], onDelete: Cascade)
+
+  @@index([empresa_id, documento_id], name: "idx_frag_empresa_doc")
+  @@index([vector_id], name: "idx_frag_vector_id")
+  @@map("fragmentos_documentales")
+}
+
+model SincronizacionDrive {
+  id                   String    @id @default(uuid()) @db.VarChar(36)
+  empresa_id           String    @db.VarChar(36)
+  tipo                 String    @default("AUTOMATICA") @db.VarChar(40) // AUTOMATICA, MANUAL, OUTBOX_MYSQL
+  estado               String    @default("INICIADA") @db.VarChar(30)   // INICIADA, EN_PROCESO, COMPLETADA, ERROR, REINTENTO
+  archivos_detectados  Int       @default(0)
+  archivos_procesados  Int       @default(0)
+  archivos_fallidos    Int       @default(0)
+  fragmentos_generados Int       @default(0)
+  start_page_token     String?   @db.VarChar(120)
+  mensaje_resultado    String?   @db.Text
+  iniciado_en          DateTime  @default(now())
+  finalizado_en        DateTime?
+
+  empresa Empresa @relation(fields: [empresa_id], references: [id], onDelete: Restrict)
+
+  @@index([empresa_id, iniciado_en], name: "idx_sync_empresa_fecha")
+  @@map("sincronizaciones_drive")
+}
+
+model TrabajoIngesta {
+  id            String   @id @default(uuid()) @db.VarChar(64)
+  empresa_id    String   @db.VarChar(36)
+  documento_id  String?  @db.VarChar(128)
+  tipo_trabajo  String   @db.VarChar(50) // EXPORT_MYSQL_DOC, INDEX_DRIVE_FILE, PURGE_VECTORS
+  estado        String   @default("PENDIENTE") @db.VarChar(30) // PENDIENTE, PROCESANDO, SINCRONIZADO, ERROR, REINTENTO
+  intentos      Int      @default(0)
+  max_intentos  Int      @default(3)
+  error_detalle String?  @db.Text
+  payload_json  Json?
+  createdAt     DateTime @default(now()) @map("created_at")
+  updatedAt     DateTime @updatedAt @map("updated_at")
+
+  @@index([empresa_id, estado], name: "idx_trabajo_empresa_estado")
+  @@map("trabajos_ingesta")
+}
+
+model HistorialConsultaRag {
+  id                  String               @id @default(uuid()) @db.VarChar(36)
+  empresa_id          String               @db.VarChar(36)
+  usuario_id          String               @db.VarChar(36)
+  conversacion_id     String?              @db.VarChar(36)
+  pregunta            String               @db.Text
+  respuesta           String               @db.LongText
+  modelo_utilizado    String               @default("RAG-Documental") @db.VarChar(60)
+  tiempo_respuesta_ms Int                  @default(0)
+  total_fuentes       Int                  @default(0)
+  estado_recuperacion String               @default("EXITOSO") @db.VarChar(30) // EXITOSO, SIN_EVIDENCIA, ERROR
+  createdAt           DateTime             @default(now()) @map("created_at")
+
+  fuentes FuenteRespuestaRag[]
+
+  @@index([empresa_id, usuario_id, createdAt], name: "idx_rag_empresa_usuario")
+  @@map("historial_consultas_rag")
+}
+
+model FuenteRespuestaRag {
+  id               String  @id @default(uuid()) @db.VarChar(36)
+  consulta_id      String  @db.VarChar(36)
+  documento_id     String? @db.VarChar(128)
+  nombre_documento String  @db.VarChar(255)
+  url_documento    String? @db.Text
+  fragmento_id     String? @db.VarChar(128)
+  relevancia_score Float
+  numero_fragmento Int
+  texto_fragmento  String  @db.Text
+
+  consulta HistorialConsultaRag @relation(fields: [consulta_id], references: [id], onDelete: Cascade)
+
+  @@index([consulta_id], name: "idx_fuente_consulta")
+  @@map("fuentes_respuesta_rag")
+}
+
+model ConfiguracionRag {
+  id                      String    @id @default(uuid()) @db.VarChar(36)
+  empresa_id              String    @unique @db.VarChar(36)
+  drive_root_folder_id    String?   @db.VarChar(100)
+  sync_habilitado         Boolean   @default(true)
+  intervalo_sync_minutos  Int       @default(5)
+  chunk_size_tokens       Int       @default(750)
+  chunk_overlap_tokens    Int       @default(100)
+  proveedor_embeddings    String    @default("local") @db.VarChar(50)
+  dimension_embeddings    Int       @default(384)
+  qdrant_collection       String    @default("nexosupply_documents") @db.VarChar(100)
+  ultima_sincronizacion   DateTime?
+  createdAt               DateTime  @default(now()) @map("created_at")
+  updatedAt               DateTime  @updatedAt @map("updated_at")
+
+  empresa Empresa @relation(fields: [empresa_id], references: [id], onDelete: Restrict)
+
+  @@map("configuraciones_rag")
 }

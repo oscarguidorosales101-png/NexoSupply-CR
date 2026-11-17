@@ -380,7 +380,7 @@ export const LoginPage: React.FC = () => {
                   onClick={() => setDemo('admin@pacificocr-demo.com', 'DemoPacifico2026!')}
                   className="p-2 rounded-xl bg-slate-50 hover:bg-blue-50 border border-slate-200 text-left transition-colors"
                 >
-                  <span className="text-xs font-bold text-slate-800 block">👑 Admin Pacífico</span>
+                  <span className="text-xs font-bold text-slate-800 block">Admin Pacífico</span>
                   <span className="text-[10px] text-slate-500 block truncate">
                     admin@pacificocr-demo.com
                   </span>
@@ -391,7 +391,7 @@ export const LoginPage: React.FC = () => {
                   onClick={() => setDemo('comprador@pacificocr-demo.com', 'DemoPacifico2026!')}
                   className="p-2 rounded-xl bg-slate-50 hover:bg-blue-50 border border-slate-200 text-left transition-colors"
                 >
-                  <span className="text-xs font-bold text-slate-800 block">🛒 Comprador</span>
+                  <span className="text-xs font-bold text-slate-800 block">Comprador</span>
                   <span className="text-[10px] text-slate-500 block truncate">
                     comprador@pacificocr-demo.com
                   </span>
@@ -402,7 +402,7 @@ export const LoginPage: React.FC = () => {
                   onClick={() => setDemo('auditor@pacificocr-demo.com', 'DemoAuditor2026!')}
                   className="p-2 rounded-xl bg-slate-50 hover:bg-blue-50 border border-slate-200 text-left transition-colors"
                 >
-                  <span className="text-xs font-bold text-slate-800 block">📋 Auditor Interno</span>
+                  <span className="text-xs font-bold text-slate-800 block">Auditor Interno</span>
                   <span className="text-[10px] text-slate-500 block truncate">
                     auditor@pacificocr-demo.com
                   </span>
@@ -414,7 +414,7 @@ export const LoginPage: React.FC = () => {
                   className="p-2 rounded-xl bg-slate-50 hover:bg-emerald-50 border border-emerald-200 text-left transition-colors"
                 >
                   <span className="text-xs font-bold text-emerald-800 block">
-                    🚚 Portal Proveedor
+                    Portal Proveedor
                   </span>
                   <span className="text-[10px] text-slate-500 block truncate">
                     proveedor@sumimed-demo.com

@@ -254,33 +254,36 @@ export const RiesgosPage: React.FC = () => {
         </button>
         <button
           onClick={() => setActiveTab('CRITICO')}
-          className={`px-4 py-2 text-xs font-bold rounded-xl transition-all ${
+          className={`px-4 py-2 text-xs font-bold rounded-xl transition-all flex items-center space-x-1.5 ${
             activeTab === 'CRITICO'
               ? 'bg-rose-600 text-white shadow'
               : 'bg-white text-slate-600 border border-slate-200 hover:bg-slate-50'
           }`}
         >
-          🚨 Críticas ({totalCriticas})
+          <ShieldAlert className="w-3.5 h-3.5" />
+          <span>Críticas ({totalCriticas})</span>
         </button>
         <button
           onClick={() => setActiveTab('EN_SEGUIMIENTO')}
-          className={`px-4 py-2 text-xs font-bold rounded-xl transition-all ${
+          className={`px-4 py-2 text-xs font-bold rounded-xl transition-all flex items-center space-x-1.5 ${
             activeTab === 'EN_SEGUIMIENTO'
               ? 'bg-amber-600 text-white shadow'
               : 'bg-white text-slate-600 border border-slate-200 hover:bg-slate-50'
           }`}
         >
-          ⏱️ En Seguimiento ({totalSeguimiento})
+          <Clock className="w-3.5 h-3.5" />
+          <span>En Seguimiento ({totalSeguimiento})</span>
         </button>
         <button
           onClick={() => setActiveTab('RESUELTO')}
-          className={`px-4 py-2 text-xs font-bold rounded-xl transition-all ${
+          className={`px-4 py-2 text-xs font-bold rounded-xl transition-all flex items-center space-x-1.5 ${
             activeTab === 'RESUELTO'
               ? 'bg-emerald-600 text-white shadow'
               : 'bg-white text-slate-600 border border-slate-200 hover:bg-slate-50'
           }`}
         >
-          ✅ Resueltas ({totalResueltas})
+          <CheckCircle2 className="w-3.5 h-3.5" />
+          <span>Resueltas ({totalResueltas})</span>
         </button>
       </div>
 

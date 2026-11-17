@@ -10,6 +10,7 @@ import riesgoRoutes from './riesgo.routes';
 import simulacionRoutes from './simulacion.routes';
 import reporteRoutes from './reporte.routes';
 import chatbotRoutes from './chatbot.routes';
+import conocimientoRoutes from './conocimiento.routes';
 
 const apiRouter = Router();
 
@@ -24,5 +25,6 @@ apiRouter.use('/riesgos', riesgoRoutes);
 apiRouter.use('/simulaciones', simulacionRoutes);
 apiRouter.use('/reportes', reporteRoutes);
 apiRouter.use('/chatbot', chatbotRoutes);
+apiRouter.use('/conocimiento', conocimientoRoutes);
 
 export default apiRouter;

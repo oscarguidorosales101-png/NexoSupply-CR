@@ -10,11 +10,13 @@ import {
   AlertTriangle,
   GitBranch,
   BarChart3,
+  FolderGit2,
   Settings,
   LogOut,
   Building2,
   ChevronRight,
   Sparkles,
+  X,
 } from 'lucide-react';
 import { useAuth } from '../../context/AuthContext';
 
@@ -42,6 +44,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
     { name: 'Riesgos', path: '/riesgos', icon: AlertTriangle },
     { name: 'Simulaciones', path: '/simulaciones', icon: GitBranch },
     { name: 'Reportes', path: '/reportes', icon: BarChart3 },
+    { name: 'Conocimiento', path: '/conocimiento', icon: FolderGit2 },
     { name: 'Configuración', path: '/configuracion', icon: Settings },
   ];
 
@@ -95,7 +98,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
             onClick={onCloseMobile}
             className="md:hidden text-slate-400 hover:text-white p-1 rounded-lg"
           >
-            ✕
+            <X className="w-5 h-5" />
           </button>
         </div>
 

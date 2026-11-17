@@ -156,7 +156,7 @@ export const ChatbotWidget: React.FC = () => {
         conversacion_id: convId,
         remitente: 'ASISTENTE',
         contenido:
-          '⚠️ Hubo un error al procesar tu solicitud con el servicio de IA. Por favor, intenta de nuevo.',
+          'Hubo un error al procesar su solicitud con el servicio de conocimiento documental. Por favor, intente de nuevo.',
         createdAt: new Date().toISOString(),
       };
       setMessages((prev) => [...prev, errorMsg]);
@@ -169,8 +169,13 @@ export const ChatbotWidget: React.FC = () => {
     // Formateo simple de negritas, viñetas y saltos de línea
     const lines = text.split('\n');
     return lines.map((line, idx) => {
-      // Reemplazo básico de **texto**
-      const formattedLine = line.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+      // Reemplazo básico de **texto** y enlaces markdown [texto](url)
+      let formattedLine = line
+        .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+        .replace(
+          /\[(.*?)\]\((https?:\/\/.*?)\)/g,
+          '<a href="$2" target="_blank" rel="noopener noreferrer" class="text-blue-600 underline font-medium hover:text-blue-800 inline-flex items-center gap-0.5">$1</a>'
+        );
       if (line.startsWith('- ') || line.startsWith('* ')) {
         return (
           <li
@@ -273,7 +278,7 @@ export const ChatbotWidget: React.FC = () => {
                 <Sparkles className="w-3 h-3 text-amber-400" />
               </span>
               <span className="text-[10px] text-blue-200 block leading-tight">
-                {status?.activo ? 'DeepSeek Conectado' : 'Modo Operativo'}
+                {status?.activo ? 'DeepSeek Conectado' : 'RAG Documental (Drive)'}
               </span>
             </div>
           </button>
@@ -295,12 +300,12 @@ export const ChatbotWidget: React.FC = () => {
                   <span className="flex h-2 w-2 relative">
                     <span
                       className={`animate-ping absolute inline-flex h-full w-full rounded-full opacity-75 ${
-                        status?.activo ? 'bg-emerald-400' : 'bg-amber-400'
+                        status?.activo ? 'bg-emerald-400' : 'bg-emerald-400'
                       }`}
                     ></span>
                     <span
                       className={`relative inline-flex rounded-full h-2 w-2 ${
-                        status?.activo ? 'bg-emerald-500' : 'bg-amber-500'
+                        status?.activo ? 'bg-emerald-500' : 'bg-emerald-500'
                       }`}
                     ></span>
                   </span>
@@ -342,14 +347,14 @@ export const ChatbotWidget: React.FC = () => {
             </div>
           </div>
 
-          {/* Subheader: Estado del Modelo de IA */}
+          {/* Subheader: Estado del Modelo de IA y RAG */}
           <div className="px-4 py-1.5 bg-slate-100 border-b border-slate-200 flex items-center justify-between text-[11px] text-slate-600">
             <span className="flex items-center space-x-1.5">
               <Cpu className="w-3.5 h-3.5 text-blue-600" />
               <span>
                 {status?.activo
                   ? `${status?.motor || 'DeepSeek AI'} Activo`
-                  : 'Motor Local Asistido'}
+                  : 'RAG Documental (Google Drive)'}
               </span>
             </span>
             <span className="font-medium text-slate-500">{activeCompany?.monedaBase || 'CRC'}</span>
@@ -539,9 +544,10 @@ export const ChatbotWidget: React.FC = () => {
                     key={i}
                     onClick={() => handleSendMessage(sug)}
                     disabled={isLoading}
-                    className="text-[10px] bg-white border border-slate-300 hover:border-blue-400 hover:text-blue-600 text-slate-700 px-2 py-1 rounded-full whitespace-nowrap transition-colors flex-shrink-0"
+                    className="text-[10px] bg-white border border-slate-300 hover:border-blue-400 hover:text-blue-600 text-slate-700 px-2.5 py-1 rounded-full whitespace-nowrap transition-colors flex-shrink-0 flex items-center space-x-1"
                   >
-                    💡 {sug}
+                    <Sparkles className="w-2.5 h-2.5 text-blue-500 flex-shrink-0" />
+                    <span>{sug}</span>
                   </button>
                 ))}
             </div>
