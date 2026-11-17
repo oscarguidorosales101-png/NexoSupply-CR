@@ -1,6 +1,9 @@
+import fs from 'fs';
+import path from 'path';
 import { Request, Response, NextFunction } from 'express';
 import { prisma } from '../config/database';
 import { googleDriveService } from '../services/google-drive.service';
+import { googleDriveOAuthService } from '../services/google-drive-oauth.service';
 import { ragService } from '../services/rag.service';
 import { vectorStoreService } from '../services/vector-store.service';
 import { embeddingService } from '../services/embedding.service';
@@ -15,8 +18,11 @@ export async function getEstadoConocimientoHandler(
   try {
     const empresaId = req.tenant!.id;
 
-    // 1. Estado Google Drive
+    // 1. Estado Google Drive Service Account
     const driveStatus = await googleDriveService.checkConnection();
+
+    // 2. Estado Google Drive OAuth 2.0 (Escritura Personal)
+    const oauthStatus = await googleDriveOAuthService.getStatus(empresaId);
 
     // 2. Métricas de la empresa en MySQL
     const totalCarpetas = await prisma.carpetaDrive.count({ where: { empresa_id: empresaId } });
@@ -39,9 +45,18 @@ export async function getEstadoConocimientoHandler(
     });
 
     const resultado = {
-      drive: driveStatus,
+      drive: {
+        ...driveStatus,
+        conectado: driveStatus.connected,
+        serviceAccountEmail: driveStatus.clientEmail,
+        rootFolderName: 'NexoSupply-Root',
+        rootFolderUrl: 'https://drive.google.com/drive/folders/1o9NCjcxLqF0-BHS5jTDFCTs883-zlAh1',
+      },
+      oauth: oauthStatus,
       vectorStore: {
-        motor: vectorStoreService.isQdrantActive() ? 'Qdrant Vector Database' : 'Motor Vectorial Local en Memoria/MySQL',
+        motor: vectorStoreService.isQdrantActive()
+          ? 'Qdrant Vector Database (Activo en http://localhost:6333)'
+          : 'Qdrant Vector Database (Offline en http://localhost:6333)',
         qdrantActivo: vectorStoreService.isQdrantActive(),
         coleccion: 'nexosupply_documents',
         filtroEmpresaObligatorio: true,
@@ -182,6 +197,141 @@ export async function listHistorialSincronizacionesHandler(
     });
 
     sendSuccess(res, historial, 200);
+  } catch (error) {
+    next(error);
+  }
+}
+
+export async function getOAuthStatusHandler(
+  req: Request,
+  res: Response,
+  next: NextFunction
+): Promise<void> {
+  try {
+    const empresaId = req.tenant!.id;
+    const status = await googleDriveOAuthService.getStatus(empresaId);
+    sendSuccess(res, status, 200);
+  } catch (error) {
+    next(error);
+  }
+}
+
+export async function getOAuthAuthUrlHandler(
+  req: Request,
+  res: Response,
+  next: NextFunction
+): Promise<void> {
+  try {
+    const empresaId = req.tenant!.id;
+    const userId = req.user!.id;
+    const data = googleDriveOAuthService.getAuthUrl(empresaId, userId);
+    sendSuccess(res, data, 200);
+  } catch (error) {
+    next(error);
+  }
+}
+
+export async function revokeOAuthAccessHandler(
+  req: Request,
+  res: Response,
+  next: NextFunction
+): Promise<void> {
+  try {
+    const empresaId = req.tenant!.id;
+    await googleDriveOAuthService.revokeAccess(empresaId);
+    sendSuccess(res, { mensaje: 'Acceso OAuth revocado exitosamente' }, 200);
+  } catch (error) {
+    next(error);
+  }
+}
+
+export async function uploadTestOAuthFileHandler(
+  req: Request,
+  res: Response,
+  next: NextFunction
+): Promise<void> {
+  try {
+    const empresaId = req.tenant!.id;
+    const now = new Date();
+    const fileName = `test_oauth_verification_${Date.now()}.txt`;
+    const content = `NexoSupply CR - Verificacion OAuth 2.0 Google Drive
+Empresa ID: ${empresaId}
+Fecha: ${now.toISOString()}
+Carpeta raiz autorizada: NexoSupply-Root (ID: ${googleDriveOAuthService.getRootFolderId()})
+Propietario autorizado: ${googleDriveOAuthService.getExpectedOwnerEmail()}
+Estado: Conexion y permisos de escritura en Mi Unidad confirmados exitosamente.`;
+    const buffer = Buffer.from(content, 'utf8');
+
+    const result = await googleDriveOAuthService.uploadOrUpdateFile(
+      empresaId,
+      googleDriveOAuthService.getRootFolderId(),
+      fileName,
+      'text/plain',
+      buffer
+    );
+
+    // Indexar en RAG
+    await ragService.indexDocument(
+      empresaId,
+      result.documentoId,
+      buffer,
+      'text/plain',
+      fileName,
+      undefined,
+      result.webViewLink
+    );
+
+    sendSuccess(res, result, 200);
+  } catch (error) {
+    next(error);
+  }
+}
+
+export async function syncOperationalFilesOAuthHandler(
+  req: Request,
+  res: Response,
+  next: NextFunction
+): Promise<void> {
+  try {
+    const empresaId = req.tenant!.id;
+    const uploadSummary = await googleDriveOAuthService.syncAllOperationalFiles(empresaId);
+
+    // Indexar en RAG los documentos subidos
+    const exportDir = path.resolve(process.cwd(), 'drive_txt_export');
+    const altExportDir = path.resolve(__dirname, '../../drive_txt_export');
+    const targetDir = fs.existsSync(exportDir) ? exportDir : altExportDir;
+
+    let indexados = 0;
+    if (fs.existsSync(targetDir)) {
+      const files = fs.readdirSync(targetDir).filter((f) => f.endsWith('.txt'));
+      for (const fileName of files) {
+        const doc = await prisma.documentoDrive.findFirst({
+          where: { empresa_id: empresaId, nombre: fileName },
+        });
+        if (doc) {
+          const buf = fs.readFileSync(path.join(targetDir, fileName));
+          await ragService.indexDocument(
+            empresaId,
+            doc.id,
+            buf,
+            'text/plain',
+            doc.nombre,
+            doc.carpeta_id || undefined,
+            doc.url_web_view || undefined
+          );
+          indexados++;
+        }
+      }
+    }
+
+    sendSuccess(
+      res,
+      {
+        ...uploadSummary,
+        documentosIndexadosEnRag: indexados,
+      },
+      200
+    );
   } catch (error) {
     next(error);
   }

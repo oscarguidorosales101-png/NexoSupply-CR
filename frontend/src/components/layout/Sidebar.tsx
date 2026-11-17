@@ -10,7 +10,6 @@ import {
   AlertTriangle,
   GitBranch,
   BarChart3,
-  FolderGit2,
   Settings,
   LogOut,
   Building2,
@@ -44,7 +43,6 @@ export const Sidebar: React.FC<SidebarProps> = ({
     { name: 'Riesgos', path: '/riesgos', icon: AlertTriangle },
     { name: 'Simulaciones', path: '/simulaciones', icon: GitBranch },
     { name: 'Reportes', path: '/reportes', icon: BarChart3 },
-    { name: 'Conocimiento', path: '/conocimiento', icon: FolderGit2 },
     { name: 'Configuración', path: '/configuracion', icon: Settings },
   ];
 

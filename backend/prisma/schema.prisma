@@ -176,6 +176,7 @@ model Empresa {
   documentos_drive      DocumentoDrive[]
   sincronizaciones_drive SincronizacionDrive[]
   configuracion_rag     ConfiguracionRag?
+  credencial_oauth_drive CredencialOAuthDrive?
 
   @@map("empresas")
 }
@@ -1088,4 +1089,22 @@ model ConfiguracionRag {
   empresa Empresa @relation(fields: [empresa_id], references: [id], onDelete: Restrict)
 
   @@map("configuraciones_rag")
+}
+
+model CredencialOAuthDrive {
+  id               String    @id @default(uuid()) @db.VarChar(36)
+  empresa_id       String    @unique @db.VarChar(36)
+  email_autorizado String    @db.VarChar(120)
+  token_cifrado    String    @db.Text
+  iv               String    @db.VarChar(64)
+  tag              String    @db.VarChar(64)
+  expira_en        DateTime?
+  alcance          String?   @db.Text
+  activo           Boolean   @default(true)
+  createdAt        DateTime  @default(now()) @map("created_at")
+  updatedAt        DateTime  @updatedAt @map("updated_at")
+
+  empresa Empresa @relation(fields: [empresa_id], references: [id], onDelete: Cascade)
+
+  @@map("credenciales_oauth_drive")
 }

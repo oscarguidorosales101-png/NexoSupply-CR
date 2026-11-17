@@ -1,0 +1,514 @@
+================================================================================
+                    NEXOSUPPLY CR — INFORME DE PROVEEDORES                      
+                 SISTEMA DE GESTION DE ABASTECIMIENTO E INVENTARIO              
+================================================================================
+
+Empresa: Distribuidora Central del Pacífico S.A. (Empresa-001)
+Cédula Jurídica: 3-101-789456
+Fecha y Hora de Generación: 17/11/2026, 12:40:30 p. m. (Hora Costa Rica)
+Cantidad Total de Proveedores Registrados: 17
+Ruta de Destino en Google Drive: NexoSupply-Root/01-EMPRESAS/Empresa-001/02-Proveedores/
+ID de Carpeta de Destino: 1_0NgRdFII43x5oajUqTV2JcIybwYmI87
+
+================================================================================
+                         DETALLE DE PROVEEDORES REGISTRADOS                     
+================================================================================
+
+[PROVEEDOR #1]
+--------------------------------------------------------------------------------
+Nombre Comercial (Fantasía) : DisCaribe Distribuciones
+Razón Social (Legal)        : DisCaribe Distribuciones S.A. [DEMO]
+Identificación Fiscal (Céd) : 3-101-100001
+Clasificación / Nivel       : Categoría A
+Estado Operativo Actual     : ACTIVO
+Términos de Pago            : 45 días crédito
+Moneda Preferida            : CRC
+Tiempo de Entrega (Lead Time): 4 días hábiles
+Correo Electrónico          : ventas@discaribedistribuciones-demo.com
+Teléfono de Contacto        : +506 2200-1001
+Dirección Física            : San José, Costa Rica - Edificio Prov 2
+
+  Contactos Autorizados (2):
+    * Ejecutivo 1 - DisCaribe Distribuciones — Cargo: Gerente de Cuentas Clave | Tel: +506 8800-2003 | Email: contacto1@prov2.com [CONTACTO PRINCIPAL]
+    * Ejecutivo 2 - DisCaribe Distribuciones — Cargo: Ejecutivo de Logística | Tel: +506 8800-2004 | Email: contacto2@prov2.com 
+
+  Catálogo de Productos y Servicios Suministrados (8):
+    * [E1-PRD-045] Ítem Operativo E1 #45 (Materia) | Cat: Materia Prima e Insumos E1 | Costo Acordado: 23375 CRC | Lead Time: 7 días 
+    * [E1-PRD-031] Ítem Operativo E1 #31 (Material) | Cat: Material Médico y Quirúrgico E1 | Costo Acordado: 3562.5 CRC | Lead Time: 4 días [PREFERIDO]
+    * [E1-PRD-016] Ítem Operativo E1 #16 (Material) | Cat: Material Médico y Quirúrgico E1 | Costo Acordado: 21375 CRC | Lead Time: 4 días [PREFERIDO]
+    * [E1-PRD-030] Ítem Operativo E1 #30 (Materia) | Cat: Materia Prima e Insumos E1 | Costo Acordado: 2750 CRC | Lead Time: 7 días 
+    * [E1-PRD-060] Ítem Operativo E1 #60 (Materia) | Cat: Materia Prima e Insumos E1 | Costo Acordado: 2750 CRC | Lead Time: 7 días 
+    * [E1-PRD-015] Ítem Operativo E1 #15 (Materia) | Cat: Materia Prima e Insumos E1 | Costo Acordado: 23375 CRC | Lead Time: 7 días 
+    * [E1-PRD-001] Ítem Operativo E1 #1 (Material) | Cat: Material Médico y Quirúrgico E1 | Costo Acordado: 3562.5 CRC | Lead Time: 4 días [PREFERIDO]
+    * [E1-PRD-046] Ítem Operativo E1 #46 (Material) | Cat: Material Médico y Quirúrgico E1 | Costo Acordado: 21375 CRC | Lead Time: 4 días [PREFERIDO]
+
+--------------------------------------------------------------------------------
+
+[PROVEEDOR #2]
+--------------------------------------------------------------------------------
+Nombre Comercial (Fantasía) : Ferretería & Repuestos Industriales
+Razón Social (Legal)        : Ferretería & Repuestos Industriales S.A. [DEMO]
+Identificación Fiscal (Céd) : 3-101-100003
+Clasificación / Nivel       : Categoría A
+Estado Operativo Actual     : ACTIVO
+Términos de Pago            : 45 días crédito
+Moneda Preferida            : CRC
+Tiempo de Entrega (Lead Time): 6 días hábiles
+Correo Electrónico          : ventas@ferreterarepuestosindustriales-demo.com
+Teléfono de Contacto        : +506 2200-1003
+Dirección Física            : San José, Costa Rica - Edificio Prov 4
+
+  Contactos Autorizados (2):
+    * Ejecutivo 2 - Ferretería & Repuestos Industriales — Cargo: Ejecutivo de Logística | Tel: +506 8800-2008 | Email: contacto2@prov4.com 
+    * Ejecutivo 1 - Ferretería & Repuestos Industriales — Cargo: Gerente de Cuentas Clave | Tel: +506 8800-2007 | Email: contacto1@prov4.com [CONTACTO PRINCIPAL]
+
+  Catálogo de Productos y Servicios Suministrados (8):
+    * [E1-PRD-018] Ítem Operativo E1 #18 (Herramientas) | Cat: Herramientas y Repuestos E1 | Costo Acordado: 23750 CRC | Lead Time: 4 días [PREFERIDO]
+    * [E1-PRD-032] Ítem Operativo E1 #32 (Empaque) | Cat: Empaque y Embalaje E1 | Costo Acordado: 5500 CRC | Lead Time: 7 días 
+    * [E1-PRD-047] Ítem Operativo E1 #47 (Empaque) | Cat: Empaque y Embalaje E1 | Costo Acordado: 26125 CRC | Lead Time: 7 días 
+    * [E1-PRD-002] Ítem Operativo E1 #2 (Empaque) | Cat: Empaque y Embalaje E1 | Costo Acordado: 5500 CRC | Lead Time: 7 días 
+    * [E1-PRD-017] Ítem Operativo E1 #17 (Empaque) | Cat: Empaque y Embalaje E1 | Costo Acordado: 26125 CRC | Lead Time: 7 días 
+    * [E1-PRD-033] Ítem Operativo E1 #33 (Herramientas) | Cat: Herramientas y Repuestos E1 | Costo Acordado: 5937.5 CRC | Lead Time: 4 días [PREFERIDO]
+    * [E1-PRD-003] Ítem Operativo E1 #3 (Herramientas) | Cat: Herramientas y Repuestos E1 | Costo Acordado: 5937.5 CRC | Lead Time: 4 días [PREFERIDO]
+    * [E1-PRD-048] Ítem Operativo E1 #48 (Herramientas) | Cat: Herramientas y Repuestos E1 | Costo Acordado: 23750 CRC | Lead Time: 4 días [PREFERIDO]
+
+--------------------------------------------------------------------------------
+
+[PROVEEDOR #3]
+--------------------------------------------------------------------------------
+Nombre Comercial (Fantasía) : Global Packing Logistics
+Razón Social (Legal)        : Global Packing Logistics S.A. [DEMO]
+Identificación Fiscal (Céd) : 3-101-100002
+Clasificación / Nivel       : Categoría A
+Estado Operativo Actual     : ACTIVO
+Términos de Pago            : 30 días crédito
+Moneda Preferida            : CRC
+Tiempo de Entrega (Lead Time): 5 días hábiles
+Correo Electrónico          : ventas@globalpackinglogistics-demo.com
+Teléfono de Contacto        : +506 2200-1002
+Dirección Física            : San José, Costa Rica - Edificio Prov 3
+
+  Contactos Autorizados (2):
+    * Ejecutivo 2 - Global Packing Logistics — Cargo: Ejecutivo de Logística | Tel: +506 8800-2006 | Email: contacto2@prov3.com 
+    * Ejecutivo 1 - Global Packing Logistics — Cargo: Gerente de Cuentas Clave | Tel: +506 8800-2005 | Email: contacto1@prov3.com [CONTACTO PRINCIPAL]
+
+  Catálogo de Productos y Servicios Suministrados (8):
+    * [E1-PRD-002] Ítem Operativo E1 #2 (Empaque) | Cat: Empaque y Embalaje E1 | Costo Acordado: 4750 CRC | Lead Time: 4 días [PREFERIDO]
+    * [E1-PRD-047] Ítem Operativo E1 #47 (Empaque) | Cat: Empaque y Embalaje E1 | Costo Acordado: 22562.5 CRC | Lead Time: 4 días [PREFERIDO]
+    * [E1-PRD-032] Ítem Operativo E1 #32 (Empaque) | Cat: Empaque y Embalaje E1 | Costo Acordado: 4750 CRC | Lead Time: 4 días [PREFERIDO]
+    * [E1-PRD-031] Ítem Operativo E1 #31 (Material) | Cat: Material Médico y Quirúrgico E1 | Costo Acordado: 4125 CRC | Lead Time: 7 días 
+    * [E1-PRD-017] Ítem Operativo E1 #17 (Empaque) | Cat: Empaque y Embalaje E1 | Costo Acordado: 22562.5 CRC | Lead Time: 4 días [PREFERIDO]
+    * [E1-PRD-046] Ítem Operativo E1 #46 (Material) | Cat: Material Médico y Quirúrgico E1 | Costo Acordado: 24750 CRC | Lead Time: 7 días 
+    * [E1-PRD-016] Ítem Operativo E1 #16 (Material) | Cat: Material Médico y Quirúrgico E1 | Costo Acordado: 24750 CRC | Lead Time: 7 días 
+    * [E1-PRD-001] Ítem Operativo E1 #1 (Material) | Cat: Material Médico y Quirúrgico E1 | Costo Acordado: 4125 CRC | Lead Time: 7 días 
+
+--------------------------------------------------------------------------------
+
+[PROVEEDOR #4]
+--------------------------------------------------------------------------------
+Nombre Comercial (Fantasía) : SumiMed CR Internacional
+Razón Social (Legal)        : SumiMed CR Internacional S.A. [DEMO]
+Identificación Fiscal (Céd) : 3-101-100000
+Clasificación / Nivel       : Categoría A
+Estado Operativo Actual     : ACTIVO
+Términos de Pago            : 30 días crédito
+Moneda Preferida            : CRC
+Tiempo de Entrega (Lead Time): 3 días hábiles
+Correo Electrónico          : ventas@sumimedcrinternacional-demo.com
+Teléfono de Contacto        : +506 2200-1000
+Dirección Física            : San José, Costa Rica - Edificio Prov 1
+
+  Contactos Autorizados (2):
+    * Ejecutivo 2 - SumiMed CR Internacional — Cargo: Ejecutivo de Logística | Tel: +506 8800-2002 | Email: contacto2@prov1.com 
+    * Ejecutivo 1 - SumiMed CR Internacional — Cargo: Gerente de Cuentas Clave | Tel: +506 8800-2001 | Email: contacto1@prov1.com [CONTACTO PRINCIPAL]
+
+  Catálogo de Productos y Servicios Suministrados (8):
+    * [E1-PRD-030] Ítem Operativo E1 #30 (Materia) | Cat: Materia Prima e Insumos E1 | Costo Acordado: 2375 CRC | Lead Time: 4 días [PREFERIDO]
+    * [E1-PRD-015] Ítem Operativo E1 #15 (Materia) | Cat: Materia Prima e Insumos E1 | Costo Acordado: 20187.5 CRC | Lead Time: 4 días [PREFERIDO]
+    * [E1-PRD-044] Ítem Operativo E1 #44 (Químicos) | Cat: Químicos y Reactivos E1 | Costo Acordado: 22000 CRC | Lead Time: 7 días 
+    * [E1-PRD-060] Ítem Operativo E1 #60 (Materia) | Cat: Materia Prima e Insumos E1 | Costo Acordado: 2375 CRC | Lead Time: 4 días [PREFERIDO]
+    * [E1-PRD-045] Ítem Operativo E1 #45 (Materia) | Cat: Materia Prima e Insumos E1 | Costo Acordado: 20187.5 CRC | Lead Time: 4 días [PREFERIDO]
+    * [E1-PRD-014] Ítem Operativo E1 #14 (Químicos) | Cat: Químicos y Reactivos E1 | Costo Acordado: 22000 CRC | Lead Time: 7 días 
+    * [E1-PRD-029] Ítem Operativo E1 #29 (Químicos) | Cat: Químicos y Reactivos E1 | Costo Acordado: 42625 CRC | Lead Time: 7 días 
+    * [E1-PRD-059] Ítem Operativo E1 #59 (Químicos) | Cat: Químicos y Reactivos E1 | Costo Acordado: 42625 CRC | Lead Time: 7 días 
+
+--------------------------------------------------------------------------------
+
+[PROVEEDOR #5]
+--------------------------------------------------------------------------------
+Nombre Comercial (Fantasía) : SumiMed CR
+Razón Social (Legal)        : Suministros Médicos de Centroamérica S.A. [DEMO]
+Identificación Fiscal (Céd) : 3-101-112233
+Clasificación / Nivel       : Categoría A
+Estado Operativo Actual     : ACTIVO
+Términos de Pago            : 30 días crédito
+Moneda Preferida            : USD
+Tiempo de Entrega (Lead Time): 5 días hábiles
+Correo Electrónico          : pedidos@sumimed-demo.cr
+Teléfono de Contacto        : +506 2220-4500
+Dirección Física            : La Uruca, San José
+
+  Contactos Autorizados (1):
+    * Lic. Mariela Solís Campos — Cargo: Gerente de Cuentas Corporativas | Tel: +506 8899-3344 | Email: msolis@sumimed-demo.cr [CONTACTO PRINCIPAL]
+
+  Catálogo de Productos y Servicios Suministrados (1):
+    * [MED-GUAN-01] Guantes de Nitrilo Grado Médico Caja x 100 | Cat: Insumos Hospitalarios y Bioseguridad | Costo Acordado: 3150 CRC | Lead Time: 4 días [PREFERIDO]
+
+--------------------------------------------------------------------------------
+
+[PROVEEDOR #6]
+--------------------------------------------------------------------------------
+Nombre Comercial (Fantasía) : Aceros del Atlántico
+Razón Social (Legal)        : Aceros del Atlántico S.A. [DEMO]
+Identificación Fiscal (Céd) : 3-101-100007
+Clasificación / Nivel       : Categoría B
+Estado Operativo Actual     : ACTIVO
+Términos de Pago            : 45 días crédito
+Moneda Preferida            : CRC
+Tiempo de Entrega (Lead Time): 3 días hábiles
+Correo Electrónico          : ventas@acerosdelatlntico-demo.com
+Teléfono de Contacto        : +506 2200-1007
+Dirección Física            : San José, Costa Rica - Edificio Prov 8
+
+  Contactos Autorizados (2):
+    * Ejecutivo 2 - Aceros del Atlántico — Cargo: Ejecutivo de Logística | Tel: +506 8800-2016 | Email: contacto2@prov8.com 
+    * Ejecutivo 1 - Aceros del Atlántico — Cargo: Gerente de Cuentas Clave | Tel: +506 8800-2015 | Email: contacto1@prov8.com [CONTACTO PRINCIPAL]
+
+  Catálogo de Productos y Servicios Suministrados (8):
+    * [E1-PRD-037] Ítem Operativo E1 #37 (Empaque) | Cat: Empaque y Embalaje E1 | Costo Acordado: 10687.5 CRC | Lead Time: 4 días [PREFERIDO]
+    * [E1-PRD-022] Ítem Operativo E1 #22 (Empaque) | Cat: Empaque y Embalaje E1 | Costo Acordado: 28500 CRC | Lead Time: 4 días [PREFERIDO]
+    * [E1-PRD-021] Ítem Operativo E1 #21 (Material) | Cat: Material Médico y Quirúrgico E1 | Costo Acordado: 31625 CRC | Lead Time: 7 días 
+    * [E1-PRD-006] Ítem Operativo E1 #6 (Material) | Cat: Material Médico y Quirúrgico E1 | Costo Acordado: 11000 CRC | Lead Time: 7 días 
+    * [E1-PRD-051] Ítem Operativo E1 #51 (Material) | Cat: Material Médico y Quirúrgico E1 | Costo Acordado: 31625 CRC | Lead Time: 7 días 
+    * [E1-PRD-007] Ítem Operativo E1 #7 (Empaque) | Cat: Empaque y Embalaje E1 | Costo Acordado: 10687.5 CRC | Lead Time: 4 días [PREFERIDO]
+    * [E1-PRD-036] Ítem Operativo E1 #36 (Material) | Cat: Material Médico y Quirúrgico E1 | Costo Acordado: 11000 CRC | Lead Time: 7 días 
+    * [E1-PRD-052] Ítem Operativo E1 #52 (Empaque) | Cat: Empaque y Embalaje E1 | Costo Acordado: 28500 CRC | Lead Time: 4 días [PREFERIDO]
+
+--------------------------------------------------------------------------------
+
+[PROVEEDOR #7]
+--------------------------------------------------------------------------------
+Nombre Comercial (Fantasía) : Distribuidora Continental
+Razón Social (Legal)        : Distribuidora Continental S.A. [DEMO]
+Identificación Fiscal (Céd) : 3-101-100008
+Clasificación / Nivel       : Categoría B
+Estado Operativo Actual     : ACTIVO
+Términos de Pago            : 30 días crédito
+Moneda Preferida            : CRC
+Tiempo de Entrega (Lead Time): 4 días hábiles
+Correo Electrónico          : ventas@distribuidoracontinental-demo.com
+Teléfono de Contacto        : +506 2200-1008
+Dirección Física            : San José, Costa Rica - Edificio Prov 9
+
+  Contactos Autorizados (2):
+    * Ejecutivo 1 - Distribuidora Continental — Cargo: Gerente de Cuentas Clave | Tel: +506 8800-2017 | Email: contacto1@prov9.com [CONTACTO PRINCIPAL]
+    * Ejecutivo 2 - Distribuidora Continental — Cargo: Ejecutivo de Logística | Tel: +506 8800-2018 | Email: contacto2@prov9.com 
+
+  Catálogo de Productos y Servicios Suministrados (8):
+    * [E1-PRD-037] Ítem Operativo E1 #37 (Empaque) | Cat: Empaque y Embalaje E1 | Costo Acordado: 12375 CRC | Lead Time: 7 días 
+    * [E1-PRD-023] Ítem Operativo E1 #23 (Herramientas) | Cat: Herramientas y Repuestos E1 | Costo Acordado: 29687.5 CRC | Lead Time: 4 días [PREFERIDO]
+    * [E1-PRD-052] Ítem Operativo E1 #52 (Empaque) | Cat: Empaque y Embalaje E1 | Costo Acordado: 33000 CRC | Lead Time: 7 días 
+    * [E1-PRD-008] Ítem Operativo E1 #8 (Herramientas) | Cat: Herramientas y Repuestos E1 | Costo Acordado: 11875 CRC | Lead Time: 4 días [PREFERIDO]
+    * [E1-PRD-038] Ítem Operativo E1 #38 (Herramientas) | Cat: Herramientas y Repuestos E1 | Costo Acordado: 11875 CRC | Lead Time: 4 días [PREFERIDO]
+    * [E1-PRD-053] Ítem Operativo E1 #53 (Herramientas) | Cat: Herramientas y Repuestos E1 | Costo Acordado: 29687.5 CRC | Lead Time: 4 días [PREFERIDO]
+    * [E1-PRD-007] Ítem Operativo E1 #7 (Empaque) | Cat: Empaque y Embalaje E1 | Costo Acordado: 12375 CRC | Lead Time: 7 días 
+    * [E1-PRD-022] Ítem Operativo E1 #22 (Empaque) | Cat: Empaque y Embalaje E1 | Costo Acordado: 33000 CRC | Lead Time: 7 días 
+
+--------------------------------------------------------------------------------
+
+[PROVEEDOR #8]
+--------------------------------------------------------------------------------
+Nombre Comercial (Fantasía) : DisCaribe
+Razón Social (Legal)        : Distribuidora Industrial del Caribe Ltda. [DEMO]
+Identificación Fiscal (Céd) : 3-102-445566
+Clasificación / Nivel       : Categoría B
+Estado Operativo Actual     : ACTIVO
+Términos de Pago            : 45 días crédito
+Moneda Preferida            : CRC
+Tiempo de Entrega (Lead Time): 10 días hábiles
+Correo Electrónico          : ventas@discaribe-demo.cr
+Teléfono de Contacto        : +506 2798-1122
+Dirección Física            : Moín, Limón
+
+  Contactos Autorizados (0):
+    - No hay contactos individuales registrados.
+
+  Catálogo de Productos y Servicios Suministrados (1):
+    * [FER-CINT-01] Cinta de Embalaje Industrial 48mm x 100m Transparente | Cat: Materiales de Embalaje y Logística | Costo Acordado: 1100 CRC | Lead Time: 7 días [PREFERIDO]
+
+--------------------------------------------------------------------------------
+
+[PROVEEDOR #9]
+--------------------------------------------------------------------------------
+Nombre Comercial (Fantasía) : ElectroTecnia Industrial
+Razón Social (Legal)        : ElectroTecnia Industrial S.A. [DEMO]
+Identificación Fiscal (Céd) : 3-101-100009
+Clasificación / Nivel       : Categoría B
+Estado Operativo Actual     : ACTIVO
+Términos de Pago            : 45 días crédito
+Moneda Preferida            : CRC
+Tiempo de Entrega (Lead Time): 5 días hábiles
+Correo Electrónico          : ventas@electrotecniaindustrial-demo.com
+Teléfono de Contacto        : +506 2200-1009
+Dirección Física            : San José, Costa Rica - Edificio Prov 10
+
+  Contactos Autorizados (2):
+    * Ejecutivo 2 - ElectroTecnia Industrial — Cargo: Ejecutivo de Logística | Tel: +506 8800-2020 | Email: contacto2@prov10.com 
+    * Ejecutivo 1 - ElectroTecnia Industrial — Cargo: Gerente de Cuentas Clave | Tel: +506 8800-2019 | Email: contacto1@prov10.com [CONTACTO PRINCIPAL]
+
+  Catálogo de Productos y Servicios Suministrados (8):
+    * [E1-PRD-038] Ítem Operativo E1 #38 (Herramientas) | Cat: Herramientas y Repuestos E1 | Costo Acordado: 13750 CRC | Lead Time: 7 días 
+    * [E1-PRD-008] Ítem Operativo E1 #8 (Herramientas) | Cat: Herramientas y Repuestos E1 | Costo Acordado: 13750 CRC | Lead Time: 7 días 
+    * [E1-PRD-053] Ítem Operativo E1 #53 (Herramientas) | Cat: Herramientas y Repuestos E1 | Costo Acordado: 34375 CRC | Lead Time: 7 días 
+    * [E1-PRD-023] Ítem Operativo E1 #23 (Herramientas) | Cat: Herramientas y Repuestos E1 | Costo Acordado: 34375 CRC | Lead Time: 7 días 
+    * [E1-PRD-009] Ítem Operativo E1 #9 (Químicos) | Cat: Químicos y Reactivos E1 | Costo Acordado: 13062.5 CRC | Lead Time: 4 días [PREFERIDO]
+    * [E1-PRD-054] Ítem Operativo E1 #54 (Químicos) | Cat: Químicos y Reactivos E1 | Costo Acordado: 30875 CRC | Lead Time: 4 días [PREFERIDO]
+    * [E1-PRD-024] Ítem Operativo E1 #24 (Químicos) | Cat: Químicos y Reactivos E1 | Costo Acordado: 30875 CRC | Lead Time: 4 días [PREFERIDO]
+    * [E1-PRD-039] Ítem Operativo E1 #39 (Químicos) | Cat: Químicos y Reactivos E1 | Costo Acordado: 13062.5 CRC | Lead Time: 4 días [PREFERIDO]
+
+--------------------------------------------------------------------------------
+
+[PROVEEDOR #10]
+--------------------------------------------------------------------------------
+Nombre Comercial (Fantasía) : Equipos Biomédicos del Valle
+Razón Social (Legal)        : Equipos Biomédicos del Valle S.A. [DEMO]
+Identificación Fiscal (Céd) : 3-101-100005
+Clasificación / Nivel       : Categoría B
+Estado Operativo Actual     : ACTIVO
+Términos de Pago            : 45 días crédito
+Moneda Preferida            : CRC
+Tiempo de Entrega (Lead Time): 8 días hábiles
+Correo Electrónico          : ventas@equiposbiomdicosdelvalle-demo.com
+Teléfono de Contacto        : +506 2200-1005
+Dirección Física            : San José, Costa Rica - Edificio Prov 6
+
+  Contactos Autorizados (2):
+    * Ejecutivo 1 - Equipos Biomédicos del Valle — Cargo: Gerente de Cuentas Clave | Tel: +506 8800-2011 | Email: contacto1@prov6.com [CONTACTO PRINCIPAL]
+    * Ejecutivo 2 - Equipos Biomédicos del Valle — Cargo: Ejecutivo de Logística | Tel: +506 8800-2012 | Email: contacto2@prov6.com 
+
+  Catálogo de Productos y Servicios Suministrados (8):
+    * [E1-PRD-004] Ítem Operativo E1 #4 (Químicos) | Cat: Químicos y Reactivos E1 | Costo Acordado: 8250 CRC | Lead Time: 7 días 
+    * [E1-PRD-034] Ítem Operativo E1 #34 (Químicos) | Cat: Químicos y Reactivos E1 | Costo Acordado: 8250 CRC | Lead Time: 7 días 
+    * [E1-PRD-035] Ítem Operativo E1 #35 (Materia) | Cat: Materia Prima e Insumos E1 | Costo Acordado: 8312.5 CRC | Lead Time: 4 días [PREFERIDO]
+    * [E1-PRD-019] Ítem Operativo E1 #19 (Químicos) | Cat: Químicos y Reactivos E1 | Costo Acordado: 28875 CRC | Lead Time: 7 días 
+    * [E1-PRD-005] Ítem Operativo E1 #5 (Materia) | Cat: Materia Prima e Insumos E1 | Costo Acordado: 8312.5 CRC | Lead Time: 4 días [PREFERIDO]
+    * [E1-PRD-049] Ítem Operativo E1 #49 (Químicos) | Cat: Químicos y Reactivos E1 | Costo Acordado: 28875 CRC | Lead Time: 7 días 
+    * [E1-PRD-050] Ítem Operativo E1 #50 (Materia) | Cat: Materia Prima e Insumos E1 | Costo Acordado: 26125 CRC | Lead Time: 4 días [PREFERIDO]
+    * [E1-PRD-020] Ítem Operativo E1 #20 (Materia) | Cat: Materia Prima e Insumos E1 | Costo Acordado: 26125 CRC | Lead Time: 4 días [PREFERIDO]
+
+--------------------------------------------------------------------------------
+
+[PROVEEDOR #11]
+--------------------------------------------------------------------------------
+Nombre Comercial (Fantasía) : Plásticos & Cajas de Costa Rica
+Razón Social (Legal)        : Plásticos & Cajas de Costa Rica S.A. [DEMO]
+Identificación Fiscal (Céd) : 3-101-100006
+Clasificación / Nivel       : Categoría B
+Estado Operativo Actual     : ACTIVO
+Términos de Pago            : 30 días crédito
+Moneda Preferida            : CRC
+Tiempo de Entrega (Lead Time): 9 días hábiles
+Correo Electrónico          : ventas@plsticoscajasdecostarica-demo.com
+Teléfono de Contacto        : +506 2200-1006
+Dirección Física            : San José, Costa Rica - Edificio Prov 7
+
+  Contactos Autorizados (2):
+    * Ejecutivo 2 - Plásticos & Cajas de Costa Rica — Cargo: Ejecutivo de Logística | Tel: +506 8800-2014 | Email: contacto2@prov7.com 
+    * Ejecutivo 1 - Plásticos & Cajas de Costa Rica — Cargo: Gerente de Cuentas Clave | Tel: +506 8800-2013 | Email: contacto1@prov7.com [CONTACTO PRINCIPAL]
+
+  Catálogo de Productos y Servicios Suministrados (8):
+    * [E1-PRD-050] Ítem Operativo E1 #50 (Materia) | Cat: Materia Prima e Insumos E1 | Costo Acordado: 30250 CRC | Lead Time: 7 días 
+    * [E1-PRD-021] Ítem Operativo E1 #21 (Material) | Cat: Material Médico y Quirúrgico E1 | Costo Acordado: 27312.5 CRC | Lead Time: 4 días [PREFERIDO]
+    * [E1-PRD-051] Ítem Operativo E1 #51 (Material) | Cat: Material Médico y Quirúrgico E1 | Costo Acordado: 27312.5 CRC | Lead Time: 4 días [PREFERIDO]
+    * [E1-PRD-035] Ítem Operativo E1 #35 (Materia) | Cat: Materia Prima e Insumos E1 | Costo Acordado: 9625 CRC | Lead Time: 7 días 
+    * [E1-PRD-006] Ítem Operativo E1 #6 (Material) | Cat: Material Médico y Quirúrgico E1 | Costo Acordado: 9500 CRC | Lead Time: 4 días [PREFERIDO]
+    * [E1-PRD-005] Ítem Operativo E1 #5 (Materia) | Cat: Materia Prima e Insumos E1 | Costo Acordado: 9625 CRC | Lead Time: 7 días 
+    * [E1-PRD-036] Ítem Operativo E1 #36 (Material) | Cat: Material Médico y Quirúrgico E1 | Costo Acordado: 9500 CRC | Lead Time: 4 días [PREFERIDO]
+    * [E1-PRD-020] Ítem Operativo E1 #20 (Materia) | Cat: Materia Prima e Insumos E1 | Costo Acordado: 30250 CRC | Lead Time: 7 días 
+
+--------------------------------------------------------------------------------
+
+[PROVEEDOR #12]
+--------------------------------------------------------------------------------
+Nombre Comercial (Fantasía) : Química del Pacífico
+Razón Social (Legal)        : Química del Pacífico S.A. [DEMO]
+Identificación Fiscal (Céd) : 3-101-100004
+Clasificación / Nivel       : Categoría B
+Estado Operativo Actual     : ACTIVO
+Términos de Pago            : 30 días crédito
+Moneda Preferida            : CRC
+Tiempo de Entrega (Lead Time): 7 días hábiles
+Correo Electrónico          : ventas@qumicadelpacfico-demo.com
+Teléfono de Contacto        : +506 2200-1004
+Dirección Física            : San José, Costa Rica - Edificio Prov 5
+
+  Contactos Autorizados (2):
+    * Ejecutivo 2 - Química del Pacífico — Cargo: Ejecutivo de Logística | Tel: +506 8800-2010 | Email: contacto2@prov5.com 
+    * Ejecutivo 1 - Química del Pacífico — Cargo: Gerente de Cuentas Clave | Tel: +506 8800-2009 | Email: contacto1@prov5.com [CONTACTO PRINCIPAL]
+
+  Catálogo de Productos y Servicios Suministrados (8):
+    * [E1-PRD-049] Ítem Operativo E1 #49 (Químicos) | Cat: Químicos y Reactivos E1 | Costo Acordado: 24937.5 CRC | Lead Time: 4 días [PREFERIDO]
+    * [E1-PRD-019] Ítem Operativo E1 #19 (Químicos) | Cat: Químicos y Reactivos E1 | Costo Acordado: 24937.5 CRC | Lead Time: 4 días [PREFERIDO]
+    * [E1-PRD-003] Ítem Operativo E1 #3 (Herramientas) | Cat: Herramientas y Repuestos E1 | Costo Acordado: 6875 CRC | Lead Time: 7 días 
+    * [E1-PRD-018] Ítem Operativo E1 #18 (Herramientas) | Cat: Herramientas y Repuestos E1 | Costo Acordado: 27500 CRC | Lead Time: 7 días 
+    * [E1-PRD-048] Ítem Operativo E1 #48 (Herramientas) | Cat: Herramientas y Repuestos E1 | Costo Acordado: 27500 CRC | Lead Time: 7 días 
+    * [E1-PRD-033] Ítem Operativo E1 #33 (Herramientas) | Cat: Herramientas y Repuestos E1 | Costo Acordado: 6875 CRC | Lead Time: 7 días 
+    * [E1-PRD-004] Ítem Operativo E1 #4 (Químicos) | Cat: Químicos y Reactivos E1 | Costo Acordado: 7125 CRC | Lead Time: 4 días [PREFERIDO]
+    * [E1-PRD-034] Ítem Operativo E1 #34 (Químicos) | Cat: Químicos y Reactivos E1 | Costo Acordado: 7125 CRC | Lead Time: 4 días [PREFERIDO]
+
+--------------------------------------------------------------------------------
+
+[PROVEEDOR #13]
+--------------------------------------------------------------------------------
+Nombre Comercial (Fantasía) : Adhesivos & Cintas Industriales
+Razón Social (Legal)        : Adhesivos & Cintas Industriales S.A. [DEMO]
+Identificación Fiscal (Céd) : 3-101-100013
+Clasificación / Nivel       : Categoría C
+Estado Operativo Actual     : ACTIVO
+Términos de Pago            : 45 días crédito
+Moneda Preferida            : CRC
+Tiempo de Entrega (Lead Time): 9 días hábiles
+Correo Electrónico          : ventas@adhesivoscintasindustriales-demo.com
+Teléfono de Contacto        : +506 2200-1013
+Dirección Física            : San José, Costa Rica - Edificio Prov 14
+
+  Contactos Autorizados (2):
+    * Ejecutivo 1 - Adhesivos & Cintas Industriales — Cargo: Gerente de Cuentas Clave | Tel: +506 8800-2027 | Email: contacto1@prov14.com [CONTACTO PRINCIPAL]
+    * Ejecutivo 2 - Adhesivos & Cintas Industriales — Cargo: Ejecutivo de Logística | Tel: +506 8800-2028 | Email: contacto2@prov14.com 
+
+  Catálogo de Productos y Servicios Suministrados (8):
+    * [E1-PRD-042] Ítem Operativo E1 #42 (Empaque) | Cat: Empaque y Embalaje E1 | Costo Acordado: 19250 CRC | Lead Time: 7 días 
+    * [E1-PRD-013] Ítem Operativo E1 #13 (Herramientas) | Cat: Herramientas y Repuestos E1 | Costo Acordado: 17812.5 CRC | Lead Time: 4 días [PREFERIDO]
+    * [E1-PRD-012] Ítem Operativo E1 #12 (Empaque) | Cat: Empaque y Embalaje E1 | Costo Acordado: 19250 CRC | Lead Time: 7 días 
+    * [E1-PRD-058] Ítem Operativo E1 #58 (Herramientas) | Cat: Herramientas y Repuestos E1 | Costo Acordado: 35625 CRC | Lead Time: 4 días [PREFERIDO]
+    * [E1-PRD-028] Ítem Operativo E1 #28 (Herramientas) | Cat: Herramientas y Repuestos E1 | Costo Acordado: 35625 CRC | Lead Time: 4 días [PREFERIDO]
+    * [E1-PRD-057] Ítem Operativo E1 #57 (Empaque) | Cat: Empaque y Embalaje E1 | Costo Acordado: 39875 CRC | Lead Time: 7 días 
+    * [E1-PRD-043] Ítem Operativo E1 #43 (Herramientas) | Cat: Herramientas y Repuestos E1 | Costo Acordado: 17812.5 CRC | Lead Time: 4 días [PREFERIDO]
+    * [E1-PRD-027] Ítem Operativo E1 #27 (Empaque) | Cat: Empaque y Embalaje E1 | Costo Acordado: 39875 CRC | Lead Time: 7 días 
+
+--------------------------------------------------------------------------------
+
+[PROVEEDOR #14]
+--------------------------------------------------------------------------------
+Nombre Comercial (Fantasía) : BioSuministros del Norte
+Razón Social (Legal)        : BioSuministros del Norte S.A. [DEMO]
+Identificación Fiscal (Céd) : 3-101-100011
+Clasificación / Nivel       : Categoría C
+Estado Operativo Actual     : ACTIVO
+Términos de Pago            : 45 días crédito
+Moneda Preferida            : CRC
+Tiempo de Entrega (Lead Time): 7 días hábiles
+Correo Electrónico          : ventas@biosuministrosdelnorte-demo.com
+Teléfono de Contacto        : +506 2200-1011
+Dirección Física            : San José, Costa Rica - Edificio Prov 12
+
+  Contactos Autorizados (2):
+    * Ejecutivo 1 - BioSuministros del Norte — Cargo: Gerente de Cuentas Clave | Tel: +506 8800-2023 | Email: contacto1@prov12.com [CONTACTO PRINCIPAL]
+    * Ejecutivo 2 - BioSuministros del Norte — Cargo: Ejecutivo de Logística | Tel: +506 8800-2024 | Email: contacto2@prov12.com 
+
+  Catálogo de Productos y Servicios Suministrados (8):
+    * [E1-PRD-056] Ítem Operativo E1 #56 (Material) | Cat: Material Médico y Quirúrgico E1 | Costo Acordado: 33250 CRC | Lead Time: 4 días [PREFERIDO]
+    * [E1-PRD-010] Ítem Operativo E1 #10 (Materia) | Cat: Materia Prima e Insumos E1 | Costo Acordado: 16500 CRC | Lead Time: 7 días 
+    * [E1-PRD-025] Ítem Operativo E1 #25 (Materia) | Cat: Materia Prima e Insumos E1 | Costo Acordado: 37125 CRC | Lead Time: 7 días 
+    * [E1-PRD-040] Ítem Operativo E1 #40 (Materia) | Cat: Materia Prima e Insumos E1 | Costo Acordado: 16500 CRC | Lead Time: 7 días 
+    * [E1-PRD-011] Ítem Operativo E1 #11 (Material) | Cat: Material Médico y Quirúrgico E1 | Costo Acordado: 15437.5 CRC | Lead Time: 4 días [PREFERIDO]
+    * [E1-PRD-055] Ítem Operativo E1 #55 (Materia) | Cat: Materia Prima e Insumos E1 | Costo Acordado: 37125 CRC | Lead Time: 7 días 
+    * [E1-PRD-026] Ítem Operativo E1 #26 (Material) | Cat: Material Médico y Quirúrgico E1 | Costo Acordado: 33250 CRC | Lead Time: 4 días [PREFERIDO]
+    * [E1-PRD-041] Ítem Operativo E1 #41 (Material) | Cat: Material Médico y Quirúrgico E1 | Costo Acordado: 15437.5 CRC | Lead Time: 4 días [PREFERIDO]
+
+--------------------------------------------------------------------------------
+
+[PROVEEDOR #15]
+--------------------------------------------------------------------------------
+Nombre Comercial (Fantasía) : Herramientas Atlas S.A.
+Razón Social (Legal)        : Herramientas Atlas S.A. S.A. [DEMO]
+Identificación Fiscal (Céd) : 3-101-100014
+Clasificación / Nivel       : Categoría C
+Estado Operativo Actual     : ACTIVO
+Términos de Pago            : 30 días crédito
+Moneda Preferida            : CRC
+Tiempo de Entrega (Lead Time): 3 días hábiles
+Correo Electrónico          : ventas@herramientasatlassa-demo.com
+Teléfono de Contacto        : +506 2200-1014
+Dirección Física            : San José, Costa Rica - Edificio Prov 15
+
+  Contactos Autorizados (2):
+    * Ejecutivo 1 - Herramientas Atlas S.A. — Cargo: Gerente de Cuentas Clave | Tel: +506 8800-2029 | Email: contacto1@prov15.com [CONTACTO PRINCIPAL]
+    * Ejecutivo 2 - Herramientas Atlas S.A. — Cargo: Ejecutivo de Logística | Tel: +506 8800-2030 | Email: contacto2@prov15.com 
+
+  Catálogo de Productos y Servicios Suministrados (8):
+    * [E1-PRD-029] Ítem Operativo E1 #29 (Químicos) | Cat: Químicos y Reactivos E1 | Costo Acordado: 36812.5 CRC | Lead Time: 4 días [PREFERIDO]
+    * [E1-PRD-028] Ítem Operativo E1 #28 (Herramientas) | Cat: Herramientas y Repuestos E1 | Costo Acordado: 41250 CRC | Lead Time: 7 días 
+    * [E1-PRD-058] Ítem Operativo E1 #58 (Herramientas) | Cat: Herramientas y Repuestos E1 | Costo Acordado: 41250 CRC | Lead Time: 7 días 
+    * [E1-PRD-044] Ítem Operativo E1 #44 (Químicos) | Cat: Químicos y Reactivos E1 | Costo Acordado: 19000 CRC | Lead Time: 4 días [PREFERIDO]
+    * [E1-PRD-014] Ítem Operativo E1 #14 (Químicos) | Cat: Químicos y Reactivos E1 | Costo Acordado: 19000 CRC | Lead Time: 4 días [PREFERIDO]
+    * [E1-PRD-043] Ítem Operativo E1 #43 (Herramientas) | Cat: Herramientas y Repuestos E1 | Costo Acordado: 20625 CRC | Lead Time: 7 días 
+    * [E1-PRD-059] Ítem Operativo E1 #59 (Químicos) | Cat: Químicos y Reactivos E1 | Costo Acordado: 36812.5 CRC | Lead Time: 4 días [PREFERIDO]
+    * [E1-PRD-013] Ítem Operativo E1 #13 (Herramientas) | Cat: Herramientas y Repuestos E1 | Costo Acordado: 20625 CRC | Lead Time: 7 días 
+
+--------------------------------------------------------------------------------
+
+[PROVEEDOR #16]
+--------------------------------------------------------------------------------
+Nombre Comercial (Fantasía) : Importadora Centroamericana
+Razón Social (Legal)        : Importadora Centroamericana S.A. [DEMO]
+Identificación Fiscal (Céd) : 3-101-100012
+Clasificación / Nivel       : Categoría C
+Estado Operativo Actual     : ACTIVO
+Términos de Pago            : 30 días crédito
+Moneda Preferida            : CRC
+Tiempo de Entrega (Lead Time): 8 días hábiles
+Correo Electrónico          : ventas@importadoracentroamericana-demo.com
+Teléfono de Contacto        : +506 2200-1012
+Dirección Física            : San José, Costa Rica - Edificio Prov 13
+
+  Contactos Autorizados (2):
+    * Ejecutivo 1 - Importadora Centroamericana — Cargo: Gerente de Cuentas Clave | Tel: +506 8800-2025 | Email: contacto1@prov13.com [CONTACTO PRINCIPAL]
+    * Ejecutivo 2 - Importadora Centroamericana — Cargo: Ejecutivo de Logística | Tel: +506 8800-2026 | Email: contacto2@prov13.com 
+
+  Catálogo de Productos y Servicios Suministrados (8):
+    * [E1-PRD-026] Ítem Operativo E1 #26 (Material) | Cat: Material Médico y Quirúrgico E1 | Costo Acordado: 38500 CRC | Lead Time: 7 días 
+    * [E1-PRD-041] Ítem Operativo E1 #41 (Material) | Cat: Material Médico y Quirúrgico E1 | Costo Acordado: 17875 CRC | Lead Time: 7 días 
+    * [E1-PRD-011] Ítem Operativo E1 #11 (Material) | Cat: Material Médico y Quirúrgico E1 | Costo Acordado: 17875 CRC | Lead Time: 7 días 
+    * [E1-PRD-027] Ítem Operativo E1 #27 (Empaque) | Cat: Empaque y Embalaje E1 | Costo Acordado: 34437.5 CRC | Lead Time: 4 días [PREFERIDO]
+    * [E1-PRD-056] Ítem Operativo E1 #56 (Material) | Cat: Material Médico y Quirúrgico E1 | Costo Acordado: 38500 CRC | Lead Time: 7 días 
+    * [E1-PRD-042] Ítem Operativo E1 #42 (Empaque) | Cat: Empaque y Embalaje E1 | Costo Acordado: 16625 CRC | Lead Time: 4 días [PREFERIDO]
+    * [E1-PRD-012] Ítem Operativo E1 #12 (Empaque) | Cat: Empaque y Embalaje E1 | Costo Acordado: 16625 CRC | Lead Time: 4 días [PREFERIDO]
+    * [E1-PRD-057] Ítem Operativo E1 #57 (Empaque) | Cat: Empaque y Embalaje E1 | Costo Acordado: 34437.5 CRC | Lead Time: 4 días [PREFERIDO]
+
+--------------------------------------------------------------------------------
+
+[PROVEEDOR #17]
+--------------------------------------------------------------------------------
+Nombre Comercial (Fantasía) : Insumos Médicos San José
+Razón Social (Legal)        : Insumos Médicos San José S.A. [DEMO]
+Identificación Fiscal (Céd) : 3-101-100010
+Clasificación / Nivel       : Categoría C
+Estado Operativo Actual     : ACTIVO
+Términos de Pago            : 30 días crédito
+Moneda Preferida            : CRC
+Tiempo de Entrega (Lead Time): 6 días hábiles
+Correo Electrónico          : ventas@insumosmdicossanjos-demo.com
+Teléfono de Contacto        : +506 2200-1010
+Dirección Física            : San José, Costa Rica - Edificio Prov 11
+
+  Contactos Autorizados (2):
+    * Ejecutivo 2 - Insumos Médicos San José — Cargo: Ejecutivo de Logística | Tel: +506 8800-2022 | Email: contacto2@prov11.com 
+    * Ejecutivo 1 - Insumos Médicos San José — Cargo: Gerente de Cuentas Clave | Tel: +506 8800-2021 | Email: contacto1@prov11.com [CONTACTO PRINCIPAL]
+
+  Catálogo de Productos y Servicios Suministrados (8):
+    * [E1-PRD-039] Ítem Operativo E1 #39 (Químicos) | Cat: Químicos y Reactivos E1 | Costo Acordado: 15125 CRC | Lead Time: 7 días 
+    * [E1-PRD-009] Ítem Operativo E1 #9 (Químicos) | Cat: Químicos y Reactivos E1 | Costo Acordado: 15125 CRC | Lead Time: 7 días 
+    * [E1-PRD-054] Ítem Operativo E1 #54 (Químicos) | Cat: Químicos y Reactivos E1 | Costo Acordado: 35750 CRC | Lead Time: 7 días 
+    * [E1-PRD-010] Ítem Operativo E1 #10 (Materia) | Cat: Materia Prima e Insumos E1 | Costo Acordado: 14250 CRC | Lead Time: 4 días [PREFERIDO]
+    * [E1-PRD-055] Ítem Operativo E1 #55 (Materia) | Cat: Materia Prima e Insumos E1 | Costo Acordado: 32062.5 CRC | Lead Time: 4 días [PREFERIDO]
+    * [E1-PRD-025] Ítem Operativo E1 #25 (Materia) | Cat: Materia Prima e Insumos E1 | Costo Acordado: 32062.5 CRC | Lead Time: 4 días [PREFERIDO]
+    * [E1-PRD-024] Ítem Operativo E1 #24 (Químicos) | Cat: Químicos y Reactivos E1 | Costo Acordado: 35750 CRC | Lead Time: 7 días 
+    * [E1-PRD-040] Ítem Operativo E1 #40 (Materia) | Cat: Materia Prima e Insumos E1 | Costo Acordado: 14250 CRC | Lead Time: 4 días [PREFERIDO]
+
+--------------------------------------------------------------------------------
+
+================================================================================
+                            FIN DEL INFORME DE PROVEEDORES                      
+                    DOCUMENTO GENERADO AUTOMATICAMENTE POR NEXOSUPPLY CR        
+================================================================================

@@ -6,6 +6,11 @@ import {
   ejecutarSincronizacionManualHandler,
   reintentarDocumentoHandler,
   listHistorialSincronizacionesHandler,
+  getOAuthStatusHandler,
+  getOAuthAuthUrlHandler,
+  revokeOAuthAccessHandler,
+  uploadTestOAuthFileHandler,
+  syncOperationalFilesOAuthHandler,
 } from '../controllers/conocimiento.controller';
 import { authenticate } from '../middlewares/auth.middleware';
 import { requireTenant } from '../middlewares/tenant.middleware';
@@ -30,5 +35,24 @@ router.post(
   reintentarDocumentoHandler
 );
 router.get('/sincronizaciones', listHistorialSincronizacionesHandler);
+
+// Endpoints OAuth 2.0 (Google Drive Personal)
+router.get('/oauth/status', getOAuthStatusHandler);
+router.get('/oauth/auth-url', getOAuthAuthUrlHandler);
+router.post(
+  '/oauth/revoke',
+  requirePermission(PERMISOS.EMPRESAS_CONFIGURAR),
+  revokeOAuthAccessHandler
+);
+router.post(
+  '/oauth/upload-test',
+  requirePermission(PERMISOS.EMPRESAS_CONFIGURAR),
+  uploadTestOAuthFileHandler
+);
+router.post(
+  '/oauth/sync-operational-files',
+  requirePermission(PERMISOS.EMPRESAS_CONFIGURAR),
+  syncOperationalFilesOAuthHandler
+);
 
 export default router;

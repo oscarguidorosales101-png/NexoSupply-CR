@@ -1,6 +1,13 @@
 import { QdrantClient } from '@qdrant/js-client-rest';
 import { env } from '../config/env';
 
+export class VectorStoreUnavailableError extends Error {
+  constructor(message: string = 'El motor de base de datos vectorial Qdrant no está disponible en http://localhost:6333.') {
+    super(message);
+    this.name = 'VectorStoreUnavailableError';
+  }
+}
+
 export interface VectorPoint {
   id: string; // UUID
   vector: number[];
@@ -28,29 +35,36 @@ export class VectorStoreService {
   private qdrantClient: QdrantClient | null = null;
   private isQdrantReachable: boolean = false;
   private defaultCollection: string = 'nexosupply_documents';
-  // Almacenamiento vectorial en memoria local de respaldo si Qdrant no está corriendo
-  private localVectorStore: Map<string, Map<string, VectorPoint>> = new Map();
+  private lastCheckTime: number = 0;
 
   constructor() {
-    this.initQdrant();
+    this.checkHealth().catch(() => {});
   }
 
-  private async initQdrant(): Promise<void> {
-    try {
-      this.qdrantClient = new QdrantClient({
-        url: env.QDRANT_URL || 'http://localhost:6333',
-        apiKey: env.QDRANT_API_KEY || undefined,
-        checkCompatibility: false,
-      });
+  public async checkHealth(): Promise<boolean> {
+    const now = Date.now();
+    // Cachear estado por 5 segundos para evitar sobrecarga en healthchecks repetidos
+    if (this.qdrantClient && now - this.lastCheckTime < 5000) {
+      return this.isQdrantReachable;
+    }
+    this.lastCheckTime = now;
 
-      // Validar si Qdrant responde
+    try {
+      if (!this.qdrantClient) {
+        this.qdrantClient = new QdrantClient({
+          url: env.QDRANT_URL || 'http://localhost:6333',
+          apiKey: env.QDRANT_API_KEY || undefined,
+          checkCompatibility: false,
+        });
+      }
+
       const collections = await this.qdrantClient.getCollections();
       this.isQdrantReachable = true;
-      console.log('[QDRANT] Conexión establecida con Qdrant Vector Engine en', env.QDRANT_URL);
       await this.ensureCollection(this.defaultCollection, 384);
+      return true;
     } catch {
       this.isQdrantReachable = false;
-      console.log('[VECTOR_STORE] Qdrant no está activo en', env.QDRANT_URL, '— Operando con Motor Vectorial Local en Memoria/MySQL.');
+      return false;
     }
   }
 
@@ -59,31 +73,27 @@ export class VectorStoreService {
   }
 
   public async ensureCollection(collectionName: string = this.defaultCollection, vectorSize: number = 384): Promise<void> {
-    if (this.isQdrantReachable && this.qdrantClient) {
-      try {
-        const collections = await this.qdrantClient.getCollections();
-        const exists = collections.collections.some((c) => c.name === collectionName);
+    if (!this.isQdrantReachable || !this.qdrantClient) return;
 
-        if (!exists) {
-          await this.qdrantClient.createCollection(collectionName, {
-            vectors: {
-              size: vectorSize,
-              distance: 'Cosine',
-            },
-          });
-        }
-      } catch (err: any) {
-        console.warn(`[QDRANT] Error verificando colección ${collectionName}:`, err.message);
+    try {
+      const collections = await this.qdrantClient.getCollections();
+      const exists = collections.collections.some((c) => c.name === collectionName);
+
+      if (!exists) {
+        await this.qdrantClient.createCollection(collectionName, {
+          vectors: {
+            size: vectorSize,
+            distance: 'Cosine',
+          },
+        });
       }
-    }
-
-    if (!this.localVectorStore.has(collectionName)) {
-      this.localVectorStore.set(collectionName, new Map());
+    } catch (err: any) {
+      console.warn(`[QDRANT] Advertencia verificando colección ${collectionName}:`, err.message);
     }
   }
 
   /**
-   * Inserta o actualiza vectores con metadatos
+   * Inserta o actualiza vectores con metadatos en Qdrant
    */
   public async upsertVectors(
     points: VectorPoint[],
@@ -91,29 +101,25 @@ export class VectorStoreService {
   ): Promise<void> {
     if (points.length === 0) return;
 
-    // 1. Guardar en Qdrant si está activo
-    if (this.isQdrantReachable && this.qdrantClient) {
-      try {
-        await this.qdrantClient.upsert(collectionName, {
-          wait: true,
-          points: points.map((p) => ({
-            id: p.id,
-            vector: p.vector,
-            payload: p.payload,
-          })),
-        });
-      } catch (err: any) {
-        console.warn('[QDRANT] Error en upsert Qdrant, persistiendo en almacén local:', err.message);
-      }
+    const isHealthy = await this.checkHealth();
+    if (!isHealthy || !this.qdrantClient) {
+      throw new VectorStoreUnavailableError(
+        'No se pudieron indexar los fragmentos vectoriales: El servidor Qdrant no responde en http://localhost:6333.'
+      );
     }
 
-    // 2. Siempre mantener copia en el almacén local para resiliencia y consultas inmediatas
-    if (!this.localVectorStore.has(collectionName)) {
-      this.localVectorStore.set(collectionName, new Map());
-    }
-    const store = this.localVectorStore.get(collectionName)!;
-    for (const p of points) {
-      store.set(p.id, p);
+    try {
+      await this.qdrantClient.upsert(collectionName, {
+        wait: true,
+        points: points.map((p) => ({
+          id: p.id,
+          vector: p.vector,
+          payload: p.payload,
+        })),
+      });
+    } catch (err: any) {
+      console.error('[QDRANT] Error en upsert Qdrant:', err.message);
+      throw new Error(`Error al persistir vectores en Qdrant: ${err.message}`);
     }
   }
 
@@ -127,33 +133,30 @@ export class VectorStoreService {
   ): Promise<void> {
     if (!empresaId) throw new Error('empresa_id es obligatorio para eliminar vectores');
 
-    if (this.isQdrantReachable && this.qdrantClient) {
-      try {
-        await this.qdrantClient.delete(collectionName, {
-          filter: {
-            must: [
-              { key: 'empresa_id', match: { value: empresaId } },
-              { key: 'documento_id', match: { value: documentoId } },
-            ],
-          },
-        });
-      } catch (err: any) {
-        console.warn('[QDRANT] Error eliminando vectores en Qdrant:', err.message);
-      }
+    const isHealthy = await this.checkHealth();
+    if (!isHealthy || !this.qdrantClient) {
+      // Si Qdrant está offline no bloqueamos la eliminación en MySQL pero emitimos advertencia
+      console.warn('[QDRANT] Omitiendo purga en Qdrant porque el servidor no está en ejecución.');
+      return;
     }
 
-    const store = this.localVectorStore.get(collectionName);
-    if (store) {
-      for (const [id, p] of store.entries()) {
-        if (p.payload.empresa_id === empresaId && p.payload.documento_id === documentoId) {
-          store.delete(id);
-        }
-      }
+    try {
+      await this.qdrantClient.delete(collectionName, {
+        filter: {
+          must: [
+            { key: 'empresa_id', match: { value: empresaId } },
+            { key: 'documento_id', match: { value: documentoId } },
+          ],
+        },
+      });
+    } catch (err: any) {
+      console.warn('[QDRANT] Advertencia eliminando vectores en Qdrant:', err.message);
     }
   }
 
   /**
    * Búsqueda por similitud semántica (Coseno) con FILTRO OBLIGATORIO de empresa
+   * SIN RESPALDO SILENCIOSO: Si Qdrant no está disponible, lanza VectorStoreUnavailableError.
    */
   public async searchSimilar(
     queryVector: number[],
@@ -166,77 +169,46 @@ export class VectorStoreService {
       throw new Error('VIOLACION DE SEGURIDAD MULTIEMPRESA: No se permite búsqueda vectorial sin filtro obligatorio de empresa_id.');
     }
 
-    // 1. Intentar con Qdrant si está activo
-    if (this.isQdrantReachable && this.qdrantClient) {
-      try {
-        const clientAny = this.qdrantClient as any;
-        const searchFn = clientAny.search || clientAny.query;
-        if (typeof searchFn === 'function') {
-          const searchResult = await searchFn.call(this.qdrantClient, collectionName, {
-            vector: queryVector,
-            limit,
-            score_threshold: minScore,
-            filter: {
-              must: [
-                {
-                  key: 'empresa_id',
-                  match: { value: empresaId },
-                },
-              ],
+    const isHealthy = await this.checkHealth();
+    if (!isHealthy || !this.qdrantClient) {
+      throw new VectorStoreUnavailableError(
+        'Búsqueda vectorial no disponible: El motor Qdrant no está activo en http://localhost:6333.'
+      );
+    }
+
+    try {
+      const clientAny = this.qdrantClient as any;
+      const searchFn = clientAny.search || clientAny.query;
+      if (typeof searchFn !== 'function') {
+        throw new Error('El cliente de Qdrant no soporta el método search/query esperado.');
+      }
+
+      const searchResult = await searchFn.call(this.qdrantClient, collectionName, {
+        vector: queryVector,
+        limit,
+        score_threshold: minScore,
+        filter: {
+          must: [
+            {
+              key: 'empresa_id',
+              match: { value: empresaId },
             },
-          });
+          ],
+        },
+      });
 
-          if (Array.isArray(searchResult) && searchResult.length > 0) {
-            return searchResult.map((r: any) => ({
-              id: String(r.id),
-              score: Number((r.score || 0).toFixed(4)),
-              payload: r.payload as VectorPoint['payload'],
-            }));
-          }
-        }
-      } catch (err: any) {
-        console.warn('[QDRANT] Error en búsqueda Qdrant, utilizando motor local:', err.message);
+      if (Array.isArray(searchResult)) {
+        return searchResult.map((r: any) => ({
+          id: String(r.id),
+          score: Number((r.score || 0).toFixed(4)),
+          payload: r.payload as VectorPoint['payload'],
+        }));
       }
+      return [];
+    } catch (err: any) {
+      console.error('[QDRANT] Error en consulta vectorial:', err.message);
+      throw err;
     }
-
-    // 2. Motor Local en Memoria con filtrado estricto por empresa_id
-    const store = this.localVectorStore.get(collectionName);
-    if (!store || store.size === 0) return [];
-
-    const matches: SearchMatch[] = [];
-
-    for (const point of store.values()) {
-      // FILTRO ESTRICTO MULTIEMPRESA
-      if (point.payload.empresa_id !== empresaId) continue;
-
-      const sim = this.cosineSimilarity(queryVector, point.vector);
-      if (sim >= minScore) {
-        matches.push({
-          id: point.id,
-          score: Number(sim.toFixed(4)),
-          payload: point.payload,
-        });
-      }
-    }
-
-    // Ordenar de mayor a menor similitud
-    matches.sort((a, b) => b.score - a.score);
-    return matches.slice(0, limit);
-  }
-
-  private cosineSimilarity(a: number[], b: number[]): number {
-    let dot = 0;
-    let normA = 0;
-    let normB = 0;
-
-    for (let i = 0; i < a.length; i++) {
-      dot += a[i] * b[i];
-      normA += a[i] * a[i];
-      normB += b[i] * b[i];
-    }
-
-    if (normA === 0 || normB === 0) return 0;
-    return dot / (Math.sqrt(normA) * Math.sqrt(normB));
   }
 }
 

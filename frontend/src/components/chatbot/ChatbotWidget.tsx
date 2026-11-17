@@ -278,7 +278,7 @@ export const ChatbotWidget: React.FC = () => {
                 <Sparkles className="w-3 h-3 text-amber-400" />
               </span>
               <span className="text-[10px] text-blue-200 block leading-tight">
-                {status?.activo ? 'DeepSeek Conectado' : 'RAG Documental (Drive)'}
+                MySQL + Drive RAG
               </span>
             </div>
           </button>
@@ -352,9 +352,7 @@ export const ChatbotWidget: React.FC = () => {
             <span className="flex items-center space-x-1.5">
               <Cpu className="w-3.5 h-3.5 text-blue-600" />
               <span>
-                {status?.activo
-                  ? `${status?.motor || 'DeepSeek AI'} Activo`
-                  : 'RAG Documental (Google Drive)'}
+                {status?.motor || 'MySQL Operativo + RAG Google Drive'}
               </span>
             </span>
             <span className="font-medium text-slate-500">{activeCompany?.monedaBase || 'CRC'}</span>

@@ -1,0 +1,574 @@
+================================================================================
+NEXOSUPPLY CR - ESTADO DE EXISTENCIAS E INVENTARIO POR ALMACEN
+================================================================================
+Empresa: Distribuidora del Pacífico (e1a2b3c4-d5e6-4f7a-8b9c-0d1e2f3a4b5c)
+Fecha: 2026-11-17
+Fuente: MySQL (tabla inventario_stock)
+
+DESGLOSE DE STOCK POR UBICACION:
+
+================================================================================
+ALMACEN: Almacén Central Alajuela (ALM-CENTRAL)
+================================================================================
+- Producto: Guantes de Nitrilo Grado Médico Caja x 100 (SKU: MED-GUAN-01)
+  Disponible: 350 | Reservado: 0 | Minimo: 100
+  Costo Promedio Unitario: CRC 3200.00
+- Producto: Cinta de Embalaje Industrial 48mm x 100m Transparente (SKU: FER-CINT-01)
+  Disponible: 185 | Reservado: 0 | Minimo: 50
+  Costo Promedio Unitario: CRC 1150.00
+
+================================================================================
+ALMACEN: Centro de Distribución Puntarenas (ALM-PACIFICO)
+================================================================================
+
+================================================================================
+ALMACEN: Almacén Central (Distribuidora del Pacífico) (E1-ALM-01)
+================================================================================
+- Producto: Ítem Operativo E1 #27 (Empaque) (SKU: E1-PRD-027)
+  Disponible: 241 | Reservado: 0 | Minimo: 80
+  Costo Promedio Unitario: CRC 36250.00
+- Producto: Ítem Operativo E1 #28 (Herramientas) (SKU: E1-PRD-028)
+  Disponible: 42 | Reservado: 0 | Minimo: 85
+  Costo Promedio Unitario: CRC 37500.00
+- Producto: Ítem Operativo E1 #23 (Herramientas) (SKU: E1-PRD-023)
+  Disponible: 189 | Reservado: 0 | Minimo: 60
+  Costo Promedio Unitario: CRC 31250.00
+- Producto: Ítem Operativo E1 #57 (Empaque) (SKU: E1-PRD-057)
+  Disponible: 331 | Reservado: 0 | Minimo: 80
+  Costo Promedio Unitario: CRC 36250.00
+- Producto: Ítem Operativo E1 #51 (Material) (SKU: E1-PRD-051)
+  Disponible: 253 | Reservado: 0 | Minimo: 50
+  Costo Promedio Unitario: CRC 28750.00
+- Producto: Ítem Operativo E1 #12 (Empaque) (SKU: E1-PRD-012)
+  Disponible: 196 | Reservado: 0 | Minimo: 80
+  Costo Promedio Unitario: CRC 17500.00
+- Producto: Ítem Operativo E1 #5 (Materia) (SKU: E1-PRD-005)
+  Disponible: 105 | Reservado: 0 | Minimo: 45
+  Costo Promedio Unitario: CRC 8750.00
+- Producto: Ítem Operativo E1 #46 (Material) (SKU: E1-PRD-046)
+  Disponible: 188 | Reservado: 0 | Minimo: 25
+  Costo Promedio Unitario: CRC 22500.00
+- Producto: Ítem Operativo E1 #60 (Materia) (SKU: E1-PRD-060)
+  Disponible: 220 | Reservado: 0 | Minimo: 20
+  Costo Promedio Unitario: CRC 2500.00
+- Producto: Ítem Operativo E1 #42 (Empaque) (SKU: E1-PRD-042)
+  Disponible: 40 | Reservado: 0 | Minimo: 80
+  Costo Promedio Unitario: CRC 17500.00
+- Producto: Ítem Operativo E1 #39 (Químicos) (SKU: E1-PRD-039)
+  Disponible: 247 | Reservado: 0 | Minimo: 65
+  Costo Promedio Unitario: CRC 13750.00
+- Producto: Ítem Operativo E1 #19 (Químicos) (SKU: E1-PRD-019)
+  Disponible: 137 | Reservado: 0 | Minimo: 40
+  Costo Promedio Unitario: CRC 26250.00
+- Producto: Ítem Operativo E1 #36 (Material) (SKU: E1-PRD-036)
+  Disponible: 208 | Reservado: 0 | Minimo: 50
+  Costo Promedio Unitario: CRC 10000.00
+- Producto: Ítem Operativo E1 #7 (Empaque) (SKU: E1-PRD-007)
+  Disponible: 27 | Reservado: 0 | Minimo: 55
+  Costo Promedio Unitario: CRC 11250.00
+- Producto: Ítem Operativo E1 #22 (Empaque) (SKU: E1-PRD-022)
+  Disponible: 176 | Reservado: 0 | Minimo: 55
+  Costo Promedio Unitario: CRC 30000.00
+- Producto: Ítem Operativo E1 #43 (Herramientas) (SKU: E1-PRD-043)
+  Disponible: 299 | Reservado: 0 | Minimo: 85
+  Costo Promedio Unitario: CRC 18750.00
+- Producto: Ítem Operativo E1 #55 (Materia) (SKU: E1-PRD-055)
+  Disponible: 305 | Reservado: 0 | Minimo: 70
+  Costo Promedio Unitario: CRC 33750.00
+- Producto: Ítem Operativo E1 #47 (Empaque) (SKU: E1-PRD-047)
+  Disponible: 201 | Reservado: 0 | Minimo: 30
+  Costo Promedio Unitario: CRC 23750.00
+- Producto: Ítem Operativo E1 #45 (Materia) (SKU: E1-PRD-045)
+  Disponible: 175 | Reservado: 0 | Minimo: 20
+  Costo Promedio Unitario: CRC 21250.00
+- Producto: Ítem Operativo E1 #2 (Empaque) (SKU: E1-PRD-002)
+  Disponible: 66 | Reservado: 0 | Minimo: 30
+  Costo Promedio Unitario: CRC 5000.00
+- Producto: Ítem Operativo E1 #3 (Herramientas) (SKU: E1-PRD-003)
+  Disponible: 79 | Reservado: 0 | Minimo: 35
+  Costo Promedio Unitario: CRC 6250.00
+- Producto: Ítem Operativo E1 #18 (Herramientas) (SKU: E1-PRD-018)
+  Disponible: 124 | Reservado: 0 | Minimo: 35
+  Costo Promedio Unitario: CRC 25000.00
+- Producto: Ítem Operativo E1 #54 (Químicos) (SKU: E1-PRD-054)
+  Disponible: 292 | Reservado: 0 | Minimo: 65
+  Costo Promedio Unitario: CRC 32500.00
+- Producto: Ítem Operativo E1 #33 (Herramientas) (SKU: E1-PRD-033)
+  Disponible: 169 | Reservado: 0 | Minimo: 35
+  Costo Promedio Unitario: CRC 6250.00
+- Producto: Ítem Operativo E1 #35 (Materia) (SKU: E1-PRD-035)
+  Disponible: 22 | Reservado: 0 | Minimo: 45
+  Costo Promedio Unitario: CRC 8750.00
+- Producto: Ítem Operativo E1 #29 (Químicos) (SKU: E1-PRD-029)
+  Disponible: 267 | Reservado: 0 | Minimo: 90
+  Costo Promedio Unitario: CRC 38750.00
+- Producto: Ítem Operativo E1 #4 (Químicos) (SKU: E1-PRD-004)
+  Disponible: 92 | Reservado: 0 | Minimo: 40
+  Costo Promedio Unitario: CRC 7500.00
+- Producto: Ítem Operativo E1 #59 (Químicos) (SKU: E1-PRD-059)
+  Disponible: 357 | Reservado: 0 | Minimo: 90
+  Costo Promedio Unitario: CRC 38750.00
+- Producto: Ítem Operativo E1 #52 (Empaque) (SKU: E1-PRD-052)
+  Disponible: 266 | Reservado: 0 | Minimo: 55
+  Costo Promedio Unitario: CRC 30000.00
+- Producto: Ítem Operativo E1 #21 (Material) (SKU: E1-PRD-021)
+  Disponible: 25 | Reservado: 0 | Minimo: 50
+  Costo Promedio Unitario: CRC 28750.00
+- Producto: Ítem Operativo E1 #16 (Material) (SKU: E1-PRD-016)
+  Disponible: 98 | Reservado: 0 | Minimo: 25
+  Costo Promedio Unitario: CRC 22500.00
+- Producto: Ítem Operativo E1 #13 (Herramientas) (SKU: E1-PRD-013)
+  Disponible: 209 | Reservado: 0 | Minimo: 85
+  Costo Promedio Unitario: CRC 18750.00
+- Producto: Ítem Operativo E1 #40 (Materia) (SKU: E1-PRD-040)
+  Disponible: 260 | Reservado: 0 | Minimo: 70
+  Costo Promedio Unitario: CRC 15000.00
+- Producto: Ítem Operativo E1 #8 (Herramientas) (SKU: E1-PRD-008)
+  Disponible: 144 | Reservado: 0 | Minimo: 60
+  Costo Promedio Unitario: CRC 12500.00
+- Producto: Ítem Operativo E1 #32 (Empaque) (SKU: E1-PRD-032)
+  Disponible: 156 | Reservado: 0 | Minimo: 30
+  Costo Promedio Unitario: CRC 5000.00
+- Producto: Ítem Operativo E1 #41 (Material) (SKU: E1-PRD-041)
+  Disponible: 273 | Reservado: 0 | Minimo: 75
+  Costo Promedio Unitario: CRC 16250.00
+- Producto: Ítem Operativo E1 #24 (Químicos) (SKU: E1-PRD-024)
+  Disponible: 202 | Reservado: 0 | Minimo: 65
+  Costo Promedio Unitario: CRC 32500.00
+- Producto: Ítem Operativo E1 #6 (Material) (SKU: E1-PRD-006)
+  Disponible: 118 | Reservado: 0 | Minimo: 50
+  Costo Promedio Unitario: CRC 10000.00
+- Producto: Ítem Operativo E1 #44 (Químicos) (SKU: E1-PRD-044)
+  Disponible: 312 | Reservado: 0 | Minimo: 90
+  Costo Promedio Unitario: CRC 20000.00
+- Producto: Ítem Operativo E1 #34 (Químicos) (SKU: E1-PRD-034)
+  Disponible: 182 | Reservado: 0 | Minimo: 40
+  Costo Promedio Unitario: CRC 7500.00
+- Producto: Ítem Operativo E1 #25 (Materia) (SKU: E1-PRD-025)
+  Disponible: 215 | Reservado: 0 | Minimo: 70
+  Costo Promedio Unitario: CRC 33750.00
+- Producto: Ítem Operativo E1 #11 (Material) (SKU: E1-PRD-011)
+  Disponible: 183 | Reservado: 0 | Minimo: 75
+  Costo Promedio Unitario: CRC 16250.00
+- Producto: Ítem Operativo E1 #50 (Materia) (SKU: E1-PRD-050)
+  Disponible: 240 | Reservado: 0 | Minimo: 45
+  Costo Promedio Unitario: CRC 27500.00
+- Producto: Ítem Operativo E1 #17 (Empaque) (SKU: E1-PRD-017)
+  Disponible: 111 | Reservado: 0 | Minimo: 30
+  Costo Promedio Unitario: CRC 23750.00
+- Producto: Ítem Operativo E1 #56 (Material) (SKU: E1-PRD-056)
+  Disponible: 37 | Reservado: 0 | Minimo: 75
+  Costo Promedio Unitario: CRC 35000.00
+- Producto: Ítem Operativo E1 #58 (Herramientas) (SKU: E1-PRD-058)
+  Disponible: 344 | Reservado: 0 | Minimo: 85
+  Costo Promedio Unitario: CRC 37500.00
+- Producto: Ítem Operativo E1 #38 (Herramientas) (SKU: E1-PRD-038)
+  Disponible: 234 | Reservado: 0 | Minimo: 60
+  Costo Promedio Unitario: CRC 12500.00
+- Producto: Ítem Operativo E1 #10 (Materia) (SKU: E1-PRD-010)
+  Disponible: 170 | Reservado: 0 | Minimo: 70
+  Costo Promedio Unitario: CRC 15000.00
+- Producto: Ítem Operativo E1 #53 (Herramientas) (SKU: E1-PRD-053)
+  Disponible: 279 | Reservado: 0 | Minimo: 60
+  Costo Promedio Unitario: CRC 31250.00
+- Producto: Ítem Operativo E1 #31 (Material) (SKU: E1-PRD-031)
+  Disponible: 143 | Reservado: 0 | Minimo: 25
+  Costo Promedio Unitario: CRC 3750.00
+- Producto: Ítem Operativo E1 #9 (Químicos) (SKU: E1-PRD-009)
+  Disponible: 157 | Reservado: 0 | Minimo: 65
+  Costo Promedio Unitario: CRC 13750.00
+- Producto: Ítem Operativo E1 #15 (Materia) (SKU: E1-PRD-015)
+  Disponible: 85 | Reservado: 0 | Minimo: 20
+  Costo Promedio Unitario: CRC 21250.00
+- Producto: Ítem Operativo E1 #26 (Material) (SKU: E1-PRD-026)
+  Disponible: 228 | Reservado: 0 | Minimo: 75
+  Costo Promedio Unitario: CRC 35000.00
+- Producto: Ítem Operativo E1 #20 (Materia) (SKU: E1-PRD-020)
+  Disponible: 150 | Reservado: 0 | Minimo: 45
+  Costo Promedio Unitario: CRC 27500.00
+- Producto: Ítem Operativo E1 #49 (Químicos) (SKU: E1-PRD-049)
+  Disponible: 20 | Reservado: 0 | Minimo: 40
+  Costo Promedio Unitario: CRC 26250.00
+- Producto: Ítem Operativo E1 #1 (Material) (SKU: E1-PRD-001)
+  Disponible: 53 | Reservado: 0 | Minimo: 25
+  Costo Promedio Unitario: CRC 3750.00
+- Producto: Ítem Operativo E1 #37 (Empaque) (SKU: E1-PRD-037)
+  Disponible: 221 | Reservado: 0 | Minimo: 55
+  Costo Promedio Unitario: CRC 11250.00
+- Producto: Ítem Operativo E1 #30 (Materia) (SKU: E1-PRD-030)
+  Disponible: 130 | Reservado: 0 | Minimo: 20
+  Costo Promedio Unitario: CRC 2500.00
+- Producto: Ítem Operativo E1 #48 (Herramientas) (SKU: E1-PRD-048)
+  Disponible: 214 | Reservado: 0 | Minimo: 35
+  Costo Promedio Unitario: CRC 25000.00
+- Producto: Ítem Operativo E1 #14 (Químicos) (SKU: E1-PRD-014)
+  Disponible: 45 | Reservado: 0 | Minimo: 90
+  Costo Promedio Unitario: CRC 20000.00
+
+================================================================================
+ALMACEN: Centro de Distribución Logística (E1-ALM-02)
+================================================================================
+- Producto: Ítem Operativo E1 #44 (Químicos) (SKU: E1-PRD-044)
+  Disponible: 312 | Reservado: 0 | Minimo: 90
+  Costo Promedio Unitario: CRC 20000.00
+- Producto: Ítem Operativo E1 #18 (Herramientas) (SKU: E1-PRD-018)
+  Disponible: 124 | Reservado: 0 | Minimo: 35
+  Costo Promedio Unitario: CRC 25000.00
+- Producto: Ítem Operativo E1 #55 (Materia) (SKU: E1-PRD-055)
+  Disponible: 305 | Reservado: 0 | Minimo: 70
+  Costo Promedio Unitario: CRC 33750.00
+- Producto: Ítem Operativo E1 #6 (Material) (SKU: E1-PRD-006)
+  Disponible: 118 | Reservado: 0 | Minimo: 50
+  Costo Promedio Unitario: CRC 10000.00
+- Producto: Ítem Operativo E1 #60 (Materia) (SKU: E1-PRD-060)
+  Disponible: 220 | Reservado: 0 | Minimo: 20
+  Costo Promedio Unitario: CRC 2500.00
+- Producto: Ítem Operativo E1 #13 (Herramientas) (SKU: E1-PRD-013)
+  Disponible: 209 | Reservado: 0 | Minimo: 85
+  Costo Promedio Unitario: CRC 18750.00
+- Producto: Ítem Operativo E1 #33 (Herramientas) (SKU: E1-PRD-033)
+  Disponible: 169 | Reservado: 0 | Minimo: 35
+  Costo Promedio Unitario: CRC 6250.00
+- Producto: Ítem Operativo E1 #39 (Químicos) (SKU: E1-PRD-039)
+  Disponible: 247 | Reservado: 0 | Minimo: 65
+  Costo Promedio Unitario: CRC 13750.00
+- Producto: Ítem Operativo E1 #3 (Herramientas) (SKU: E1-PRD-003)
+  Disponible: 79 | Reservado: 0 | Minimo: 35
+  Costo Promedio Unitario: CRC 6250.00
+- Producto: Ítem Operativo E1 #38 (Herramientas) (SKU: E1-PRD-038)
+  Disponible: 234 | Reservado: 0 | Minimo: 60
+  Costo Promedio Unitario: CRC 12500.00
+- Producto: Ítem Operativo E1 #15 (Materia) (SKU: E1-PRD-015)
+  Disponible: 85 | Reservado: 0 | Minimo: 20
+  Costo Promedio Unitario: CRC 21250.00
+- Producto: Ítem Operativo E1 #41 (Material) (SKU: E1-PRD-041)
+  Disponible: 273 | Reservado: 0 | Minimo: 75
+  Costo Promedio Unitario: CRC 16250.00
+- Producto: Ítem Operativo E1 #10 (Materia) (SKU: E1-PRD-010)
+  Disponible: 170 | Reservado: 0 | Minimo: 70
+  Costo Promedio Unitario: CRC 15000.00
+- Producto: Ítem Operativo E1 #24 (Químicos) (SKU: E1-PRD-024)
+  Disponible: 202 | Reservado: 0 | Minimo: 65
+  Costo Promedio Unitario: CRC 32500.00
+- Producto: Ítem Operativo E1 #42 (Empaque) (SKU: E1-PRD-042)
+  Disponible: 40 | Reservado: 0 | Minimo: 80
+  Costo Promedio Unitario: CRC 17500.00
+- Producto: Ítem Operativo E1 #37 (Empaque) (SKU: E1-PRD-037)
+  Disponible: 221 | Reservado: 0 | Minimo: 55
+  Costo Promedio Unitario: CRC 11250.00
+- Producto: Ítem Operativo E1 #11 (Material) (SKU: E1-PRD-011)
+  Disponible: 183 | Reservado: 0 | Minimo: 75
+  Costo Promedio Unitario: CRC 16250.00
+- Producto: Ítem Operativo E1 #43 (Herramientas) (SKU: E1-PRD-043)
+  Disponible: 299 | Reservado: 0 | Minimo: 85
+  Costo Promedio Unitario: CRC 18750.00
+- Producto: Ítem Operativo E1 #22 (Empaque) (SKU: E1-PRD-022)
+  Disponible: 176 | Reservado: 0 | Minimo: 55
+  Costo Promedio Unitario: CRC 30000.00
+- Producto: Ítem Operativo E1 #54 (Químicos) (SKU: E1-PRD-054)
+  Disponible: 292 | Reservado: 0 | Minimo: 65
+  Costo Promedio Unitario: CRC 32500.00
+- Producto: Ítem Operativo E1 #47 (Empaque) (SKU: E1-PRD-047)
+  Disponible: 201 | Reservado: 0 | Minimo: 30
+  Costo Promedio Unitario: CRC 23750.00
+- Producto: Ítem Operativo E1 #23 (Herramientas) (SKU: E1-PRD-023)
+  Disponible: 189 | Reservado: 0 | Minimo: 60
+  Costo Promedio Unitario: CRC 31250.00
+- Producto: Ítem Operativo E1 #4 (Químicos) (SKU: E1-PRD-004)
+  Disponible: 92 | Reservado: 0 | Minimo: 40
+  Costo Promedio Unitario: CRC 7500.00
+- Producto: Ítem Operativo E1 #32 (Empaque) (SKU: E1-PRD-032)
+  Disponible: 156 | Reservado: 0 | Minimo: 30
+  Costo Promedio Unitario: CRC 5000.00
+- Producto: Ítem Operativo E1 #16 (Material) (SKU: E1-PRD-016)
+  Disponible: 98 | Reservado: 0 | Minimo: 25
+  Costo Promedio Unitario: CRC 22500.00
+- Producto: Ítem Operativo E1 #40 (Materia) (SKU: E1-PRD-040)
+  Disponible: 260 | Reservado: 0 | Minimo: 70
+  Costo Promedio Unitario: CRC 15000.00
+- Producto: Ítem Operativo E1 #57 (Empaque) (SKU: E1-PRD-057)
+  Disponible: 331 | Reservado: 0 | Minimo: 80
+  Costo Promedio Unitario: CRC 36250.00
+- Producto: Ítem Operativo E1 #36 (Material) (SKU: E1-PRD-036)
+  Disponible: 208 | Reservado: 0 | Minimo: 50
+  Costo Promedio Unitario: CRC 10000.00
+- Producto: Ítem Operativo E1 #58 (Herramientas) (SKU: E1-PRD-058)
+  Disponible: 344 | Reservado: 0 | Minimo: 85
+  Costo Promedio Unitario: CRC 37500.00
+- Producto: Ítem Operativo E1 #45 (Materia) (SKU: E1-PRD-045)
+  Disponible: 175 | Reservado: 0 | Minimo: 20
+  Costo Promedio Unitario: CRC 21250.00
+- Producto: Ítem Operativo E1 #19 (Químicos) (SKU: E1-PRD-019)
+  Disponible: 137 | Reservado: 0 | Minimo: 40
+  Costo Promedio Unitario: CRC 26250.00
+- Producto: Ítem Operativo E1 #21 (Material) (SKU: E1-PRD-021)
+  Disponible: 25 | Reservado: 0 | Minimo: 50
+  Costo Promedio Unitario: CRC 28750.00
+- Producto: Ítem Operativo E1 #12 (Empaque) (SKU: E1-PRD-012)
+  Disponible: 196 | Reservado: 0 | Minimo: 80
+  Costo Promedio Unitario: CRC 17500.00
+- Producto: Ítem Operativo E1 #5 (Materia) (SKU: E1-PRD-005)
+  Disponible: 105 | Reservado: 0 | Minimo: 45
+  Costo Promedio Unitario: CRC 8750.00
+- Producto: Ítem Operativo E1 #34 (Químicos) (SKU: E1-PRD-034)
+  Disponible: 182 | Reservado: 0 | Minimo: 40
+  Costo Promedio Unitario: CRC 7500.00
+- Producto: Ítem Operativo E1 #35 (Materia) (SKU: E1-PRD-035)
+  Disponible: 22 | Reservado: 0 | Minimo: 45
+  Costo Promedio Unitario: CRC 8750.00
+- Producto: Ítem Operativo E1 #29 (Químicos) (SKU: E1-PRD-029)
+  Disponible: 267 | Reservado: 0 | Minimo: 90
+  Costo Promedio Unitario: CRC 38750.00
+- Producto: Ítem Operativo E1 #26 (Material) (SKU: E1-PRD-026)
+  Disponible: 228 | Reservado: 0 | Minimo: 75
+  Costo Promedio Unitario: CRC 35000.00
+- Producto: Ítem Operativo E1 #1 (Material) (SKU: E1-PRD-001)
+  Disponible: 53 | Reservado: 0 | Minimo: 25
+  Costo Promedio Unitario: CRC 3750.00
+- Producto: Ítem Operativo E1 #28 (Herramientas) (SKU: E1-PRD-028)
+  Disponible: 42 | Reservado: 0 | Minimo: 85
+  Costo Promedio Unitario: CRC 37500.00
+- Producto: Ítem Operativo E1 #50 (Materia) (SKU: E1-PRD-050)
+  Disponible: 240 | Reservado: 0 | Minimo: 45
+  Costo Promedio Unitario: CRC 27500.00
+- Producto: Ítem Operativo E1 #53 (Herramientas) (SKU: E1-PRD-053)
+  Disponible: 279 | Reservado: 0 | Minimo: 60
+  Costo Promedio Unitario: CRC 31250.00
+- Producto: Ítem Operativo E1 #25 (Materia) (SKU: E1-PRD-025)
+  Disponible: 215 | Reservado: 0 | Minimo: 70
+  Costo Promedio Unitario: CRC 33750.00
+- Producto: Ítem Operativo E1 #27 (Empaque) (SKU: E1-PRD-027)
+  Disponible: 241 | Reservado: 0 | Minimo: 80
+  Costo Promedio Unitario: CRC 36250.00
+- Producto: Ítem Operativo E1 #49 (Químicos) (SKU: E1-PRD-049)
+  Disponible: 20 | Reservado: 0 | Minimo: 40
+  Costo Promedio Unitario: CRC 26250.00
+- Producto: Ítem Operativo E1 #48 (Herramientas) (SKU: E1-PRD-048)
+  Disponible: 214 | Reservado: 0 | Minimo: 35
+  Costo Promedio Unitario: CRC 25000.00
+- Producto: Ítem Operativo E1 #30 (Materia) (SKU: E1-PRD-030)
+  Disponible: 130 | Reservado: 0 | Minimo: 20
+  Costo Promedio Unitario: CRC 2500.00
+- Producto: Ítem Operativo E1 #17 (Empaque) (SKU: E1-PRD-017)
+  Disponible: 111 | Reservado: 0 | Minimo: 30
+  Costo Promedio Unitario: CRC 23750.00
+- Producto: Ítem Operativo E1 #20 (Materia) (SKU: E1-PRD-020)
+  Disponible: 150 | Reservado: 0 | Minimo: 45
+  Costo Promedio Unitario: CRC 27500.00
+- Producto: Ítem Operativo E1 #31 (Material) (SKU: E1-PRD-031)
+  Disponible: 143 | Reservado: 0 | Minimo: 25
+  Costo Promedio Unitario: CRC 3750.00
+- Producto: Ítem Operativo E1 #7 (Empaque) (SKU: E1-PRD-007)
+  Disponible: 27 | Reservado: 0 | Minimo: 55
+  Costo Promedio Unitario: CRC 11250.00
+- Producto: Ítem Operativo E1 #56 (Material) (SKU: E1-PRD-056)
+  Disponible: 37 | Reservado: 0 | Minimo: 75
+  Costo Promedio Unitario: CRC 35000.00
+- Producto: Ítem Operativo E1 #46 (Material) (SKU: E1-PRD-046)
+  Disponible: 188 | Reservado: 0 | Minimo: 25
+  Costo Promedio Unitario: CRC 22500.00
+- Producto: Ítem Operativo E1 #9 (Químicos) (SKU: E1-PRD-009)
+  Disponible: 157 | Reservado: 0 | Minimo: 65
+  Costo Promedio Unitario: CRC 13750.00
+- Producto: Ítem Operativo E1 #2 (Empaque) (SKU: E1-PRD-002)
+  Disponible: 66 | Reservado: 0 | Minimo: 30
+  Costo Promedio Unitario: CRC 5000.00
+- Producto: Ítem Operativo E1 #52 (Empaque) (SKU: E1-PRD-052)
+  Disponible: 266 | Reservado: 0 | Minimo: 55
+  Costo Promedio Unitario: CRC 30000.00
+- Producto: Ítem Operativo E1 #8 (Herramientas) (SKU: E1-PRD-008)
+  Disponible: 144 | Reservado: 0 | Minimo: 60
+  Costo Promedio Unitario: CRC 12500.00
+- Producto: Ítem Operativo E1 #14 (Químicos) (SKU: E1-PRD-014)
+  Disponible: 45 | Reservado: 0 | Minimo: 90
+  Costo Promedio Unitario: CRC 20000.00
+- Producto: Ítem Operativo E1 #59 (Químicos) (SKU: E1-PRD-059)
+  Disponible: 357 | Reservado: 0 | Minimo: 90
+  Costo Promedio Unitario: CRC 38750.00
+- Producto: Ítem Operativo E1 #51 (Material) (SKU: E1-PRD-051)
+  Disponible: 253 | Reservado: 0 | Minimo: 50
+  Costo Promedio Unitario: CRC 28750.00
+
+================================================================================
+ALMACEN: Bodega de Respuesto y Tránsito (E1-ALM-03)
+================================================================================
+- Producto: Ítem Operativo E1 #47 (Empaque) (SKU: E1-PRD-047)
+  Disponible: 201 | Reservado: 0 | Minimo: 30
+  Costo Promedio Unitario: CRC 23750.00
+- Producto: Ítem Operativo E1 #13 (Herramientas) (SKU: E1-PRD-013)
+  Disponible: 209 | Reservado: 0 | Minimo: 85
+  Costo Promedio Unitario: CRC 18750.00
+- Producto: Ítem Operativo E1 #5 (Materia) (SKU: E1-PRD-005)
+  Disponible: 105 | Reservado: 0 | Minimo: 45
+  Costo Promedio Unitario: CRC 8750.00
+- Producto: Ítem Operativo E1 #18 (Herramientas) (SKU: E1-PRD-018)
+  Disponible: 124 | Reservado: 0 | Minimo: 35
+  Costo Promedio Unitario: CRC 25000.00
+- Producto: Ítem Operativo E1 #4 (Químicos) (SKU: E1-PRD-004)
+  Disponible: 92 | Reservado: 0 | Minimo: 40
+  Costo Promedio Unitario: CRC 7500.00
+- Producto: Ítem Operativo E1 #42 (Empaque) (SKU: E1-PRD-042)
+  Disponible: 40 | Reservado: 0 | Minimo: 80
+  Costo Promedio Unitario: CRC 17500.00
+- Producto: Ítem Operativo E1 #51 (Material) (SKU: E1-PRD-051)
+  Disponible: 253 | Reservado: 0 | Minimo: 50
+  Costo Promedio Unitario: CRC 28750.00
+- Producto: Ítem Operativo E1 #55 (Materia) (SKU: E1-PRD-055)
+  Disponible: 305 | Reservado: 0 | Minimo: 70
+  Costo Promedio Unitario: CRC 33750.00
+- Producto: Ítem Operativo E1 #15 (Materia) (SKU: E1-PRD-015)
+  Disponible: 85 | Reservado: 0 | Minimo: 20
+  Costo Promedio Unitario: CRC 21250.00
+- Producto: Ítem Operativo E1 #27 (Empaque) (SKU: E1-PRD-027)
+  Disponible: 241 | Reservado: 0 | Minimo: 80
+  Costo Promedio Unitario: CRC 36250.00
+- Producto: Ítem Operativo E1 #58 (Herramientas) (SKU: E1-PRD-058)
+  Disponible: 344 | Reservado: 0 | Minimo: 85
+  Costo Promedio Unitario: CRC 37500.00
+- Producto: Ítem Operativo E1 #34 (Químicos) (SKU: E1-PRD-034)
+  Disponible: 182 | Reservado: 0 | Minimo: 40
+  Costo Promedio Unitario: CRC 7500.00
+- Producto: Ítem Operativo E1 #40 (Materia) (SKU: E1-PRD-040)
+  Disponible: 260 | Reservado: 0 | Minimo: 70
+  Costo Promedio Unitario: CRC 15000.00
+- Producto: Ítem Operativo E1 #38 (Herramientas) (SKU: E1-PRD-038)
+  Disponible: 234 | Reservado: 0 | Minimo: 60
+  Costo Promedio Unitario: CRC 12500.00
+- Producto: Ítem Operativo E1 #9 (Químicos) (SKU: E1-PRD-009)
+  Disponible: 157 | Reservado: 0 | Minimo: 65
+  Costo Promedio Unitario: CRC 13750.00
+- Producto: Ítem Operativo E1 #16 (Material) (SKU: E1-PRD-016)
+  Disponible: 98 | Reservado: 0 | Minimo: 25
+  Costo Promedio Unitario: CRC 22500.00
+- Producto: Ítem Operativo E1 #31 (Material) (SKU: E1-PRD-031)
+  Disponible: 143 | Reservado: 0 | Minimo: 25
+  Costo Promedio Unitario: CRC 3750.00
+- Producto: Ítem Operativo E1 #56 (Material) (SKU: E1-PRD-056)
+  Disponible: 37 | Reservado: 0 | Minimo: 75
+  Costo Promedio Unitario: CRC 35000.00
+- Producto: Ítem Operativo E1 #10 (Materia) (SKU: E1-PRD-010)
+  Disponible: 170 | Reservado: 0 | Minimo: 70
+  Costo Promedio Unitario: CRC 15000.00
+- Producto: Ítem Operativo E1 #44 (Químicos) (SKU: E1-PRD-044)
+  Disponible: 312 | Reservado: 0 | Minimo: 90
+  Costo Promedio Unitario: CRC 20000.00
+- Producto: Ítem Operativo E1 #41 (Material) (SKU: E1-PRD-041)
+  Disponible: 273 | Reservado: 0 | Minimo: 75
+  Costo Promedio Unitario: CRC 16250.00
+- Producto: Ítem Operativo E1 #43 (Herramientas) (SKU: E1-PRD-043)
+  Disponible: 299 | Reservado: 0 | Minimo: 85
+  Costo Promedio Unitario: CRC 18750.00
+- Producto: Ítem Operativo E1 #7 (Empaque) (SKU: E1-PRD-007)
+  Disponible: 27 | Reservado: 0 | Minimo: 55
+  Costo Promedio Unitario: CRC 11250.00
+- Producto: Ítem Operativo E1 #53 (Herramientas) (SKU: E1-PRD-053)
+  Disponible: 279 | Reservado: 0 | Minimo: 60
+  Costo Promedio Unitario: CRC 31250.00
+- Producto: Ítem Operativo E1 #32 (Empaque) (SKU: E1-PRD-032)
+  Disponible: 156 | Reservado: 0 | Minimo: 30
+  Costo Promedio Unitario: CRC 5000.00
+- Producto: Ítem Operativo E1 #6 (Material) (SKU: E1-PRD-006)
+  Disponible: 118 | Reservado: 0 | Minimo: 50
+  Costo Promedio Unitario: CRC 10000.00
+- Producto: Ítem Operativo E1 #11 (Material) (SKU: E1-PRD-011)
+  Disponible: 183 | Reservado: 0 | Minimo: 75
+  Costo Promedio Unitario: CRC 16250.00
+- Producto: Ítem Operativo E1 #35 (Materia) (SKU: E1-PRD-035)
+  Disponible: 22 | Reservado: 0 | Minimo: 45
+  Costo Promedio Unitario: CRC 8750.00
+- Producto: Ítem Operativo E1 #52 (Empaque) (SKU: E1-PRD-052)
+  Disponible: 266 | Reservado: 0 | Minimo: 55
+  Costo Promedio Unitario: CRC 30000.00
+- Producto: Ítem Operativo E1 #57 (Empaque) (SKU: E1-PRD-057)
+  Disponible: 331 | Reservado: 0 | Minimo: 80
+  Costo Promedio Unitario: CRC 36250.00
+- Producto: Ítem Operativo E1 #20 (Materia) (SKU: E1-PRD-020)
+  Disponible: 150 | Reservado: 0 | Minimo: 45
+  Costo Promedio Unitario: CRC 27500.00
+- Producto: Ítem Operativo E1 #3 (Herramientas) (SKU: E1-PRD-003)
+  Disponible: 79 | Reservado: 0 | Minimo: 35
+  Costo Promedio Unitario: CRC 6250.00
+- Producto: Ítem Operativo E1 #29 (Químicos) (SKU: E1-PRD-029)
+  Disponible: 267 | Reservado: 0 | Minimo: 90
+  Costo Promedio Unitario: CRC 38750.00
+- Producto: Ítem Operativo E1 #46 (Material) (SKU: E1-PRD-046)
+  Disponible: 188 | Reservado: 0 | Minimo: 25
+  Costo Promedio Unitario: CRC 22500.00
+- Producto: Ítem Operativo E1 #54 (Químicos) (SKU: E1-PRD-054)
+  Disponible: 292 | Reservado: 0 | Minimo: 65
+  Costo Promedio Unitario: CRC 32500.00
+- Producto: Ítem Operativo E1 #19 (Químicos) (SKU: E1-PRD-019)
+  Disponible: 137 | Reservado: 0 | Minimo: 40
+  Costo Promedio Unitario: CRC 26250.00
+- Producto: Ítem Operativo E1 #48 (Herramientas) (SKU: E1-PRD-048)
+  Disponible: 214 | Reservado: 0 | Minimo: 35
+  Costo Promedio Unitario: CRC 25000.00
+- Producto: Ítem Operativo E1 #14 (Químicos) (SKU: E1-PRD-014)
+  Disponible: 45 | Reservado: 0 | Minimo: 90
+  Costo Promedio Unitario: CRC 20000.00
+- Producto: Ítem Operativo E1 #37 (Empaque) (SKU: E1-PRD-037)
+  Disponible: 221 | Reservado: 0 | Minimo: 55
+  Costo Promedio Unitario: CRC 11250.00
+- Producto: Ítem Operativo E1 #1 (Material) (SKU: E1-PRD-001)
+  Disponible: 53 | Reservado: 0 | Minimo: 25
+  Costo Promedio Unitario: CRC 3750.00
+- Producto: Ítem Operativo E1 #59 (Químicos) (SKU: E1-PRD-059)
+  Disponible: 357 | Reservado: 0 | Minimo: 90
+  Costo Promedio Unitario: CRC 38750.00
+- Producto: Ítem Operativo E1 #2 (Empaque) (SKU: E1-PRD-002)
+  Disponible: 66 | Reservado: 0 | Minimo: 30
+  Costo Promedio Unitario: CRC 5000.00
+- Producto: Ítem Operativo E1 #23 (Herramientas) (SKU: E1-PRD-023)
+  Disponible: 189 | Reservado: 0 | Minimo: 60
+  Costo Promedio Unitario: CRC 31250.00
+- Producto: Ítem Operativo E1 #8 (Herramientas) (SKU: E1-PRD-008)
+  Disponible: 144 | Reservado: 0 | Minimo: 60
+  Costo Promedio Unitario: CRC 12500.00
+- Producto: Ítem Operativo E1 #26 (Material) (SKU: E1-PRD-026)
+  Disponible: 228 | Reservado: 0 | Minimo: 75
+  Costo Promedio Unitario: CRC 35000.00
+- Producto: Ítem Operativo E1 #50 (Materia) (SKU: E1-PRD-050)
+  Disponible: 240 | Reservado: 0 | Minimo: 45
+  Costo Promedio Unitario: CRC 27500.00
+- Producto: Ítem Operativo E1 #17 (Empaque) (SKU: E1-PRD-017)
+  Disponible: 111 | Reservado: 0 | Minimo: 30
+  Costo Promedio Unitario: CRC 23750.00
+- Producto: Ítem Operativo E1 #28 (Herramientas) (SKU: E1-PRD-028)
+  Disponible: 42 | Reservado: 0 | Minimo: 85
+  Costo Promedio Unitario: CRC 37500.00
+- Producto: Ítem Operativo E1 #30 (Materia) (SKU: E1-PRD-030)
+  Disponible: 130 | Reservado: 0 | Minimo: 20
+  Costo Promedio Unitario: CRC 2500.00
+- Producto: Ítem Operativo E1 #33 (Herramientas) (SKU: E1-PRD-033)
+  Disponible: 169 | Reservado: 0 | Minimo: 35
+  Costo Promedio Unitario: CRC 6250.00
+- Producto: Ítem Operativo E1 #36 (Material) (SKU: E1-PRD-036)
+  Disponible: 208 | Reservado: 0 | Minimo: 50
+  Costo Promedio Unitario: CRC 10000.00
+- Producto: Ítem Operativo E1 #25 (Materia) (SKU: E1-PRD-025)
+  Disponible: 215 | Reservado: 0 | Minimo: 70
+  Costo Promedio Unitario: CRC 33750.00
+- Producto: Ítem Operativo E1 #60 (Materia) (SKU: E1-PRD-060)
+  Disponible: 220 | Reservado: 0 | Minimo: 20
+  Costo Promedio Unitario: CRC 2500.00
+- Producto: Ítem Operativo E1 #45 (Materia) (SKU: E1-PRD-045)
+  Disponible: 175 | Reservado: 0 | Minimo: 20
+  Costo Promedio Unitario: CRC 21250.00
+- Producto: Ítem Operativo E1 #49 (Químicos) (SKU: E1-PRD-049)
+  Disponible: 20 | Reservado: 0 | Minimo: 40
+  Costo Promedio Unitario: CRC 26250.00
+- Producto: Ítem Operativo E1 #24 (Químicos) (SKU: E1-PRD-024)
+  Disponible: 202 | Reservado: 0 | Minimo: 65
+  Costo Promedio Unitario: CRC 32500.00
+- Producto: Ítem Operativo E1 #12 (Empaque) (SKU: E1-PRD-012)
+  Disponible: 196 | Reservado: 0 | Minimo: 80
+  Costo Promedio Unitario: CRC 17500.00
+- Producto: Ítem Operativo E1 #22 (Empaque) (SKU: E1-PRD-022)
+  Disponible: 176 | Reservado: 0 | Minimo: 55
+  Costo Promedio Unitario: CRC 30000.00
+- Producto: Ítem Operativo E1 #39 (Químicos) (SKU: E1-PRD-039)
+  Disponible: 247 | Reservado: 0 | Minimo: 65
+  Costo Promedio Unitario: CRC 13750.00
+- Producto: Ítem Operativo E1 #21 (Material) (SKU: E1-PRD-021)
+  Disponible: 25 | Reservado: 0 | Minimo: 50
+  Costo Promedio Unitario: CRC 28750.00

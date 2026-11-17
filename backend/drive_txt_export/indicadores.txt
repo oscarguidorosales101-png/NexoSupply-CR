@@ -1,0 +1,15 @@
+================================================================================
+NEXOSUPPLY CR - CUADRO DE INDICADORES CLAVE DE DESEMPENO (KPIs)
+================================================================================
+Empresa: Distribuidora del Pacífico (e1a2b3c4-d5e6-4f7a-8b9c-0d1e2f3a4b5c)
+Fecha: 2026-11-17
+Fuente: MySQL Data Engine
+
+INDICADORES CLAVE:
+1. Proveedores Activos: 17 proveedores registrados.
+2. Catalogo de Productos: 63 referencias SKU activas.
+3. Ordenes de Compra: 42 ordenes procesadas.
+4. Cumplimiento Global de Entrega (OTD Promedio): 94.2%
+5. Tasa de Llenado de Pedidos (OFR Promedio): 96.8%
+6. Tiempo Medio de Reabastecimiento (Lead Time Promedio): 4.5 dias
+7. Estado del Inventario: 87% Optimo | 8% Bajo Minimo | 5% En Alerta Critica

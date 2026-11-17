@@ -1,0 +1,163 @@
+================================================================================
+NEXOSUPPLY CR - REGISTRO OFICIAL DE PROVEEDORES
+================================================================================
+Empresa: Distribuidora del Pacífico (e1a2b3c4-d5e6-4f7a-8b9c-0d1e2f3a4b5c)
+Total Proveedores Registrados: 17
+Fecha de Generacion: 2026-11-17
+Fuente: MySQL (tabla proveedores)
+Vigencia: ACTIVA (DEMO)
+
+LISTADO DE PROVEEDORES ACTIVOS Y EVALUACIONES:
+
+--------------------------------------------------------------------------------
+Proveedor: SumiMed CR Internacional
+Razon Legal: SumiMed CR Internacional S.A. [DEMO]
+Identificador Fiscal / Cedula: 3-101-100000
+Clasificacion: A | Estado: ACTIVO
+Contacto: Email: ventas@sumimedcrinternacional-demo.com | Tel: +506 2200-1000
+Terminos de Pago: 30 dias | Moneda Preferida: CRC | Lead Time Promedio: 3 dias
+Desempeno Global: 90 / 100 (CONFIABLE)
+
+--------------------------------------------------------------------------------
+Proveedor: DisCaribe Distribuciones
+Razon Legal: DisCaribe Distribuciones S.A. [DEMO]
+Identificador Fiscal / Cedula: 3-101-100001
+Clasificacion: A | Estado: ACTIVO
+Contacto: Email: ventas@discaribedistribuciones-demo.com | Tel: +506 2200-1001
+Terminos de Pago: 45 dias | Moneda Preferida: CRC | Lead Time Promedio: 4 dias
+Desempeno Global: 90.5 / 100 (CONFIABLE)
+
+--------------------------------------------------------------------------------
+Proveedor: Global Packing Logistics
+Razon Legal: Global Packing Logistics S.A. [DEMO]
+Identificador Fiscal / Cedula: 3-101-100002
+Clasificacion: A | Estado: ACTIVO
+Contacto: Email: ventas@globalpackinglogistics-demo.com | Tel: +506 2200-1002
+Terminos de Pago: 30 dias | Moneda Preferida: CRC | Lead Time Promedio: 5 dias
+Desempeno Global: 91 / 100 (CONFIABLE)
+
+--------------------------------------------------------------------------------
+Proveedor: Ferretería & Repuestos Industriales
+Razon Legal: Ferretería & Repuestos Industriales S.A. [DEMO]
+Identificador Fiscal / Cedula: 3-101-100003
+Clasificacion: A | Estado: ACTIVO
+Contacto: Email: ventas@ferreterarepuestosindustriales-demo.com | Tel: +506 2200-1003
+Terminos de Pago: 45 dias | Moneda Preferida: CRC | Lead Time Promedio: 6 dias
+Desempeno Global: 91.5 / 100 (CONFIABLE)
+
+--------------------------------------------------------------------------------
+Proveedor: Química del Pacífico
+Razon Legal: Química del Pacífico S.A. [DEMO]
+Identificador Fiscal / Cedula: 3-101-100004
+Clasificacion: B | Estado: ACTIVO
+Contacto: Email: ventas@qumicadelpacfico-demo.com | Tel: +506 2200-1004
+Terminos de Pago: 30 dias | Moneda Preferida: CRC | Lead Time Promedio: 7 dias
+Desempeno Global: 92 / 100 (CONFIABLE)
+
+--------------------------------------------------------------------------------
+Proveedor: Equipos Biomédicos del Valle
+Razon Legal: Equipos Biomédicos del Valle S.A. [DEMO]
+Identificador Fiscal / Cedula: 3-101-100005
+Clasificacion: B | Estado: ACTIVO
+Contacto: Email: ventas@equiposbiomdicosdelvalle-demo.com | Tel: +506 2200-1005
+Terminos de Pago: 45 dias | Moneda Preferida: CRC | Lead Time Promedio: 8 dias
+Desempeno Global: 92.5 / 100 (CONFIABLE)
+
+--------------------------------------------------------------------------------
+Proveedor: Plásticos & Cajas de Costa Rica
+Razon Legal: Plásticos & Cajas de Costa Rica S.A. [DEMO]
+Identificador Fiscal / Cedula: 3-101-100006
+Clasificacion: B | Estado: ACTIVO
+Contacto: Email: ventas@plsticoscajasdecostarica-demo.com | Tel: +506 2200-1006
+Terminos de Pago: 30 dias | Moneda Preferida: CRC | Lead Time Promedio: 9 dias
+Desempeno Global: 93 / 100 (CONFIABLE)
+
+--------------------------------------------------------------------------------
+Proveedor: Aceros del Atlántico
+Razon Legal: Aceros del Atlántico S.A. [DEMO]
+Identificador Fiscal / Cedula: 3-101-100007
+Clasificacion: B | Estado: ACTIVO
+Contacto: Email: ventas@acerosdelatlntico-demo.com | Tel: +506 2200-1007
+Terminos de Pago: 45 dias | Moneda Preferida: CRC | Lead Time Promedio: 3 dias
+Desempeno Global: 79.67 / 100 (CONFIABLE)
+
+--------------------------------------------------------------------------------
+Proveedor: Distribuidora Continental
+Razon Legal: Distribuidora Continental S.A. [DEMO]
+Identificador Fiscal / Cedula: 3-101-100008
+Clasificacion: B | Estado: ACTIVO
+Contacto: Email: ventas@distribuidoracontinental-demo.com | Tel: +506 2200-1008
+Terminos de Pago: 30 dias | Moneda Preferida: CRC | Lead Time Promedio: 4 dias
+Desempeno Global: 94 / 100 (CONFIABLE)
+
+--------------------------------------------------------------------------------
+Proveedor: ElectroTecnia Industrial
+Razon Legal: ElectroTecnia Industrial S.A. [DEMO]
+Identificador Fiscal / Cedula: 3-101-100009
+Clasificacion: B | Estado: ACTIVO
+Contacto: Email: ventas@electrotecniaindustrial-demo.com | Tel: +506 2200-1009
+Terminos de Pago: 45 dias | Moneda Preferida: CRC | Lead Time Promedio: 5 dias
+Desempeno Global: 94.5 / 100 (CONFIABLE)
+
+--------------------------------------------------------------------------------
+Proveedor: Insumos Médicos San José
+Razon Legal: Insumos Médicos San José S.A. [DEMO]
+Identificador Fiscal / Cedula: 3-101-100010
+Clasificacion: C | Estado: ACTIVO
+Contacto: Email: ventas@insumosmdicossanjos-demo.com | Tel: +506 2200-1010
+Terminos de Pago: 30 dias | Moneda Preferida: CRC | Lead Time Promedio: 6 dias
+Desempeno Global: 90.5 / 100 (CONFIABLE)
+
+--------------------------------------------------------------------------------
+Proveedor: BioSuministros del Norte
+Razon Legal: BioSuministros del Norte S.A. [DEMO]
+Identificador Fiscal / Cedula: 3-101-100011
+Clasificacion: C | Estado: ACTIVO
+Contacto: Email: ventas@biosuministrosdelnorte-demo.com | Tel: +506 2200-1011
+Terminos de Pago: 45 dias | Moneda Preferida: CRC | Lead Time Promedio: 7 dias
+Desempeno Global: 91 / 100 (CONFIABLE)
+
+--------------------------------------------------------------------------------
+Proveedor: Importadora Centroamericana
+Razon Legal: Importadora Centroamericana S.A. [DEMO]
+Identificador Fiscal / Cedula: 3-101-100012
+Clasificacion: C | Estado: ACTIVO
+Contacto: Email: ventas@importadoracentroamericana-demo.com | Tel: +506 2200-1012
+Terminos de Pago: 30 dias | Moneda Preferida: CRC | Lead Time Promedio: 8 dias
+Desempeno Global: 91.5 / 100 (CONFIABLE)
+
+--------------------------------------------------------------------------------
+Proveedor: Adhesivos & Cintas Industriales
+Razon Legal: Adhesivos & Cintas Industriales S.A. [DEMO]
+Identificador Fiscal / Cedula: 3-101-100013
+Clasificacion: C | Estado: ACTIVO
+Contacto: Email: ventas@adhesivoscintasindustriales-demo.com | Tel: +506 2200-1013
+Terminos de Pago: 45 dias | Moneda Preferida: CRC | Lead Time Promedio: 9 dias
+Desempeno Global: 92 / 100 (CONFIABLE)
+
+--------------------------------------------------------------------------------
+Proveedor: Herramientas Atlas S.A.
+Razon Legal: Herramientas Atlas S.A. S.A. [DEMO]
+Identificador Fiscal / Cedula: 3-101-100014
+Clasificacion: C | Estado: ACTIVO
+Contacto: Email: ventas@herramientasatlassa-demo.com | Tel: +506 2200-1014
+Terminos de Pago: 30 dias | Moneda Preferida: CRC | Lead Time Promedio: 3 dias
+Desempeno Global: 92.5 / 100 (CONFIABLE)
+
+--------------------------------------------------------------------------------
+Proveedor: SumiMed CR
+Razon Legal: Suministros Médicos de Centroamérica S.A. [DEMO]
+Identificador Fiscal / Cedula: 3-101-112233
+Clasificacion: A | Estado: ACTIVO
+Contacto: Email: pedidos@sumimed-demo.cr | Tel: +506 2220-4500
+Terminos de Pago: 30 dias | Moneda Preferida: USD | Lead Time Promedio: 5 dias
+Desempeno Global: 96.5 / 100 (EXCELENTE)
+
+--------------------------------------------------------------------------------
+Proveedor: DisCaribe
+Razon Legal: Distribuidora Industrial del Caribe Ltda. [DEMO]
+Identificador Fiscal / Cedula: 3-102-445566
+Clasificacion: B | Estado: ACTIVO
+Contacto: Email: ventas@discaribe-demo.cr | Tel: +506 2798-1122
+Terminos de Pago: 45 dias | Moneda Preferida: CRC | Lead Time Promedio: 10 dias
+Desempeno Global: 79 / 100 (CONFIABLE)

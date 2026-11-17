@@ -1,0 +1,261 @@
+================================================================================
+NEXOSUPPLY CR - MATRIZ DE RIESGOS OPERACIONALES
+================================================================================
+Empresa: Distribuidora del Pacífico (e1a2b3c4-d5e6-4f7a-8b9c-0d1e2f3a4b5c)
+Total Alertas y Riesgos: 36
+Fecha: 2026-11-17
+Fuente: MySQL (tabla alertas_riesgo)
+
+RESUMEN DE RIESGOS:
+
+[INFO] Alerta #35: Monitoreo de Stock en E1-PRD-036
+Tipo de Riesgo: STOCK_MINIMO | Resuelta: SI | Leida: NO
+Mensaje: El producto Ítem Operativo E1 #36 (Material) presenta un balance operativo proyectado por debajo del umbral mínimo de seguridad.
+Recurso Afectado: PRODUCTO (3d0b75d7-3e83-4858-8577-8d1de43f9927)
+Fecha de Deteccion: 2026-11-16
+Accion Resolucion: Se emitió orden de compra de contingencia y se reabasteció el almacén.
+
+[ADVERTENCIA] Alerta #34: Monitoreo de Stock en E1-PRD-035
+Tipo de Riesgo: STOCK_MINIMO | Resuelta: SI | Leida: NO
+Mensaje: El producto Ítem Operativo E1 #35 (Materia) presenta un balance operativo proyectado por debajo del umbral mínimo de seguridad.
+Recurso Afectado: PRODUCTO (9b48feb8-c171-485c-b5ca-d0a82d164cc7)
+Fecha de Deteccion: 2026-11-16
+Accion Resolucion: Se emitió orden de compra de contingencia y se reabasteció el almacén.
+
+[CRITICO] Alerta #33: Monitoreo de Stock en E1-PRD-034
+Tipo de Riesgo: STOCK_MINIMO | Resuelta: SI | Leida: NO
+Mensaje: El producto Ítem Operativo E1 #34 (Químicos) presenta un balance operativo proyectado por debajo del umbral mínimo de seguridad.
+Recurso Afectado: PRODUCTO (3eea82c0-1d40-494d-950a-0ca1e1349afd)
+Fecha de Deteccion: 2026-11-16
+Accion Resolucion: Se emitió orden de compra de contingencia y se reabasteció el almacén.
+
+[ADVERTENCIA] Alerta #32: Monitoreo de Stock en E1-PRD-033
+Tipo de Riesgo: STOCK_MINIMO | Resuelta: SI | Leida: NO
+Mensaje: El producto Ítem Operativo E1 #33 (Herramientas) presenta un balance operativo proyectado por debajo del umbral mínimo de seguridad.
+Recurso Afectado: PRODUCTO (96050bcf-ebbc-4bb1-89dc-d935762c55fd)
+Fecha de Deteccion: 2026-11-16
+Accion Resolucion: Se emitió orden de compra de contingencia y se reabasteció el almacén.
+
+[INFO] Alerta #31: Monitoreo de Stock en E1-PRD-032
+Tipo de Riesgo: STOCK_MINIMO | Resuelta: SI | Leida: NO
+Mensaje: El producto Ítem Operativo E1 #32 (Empaque) presenta un balance operativo proyectado por debajo del umbral mínimo de seguridad.
+Recurso Afectado: PRODUCTO (8378fb3c-95e5-461a-b731-800ed04f43c0)
+Fecha de Deteccion: 2026-11-16
+Accion Resolucion: Se emitió orden de compra de contingencia y se reabasteció el almacén.
+
+[CRITICO] Alerta #30: Monitoreo de Stock en E1-PRD-031
+Tipo de Riesgo: STOCK_MINIMO | Resuelta: SI | Leida: NO
+Mensaje: El producto Ítem Operativo E1 #31 (Material) presenta un balance operativo proyectado por debajo del umbral mínimo de seguridad.
+Recurso Afectado: PRODUCTO (06fc7b9a-856a-481c-a978-329a617a4eb8)
+Fecha de Deteccion: 2026-11-16
+Accion Resolucion: Se emitió orden de compra de contingencia y se reabasteció el almacén.
+
+[INFO] Alerta #29: Monitoreo de Stock en E1-PRD-030
+Tipo de Riesgo: STOCK_MINIMO | Resuelta: SI | Leida: NO
+Mensaje: El producto Ítem Operativo E1 #30 (Materia) presenta un balance operativo proyectado por debajo del umbral mínimo de seguridad.
+Recurso Afectado: PRODUCTO (46dd9b33-6d53-4725-8eec-0ec354044fbc)
+Fecha de Deteccion: 2026-11-16
+Accion Resolucion: Se emitió orden de compra de contingencia y se reabasteció el almacén.
+
+[ADVERTENCIA] Alerta #28: Monitoreo de Stock en E1-PRD-029
+Tipo de Riesgo: STOCK_MINIMO | Resuelta: SI | Leida: NO
+Mensaje: El producto Ítem Operativo E1 #29 (Químicos) presenta un balance operativo proyectado por debajo del umbral mínimo de seguridad.
+Recurso Afectado: PRODUCTO (6783485a-ffa8-416b-9075-1104c37ec757)
+Fecha de Deteccion: 2026-11-16
+Accion Resolucion: Se emitió orden de compra de contingencia y se reabasteció el almacén.
+
+[CRITICO] Alerta #27: Monitoreo de Stock en E1-PRD-028
+Tipo de Riesgo: STOCK_MINIMO | Resuelta: SI | Leida: NO
+Mensaje: El producto Ítem Operativo E1 #28 (Herramientas) presenta un balance operativo proyectado por debajo del umbral mínimo de seguridad.
+Recurso Afectado: PRODUCTO (d8ad7bed-7406-43e4-914c-78e757477f17)
+Fecha de Deteccion: 2026-11-16
+Accion Resolucion: Se emitió orden de compra de contingencia y se reabasteció el almacén.
+
+[ADVERTENCIA] Alerta #26: Monitoreo de Stock en E1-PRD-027
+Tipo de Riesgo: STOCK_MINIMO | Resuelta: SI | Leida: NO
+Mensaje: El producto Ítem Operativo E1 #27 (Empaque) presenta un balance operativo proyectado por debajo del umbral mínimo de seguridad.
+Recurso Afectado: PRODUCTO (c1ec7e90-fed3-4a4a-ac31-68bdb3c70a2a)
+Fecha de Deteccion: 2026-11-16
+Accion Resolucion: Se emitió orden de compra de contingencia y se reabasteció el almacén.
+
+[INFO] Alerta #25: Monitoreo de Stock en E1-PRD-026
+Tipo de Riesgo: STOCK_MINIMO | Resuelta: NO | Leida: NO
+Mensaje: El producto Ítem Operativo E1 #26 (Material) presenta un balance operativo proyectado por debajo del umbral mínimo de seguridad.
+Recurso Afectado: PRODUCTO (72dcca55-cff8-4220-8fe5-b10c6eea59db)
+Fecha de Deteccion: 2026-11-16
+Accion Resolucion: Requiere revision inmediata por el departamento de abastecimiento
+
+[CRITICO] Alerta #24: Monitoreo de Stock en E1-PRD-025
+Tipo de Riesgo: STOCK_MINIMO | Resuelta: NO | Leida: NO
+Mensaje: El producto Ítem Operativo E1 #25 (Materia) presenta un balance operativo proyectado por debajo del umbral mínimo de seguridad.
+Recurso Afectado: PRODUCTO (e6662764-9015-4972-a23e-8c380aedd562)
+Fecha de Deteccion: 2026-11-16
+Accion Resolucion: Requiere revision inmediata por el departamento de abastecimiento
+
+[INFO] Alerta #23: Monitoreo de Stock en E1-PRD-024
+Tipo de Riesgo: STOCK_MINIMO | Resuelta: NO | Leida: NO
+Mensaje: El producto Ítem Operativo E1 #24 (Químicos) presenta un balance operativo proyectado por debajo del umbral mínimo de seguridad.
+Recurso Afectado: PRODUCTO (2db0154f-6c97-4eb0-87f0-50de164f6ba6)
+Fecha de Deteccion: 2026-11-16
+Accion Resolucion: Requiere revision inmediata por el departamento de abastecimiento
+
+[ADVERTENCIA] Alerta #22: Monitoreo de Stock en E1-PRD-023
+Tipo de Riesgo: STOCK_MINIMO | Resuelta: NO | Leida: NO
+Mensaje: El producto Ítem Operativo E1 #23 (Herramientas) presenta un balance operativo proyectado por debajo del umbral mínimo de seguridad.
+Recurso Afectado: PRODUCTO (a0c377bc-183a-4004-bc1d-89f9dd02f593)
+Fecha de Deteccion: 2026-11-16
+Accion Resolucion: Requiere revision inmediata por el departamento de abastecimiento
+
+[CRITICO] Alerta #21: Monitoreo de Stock en E1-PRD-022
+Tipo de Riesgo: STOCK_MINIMO | Resuelta: NO | Leida: NO
+Mensaje: El producto Ítem Operativo E1 #22 (Empaque) presenta un balance operativo proyectado por debajo del umbral mínimo de seguridad.
+Recurso Afectado: PRODUCTO (a1b10cae-56a0-4e84-86e7-2dc185285853)
+Fecha de Deteccion: 2026-11-16
+Accion Resolucion: Requiere revision inmediata por el departamento de abastecimiento
+
+[ADVERTENCIA] Alerta #20: Monitoreo de Stock en E1-PRD-021
+Tipo de Riesgo: STOCK_MINIMO | Resuelta: NO | Leida: NO
+Mensaje: El producto Ítem Operativo E1 #21 (Material) presenta un balance operativo proyectado por debajo del umbral mínimo de seguridad.
+Recurso Afectado: PRODUCTO (6acbd766-b125-4407-910c-208310cd8e3f)
+Fecha de Deteccion: 2026-11-16
+Accion Resolucion: Requiere revision inmediata por el departamento de abastecimiento
+
+[INFO] Alerta #19: Monitoreo de Stock en E1-PRD-020
+Tipo de Riesgo: STOCK_MINIMO | Resuelta: NO | Leida: NO
+Mensaje: El producto Ítem Operativo E1 #20 (Materia) presenta un balance operativo proyectado por debajo del umbral mínimo de seguridad.
+Recurso Afectado: PRODUCTO (8c53e01a-b092-4929-9f6c-bcbf4bd58b4c)
+Fecha de Deteccion: 2026-11-16
+Accion Resolucion: Requiere revision inmediata por el departamento de abastecimiento
+
+[CRITICO] Alerta #18: Monitoreo de Stock en E1-PRD-019
+Tipo de Riesgo: STOCK_MINIMO | Resuelta: NO | Leida: NO
+Mensaje: El producto Ítem Operativo E1 #19 (Químicos) presenta un balance operativo proyectado por debajo del umbral mínimo de seguridad.
+Recurso Afectado: PRODUCTO (4e618793-f386-4056-a869-1fb67038098d)
+Fecha de Deteccion: 2026-11-16
+Accion Resolucion: Requiere revision inmediata por el departamento de abastecimiento
+
+[INFO] Alerta #17: Monitoreo de Stock en E1-PRD-018
+Tipo de Riesgo: STOCK_MINIMO | Resuelta: NO | Leida: NO
+Mensaje: El producto Ítem Operativo E1 #18 (Herramientas) presenta un balance operativo proyectado por debajo del umbral mínimo de seguridad.
+Recurso Afectado: PRODUCTO (d20bfc4d-1852-4f91-af1e-85267d6c267d)
+Fecha de Deteccion: 2026-11-16
+Accion Resolucion: Requiere revision inmediata por el departamento de abastecimiento
+
+[ADVERTENCIA] Alerta #16: Monitoreo de Stock en E1-PRD-017
+Tipo de Riesgo: STOCK_MINIMO | Resuelta: NO | Leida: NO
+Mensaje: El producto Ítem Operativo E1 #17 (Empaque) presenta un balance operativo proyectado por debajo del umbral mínimo de seguridad.
+Recurso Afectado: PRODUCTO (cb0967f8-b716-4b73-a158-22fc0a0639e6)
+Fecha de Deteccion: 2026-11-16
+Accion Resolucion: Requiere revision inmediata por el departamento de abastecimiento
+
+[CRITICO] Alerta #15: Monitoreo de Stock en E1-PRD-016
+Tipo de Riesgo: STOCK_MINIMO | Resuelta: NO | Leida: NO
+Mensaje: El producto Ítem Operativo E1 #16 (Material) presenta un balance operativo proyectado por debajo del umbral mínimo de seguridad.
+Recurso Afectado: PRODUCTO (6412d350-3438-4ad6-ac3c-f5cd35037005)
+Fecha de Deteccion: 2026-11-16
+Accion Resolucion: Requiere revision inmediata por el departamento de abastecimiento
+
+[ADVERTENCIA] Alerta #14: Monitoreo de Stock en E1-PRD-015
+Tipo de Riesgo: STOCK_MINIMO | Resuelta: NO | Leida: NO
+Mensaje: El producto Ítem Operativo E1 #15 (Materia) presenta un balance operativo proyectado por debajo del umbral mínimo de seguridad.
+Recurso Afectado: PRODUCTO (45f3c35a-fc1e-4255-bc4e-48f12d0de15e)
+Fecha de Deteccion: 2026-11-16
+Accion Resolucion: Requiere revision inmediata por el departamento de abastecimiento
+
+[INFO] Alerta #13: Monitoreo de Stock en E1-PRD-014
+Tipo de Riesgo: STOCK_MINIMO | Resuelta: SI | Leida: SI
+Mensaje: El producto Ítem Operativo E1 #14 (Químicos) presenta un balance operativo proyectado por debajo del umbral mínimo de seguridad.
+Recurso Afectado: PRODUCTO (84c13c2f-a410-4ed7-8b22-aad74906eac5)
+Fecha de Deteccion: 2026-11-16
+Accion Resolucion: Se gestionó reposición prioritaria de existencias con proveedor
+
+[CRITICO] Alerta #12: Monitoreo de Stock en E1-PRD-013
+Tipo de Riesgo: STOCK_MINIMO | Resuelta: NO | Leida: NO
+Mensaje: El producto Ítem Operativo E1 #13 (Herramientas) presenta un balance operativo proyectado por debajo del umbral mínimo de seguridad.
+Recurso Afectado: PRODUCTO (c6108048-f63a-4d72-b310-db78c2006ed9)
+Fecha de Deteccion: 2026-11-16
+Accion Resolucion: Requiere revision inmediata por el departamento de abastecimiento
+
+[INFO] Alerta #11: Monitoreo de Stock en E1-PRD-012
+Tipo de Riesgo: STOCK_MINIMO | Resuelta: NO | Leida: NO
+Mensaje: El producto Ítem Operativo E1 #12 (Empaque) presenta un balance operativo proyectado por debajo del umbral mínimo de seguridad.
+Recurso Afectado: PRODUCTO (d26d6466-6414-4301-8e72-6f3c3178d41e)
+Fecha de Deteccion: 2026-11-16
+Accion Resolucion: Requiere revision inmediata por el departamento de abastecimiento
+
+[ADVERTENCIA] Alerta #10: Monitoreo de Stock en E1-PRD-011
+Tipo de Riesgo: STOCK_MINIMO | Resuelta: NO | Leida: NO
+Mensaje: El producto Ítem Operativo E1 #11 (Material) presenta un balance operativo proyectado por debajo del umbral mínimo de seguridad.
+Recurso Afectado: PRODUCTO (ad1769f3-1b06-4b45-b2b8-50fa34ecacd4)
+Fecha de Deteccion: 2026-11-16
+Accion Resolucion: Requiere revision inmediata por el departamento de abastecimiento
+
+[CRITICO] Alerta #9: Monitoreo de Stock en E1-PRD-010
+Tipo de Riesgo: STOCK_MINIMO | Resuelta: NO | Leida: NO
+Mensaje: El producto Ítem Operativo E1 #10 (Materia) presenta un balance operativo proyectado por debajo del umbral mínimo de seguridad.
+Recurso Afectado: PRODUCTO (c608057c-b547-488d-9d7d-8fba1e42af9d)
+Fecha de Deteccion: 2026-11-16
+Accion Resolucion: Requiere revision inmediata por el departamento de abastecimiento
+
+[ADVERTENCIA] Alerta #8: Monitoreo de Stock en E1-PRD-009
+Tipo de Riesgo: STOCK_MINIMO | Resuelta: NO | Leida: NO
+Mensaje: El producto Ítem Operativo E1 #9 (Químicos) presenta un balance operativo proyectado por debajo del umbral mínimo de seguridad.
+Recurso Afectado: PRODUCTO (4e26489c-02b8-4861-bb9e-d59984221b49)
+Fecha de Deteccion: 2026-11-16
+Accion Resolucion: Requiere revision inmediata por el departamento de abastecimiento
+
+[INFO] Alerta #7: Monitoreo de Stock en E1-PRD-008
+Tipo de Riesgo: STOCK_MINIMO | Resuelta: NO | Leida: NO
+Mensaje: El producto Ítem Operativo E1 #8 (Herramientas) presenta un balance operativo proyectado por debajo del umbral mínimo de seguridad.
+Recurso Afectado: PRODUCTO (312b9988-a17e-43a7-aef9-a54074cf16d3)
+Fecha de Deteccion: 2026-11-16
+Accion Resolucion: Requiere revision inmediata por el departamento de abastecimiento
+
+[CRITICO] Alerta #6: Monitoreo de Stock en E1-PRD-007
+Tipo de Riesgo: STOCK_MINIMO | Resuelta: NO | Leida: NO
+Mensaje: El producto Ítem Operativo E1 #7 (Empaque) presenta un balance operativo proyectado por debajo del umbral mínimo de seguridad.
+Recurso Afectado: PRODUCTO (49d5a696-b0d9-47e5-ac53-76863e27f666)
+Fecha de Deteccion: 2026-11-16
+Accion Resolucion: Requiere revision inmediata por el departamento de abastecimiento
+
+[INFO] Alerta #5: Monitoreo de Stock en E1-PRD-006
+Tipo de Riesgo: STOCK_MINIMO | Resuelta: SI | Leida: SI
+Mensaje: El producto Ítem Operativo E1 #6 (Material) presenta un balance operativo proyectado por debajo del umbral mínimo de seguridad.
+Recurso Afectado: PRODUCTO (b2266598-8c74-4631-829a-93ee32cb3115)
+Fecha de Deteccion: 2026-11-16
+Accion Resolucion: Se gestionó reposición prioritaria de existencias con proveedor
+
+[ADVERTENCIA] Alerta #4: Monitoreo de Stock en E1-PRD-005
+Tipo de Riesgo: STOCK_MINIMO | Resuelta: NO | Leida: NO
+Mensaje: El producto Ítem Operativo E1 #5 (Materia) presenta un balance operativo proyectado por debajo del umbral mínimo de seguridad.
+Recurso Afectado: PRODUCTO (695ebf5f-7821-4310-8cb7-20b9ffca7e46)
+Fecha de Deteccion: 2026-11-16
+Accion Resolucion: Requiere revision inmediata por el departamento de abastecimiento
+
+[CRITICO] Alerta #3: Monitoreo de Stock en E1-PRD-004
+Tipo de Riesgo: STOCK_MINIMO | Resuelta: NO | Leida: NO
+Mensaje: El producto Ítem Operativo E1 #4 (Químicos) presenta un balance operativo proyectado por debajo del umbral mínimo de seguridad.
+Recurso Afectado: PRODUCTO (9c0418c8-58e0-48d5-9f39-7cbce63a5b11)
+Fecha de Deteccion: 2026-11-16
+Accion Resolucion: Requiere revision inmediata por el departamento de abastecimiento
+
+[ADVERTENCIA] Alerta #2: Monitoreo de Stock en E1-PRD-003
+Tipo de Riesgo: STOCK_MINIMO | Resuelta: NO | Leida: NO
+Mensaje: El producto Ítem Operativo E1 #3 (Herramientas) presenta un balance operativo proyectado por debajo del umbral mínimo de seguridad.
+Recurso Afectado: PRODUCTO (6eb8e533-d5fc-46b9-a163-15507ad34d16)
+Fecha de Deteccion: 2026-11-16
+Accion Resolucion: Requiere revision inmediata por el departamento de abastecimiento
+
+[INFO] Alerta #1: Monitoreo de Stock en E1-PRD-002
+Tipo de Riesgo: STOCK_MINIMO | Resuelta: NO | Leida: NO
+Mensaje: El producto Ítem Operativo E1 #2 (Empaque) presenta un balance operativo proyectado por debajo del umbral mínimo de seguridad.
+Recurso Afectado: PRODUCTO (fcd8fcc8-1c5f-4d25-ad29-d9e1893df3f6)
+Fecha de Deteccion: 2026-11-16
+Accion Resolucion: Requiere revision inmediata por el departamento de abastecimiento
+
+[ADVERTENCIA] Stock Crítico: Cinta de Embalaje Industrial
+Tipo de Riesgo: STOCK_MINIMO | Resuelta: SI | Leida: SI
+Mensaje: La existencia actual (45.00 und) es inferior al stock mínimo configurado (50.00 und). Se recomienda emitir solicitud de reposición.
+Recurso Afectado: PRODUCTO (36a7630d-c295-418f-bc6b-a4ae5aa02ef5)
+Fecha de Deteccion: 2026-11-16
+Accion Resolucion: Requiere revision inmediata por el departamento de abastecimiento

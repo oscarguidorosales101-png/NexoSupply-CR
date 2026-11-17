@@ -3,6 +3,7 @@ import path from 'path';
 import { google, drive_v3 } from 'googleapis';
 import { env } from '../config/env';
 import { prisma } from '../config/database';
+import { googleDriveOAuthService } from './google-drive-oauth.service';
 
 export interface DriveConnectionStatus {
   connected: boolean;
@@ -74,6 +75,10 @@ export class GoogleDriveService {
 
   public getProjectId(): string {
     return this.projectId;
+  }
+
+  public getClient(): drive_v3.Drive | null {
+    return this.driveClient;
   }
 
   public isReady(): boolean {
@@ -170,47 +175,23 @@ export class GoogleDriveService {
   /**
    * Inicializa la estructura estándar de 10 carpetas para una empresa en Google Drive y MySQL
    */
-  public async ensureEnterpriseFolders(empresaId: string, codigoEmpresa: string): Promise<any[]> {
+  public async ensureEnterpriseFolders(empresaId: string, _codigoEmpresa?: string): Promise<any[]> {
     const carpetasEstandar = [
-      { num: '01', nombre: '01-Informacion-General', cat: 'GENERAL' },
-      { num: '02', nombre: '02-Proveedores', cat: 'PROVEEDORES' },
-      { num: '03', nombre: '03-Productos-e-Inventario', cat: 'INVENTARIO' },
-      { num: '04', nombre: '04-Compras-y-Ordenes', cat: 'COMPRAS' },
-      { num: '05', nombre: '05-Recepciones-y-Logistica', cat: 'LOGISTICA' },
-      { num: '06', nombre: '06-Evaluaciones-e-Incidencias', cat: 'EVALUACIONES' },
-      { num: '07', nombre: '07-Riesgos-y-Alertas', cat: 'RIESGOS' },
-      { num: '08', nombre: '08-Reportes-e-Indicadores', cat: 'REPORTES' },
-      { num: '09', nombre: '09-Procedimientos-y-Politicas', cat: 'POLITICAS' },
-      { num: '10', nombre: '10-Historico', cat: 'HISTORICO' },
+      { num: '01', nombre: '01-Informacion-General', cat: 'GENERAL', driveId: '1F1i7i5Kds1SrgFg_wLB0QarhEyGqy3e3' },
+      { num: '02', nombre: '02-Proveedores', cat: 'PROVEEDORES', driveId: '1_0NgRdFII43x5oajUqTV2JcIybwYmI87' },
+      { num: '03', nombre: '03-Productos-E-Inventario', cat: 'INVENTARIO', driveId: '1G275FrxTNM6mqWswpseLErf_FlEJJGVc' },
+      { num: '04', nombre: '04-Compras-Y-Ordenes', cat: 'COMPRAS', driveId: '1CZQTWYyvADn_smMaGZVfXiHT4zIZLOwT' },
+      { num: '05', nombre: '05-Recepciones-Y-Logistica', cat: 'LOGISTICA', driveId: '1UmVg-4ufxqP7cDioUrtUQt61bslvud4h' },
+      { num: '06', nombre: '06-Evaluaciones-E-Incidencias', cat: 'EVALUACIONES', driveId: '1CaQXEUITpke-I-pRAxzejto005G4Q_A4' },
+      { num: '07', nombre: '07-Riesgos-Y-Alertas', cat: 'RIESGOS', driveId: '1wDI8VISA02BYtheSzo_q2qh1DnFGvXVr' },
+      { num: '08', nombre: '08-Reportes-E-Indicadores', cat: 'REPORTES', driveId: '1K0zp3MqxzLkVtvobAzotF6ViYMlvAisj' },
+      { num: '09', nombre: '09-Procedimientos-Y-Politicas', cat: 'POLITICAS', driveId: '1GcDScz5I5UUIpk6kcxfcHtjhH2a6Dyur' },
+      { num: '10', nombre: '10-Historico', cat: 'HISTORICO', driveId: '1rH6mevfEv-Mq7RtKRxp7fM9eIdggC4y_' },
     ];
-
-    let rootDriveId = env.GOOGLE_DRIVE_ROOT_FOLDER_ID || undefined;
-    let empresaFolderDriveId: string | undefined;
-
-    // Si hay conexión con Drive activa, intentar crear la jerarquía física
-    if (this.driveClient) {
-      try {
-        const rootFolder = await this.getOrCreateFolder('NexoSupply-Knowledge', rootDriveId);
-        const empresaFolder = await this.getOrCreateFolder(codigoEmpresa, rootFolder.id);
-        empresaFolderDriveId = empresaFolder.id;
-      } catch (err) {
-        console.warn(`[DRIVE] No se pudo crear la carpeta raíz en Drive (${codigoEmpresa}):`, (err as any).message);
-      }
-    }
 
     const resultadoCarpetas = [];
 
     for (const c of carpetasEstandar) {
-      let subFolderId: string | undefined;
-      if (this.driveClient && empresaFolderDriveId) {
-        try {
-          const sub = await this.getOrCreateFolder(c.nombre, empresaFolderDriveId);
-          subFolderId = sub.id;
-        } catch (err) {
-          console.warn(`[DRIVE] Advertencia creando subcarpeta ${c.nombre}:`, (err as any).message);
-        }
-      }
-
       // Sincronizar en MySQL
       const carpetaDb = await prisma.carpetaDrive.upsert({
         where: {
@@ -218,16 +199,18 @@ export class GoogleDriveService {
         },
         update: {
           nombre: c.nombre,
-          drive_folder_id: subFolderId,
-          ruta_relativa: `NexoSupply-Knowledge/${codigoEmpresa}/${c.nombre}`,
+          categoria: c.cat,
+          drive_folder_id: c.driveId,
+          ruta_relativa: `NexoSupply-Root/01-EMPRESAS/Empresa-001/${c.nombre}`,
+          activa: true,
         },
         create: {
           id: `${empresaId}-${c.cat}`,
           empresa_id: empresaId,
-          drive_folder_id: subFolderId,
+          drive_folder_id: c.driveId,
           nombre: c.nombre,
           categoria: c.cat,
-          ruta_relativa: `NexoSupply-Knowledge/${codigoEmpresa}/${c.nombre}`,
+          ruta_relativa: `NexoSupply-Root/01-EMPRESAS/Empresa-001/${c.nombre}`,
           activa: true,
         },
       });
@@ -297,12 +280,22 @@ export class GoogleDriveService {
     folderId: string,
     fileName: string,
     mimeType: string,
-    fileBuffer: Buffer
+    fileBuffer: Buffer,
+    empresaId?: string
   ): Promise<{ id: string; name: string; webViewLink?: string }> {
-    if (!this.driveClient) throw new Error('Google Drive no inicializado');
+    let clientToUse = this.driveClient;
+
+    if (empresaId) {
+      const oauthClient = await googleDriveOAuthService.getAuthenticatedClient(empresaId);
+      if (oauthClient) {
+        clientToUse = oauthClient;
+      }
+    }
+
+    if (!clientToUse) throw new Error('Google Drive no inicializado');
 
     // Comprobar si ya existe un archivo con ese nombre en la carpeta
-    const existing = await this.driveClient.files.list({
+    const existing = await clientToUse.files.list({
       q: `'${folderId}' in parents and name='${fileName}' and trashed=false`,
       fields: 'files(id, name)',
     });
@@ -313,7 +306,7 @@ export class GoogleDriveService {
 
     if (existing.data.files && existing.data.files.length > 0) {
       const existingId = existing.data.files[0].id!;
-      const updateRes = await this.driveClient.files.update({
+      const updateRes = await clientToUse.files.update({
         fileId: existingId,
         media: {
           mimeType,
@@ -328,7 +321,7 @@ export class GoogleDriveService {
       };
     }
 
-    const createRes = await this.driveClient.files.create({
+    const createRes = await clientToUse.files.create({
       requestBody: {
         name: fileName,
         parents: [folderId],

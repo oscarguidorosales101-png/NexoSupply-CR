@@ -1,19 +1,20 @@
 import { prisma } from '../config/database';
 import { NotFoundError, BadRequestError } from '../errors/app-error';
 import { ragService, RagSourceCitation } from './rag.service';
+import { deepSeekDriveProveedoresService } from './deepseek-drive-proveedores.service';
 
 export const CATEGORIAS_MENU = {
-  1: 'Consultar informacion (productos, proveedores, inventario, ordenes)',
-  2: 'Analizar mi empresa (indicadores, compras, evaluaciones, tendencias)',
-  3: 'Detectar problemas y riesgos (alertas criticas, stock bajo, retrasos)',
-  4: 'Ayuda y orientacion (uso de la plataforma, como registrar datos)',
+  1: 'Consultar informacion documental (productos, proveedores, inventario, ordenes en Drive)',
+  2: 'Analizar empresa (reportes ejecutivos, compras, evaluaciones e indicadores)',
+  3: 'Detectar riesgos (matriz de alertas operativas y politicas de contingencia)',
+  4: 'Ayuda y procedimientos (manuales de usuario, politicas y reglas de negocio)',
 };
 
 const BIENVENIDA_CATEGORIA: Record<number, string> = {
-  1: 'Bienvenido al modulo de Consulta de Informacion Documental. Las respuestas se recuperan directamente desde los reportes y documentos indexados en Google Drive (inventario_actual.pdf, catalogo_productos.pdf, ordenes_pendientes.pdf). Indique que dato desea consultar.',
-  2: 'Bienvenido al modulo de Analisis Empresarial. Consultare los indicadores y resumenes ejecutivos oficiales de Google Drive (resumen_ejecutivo.pdf, evaluacion_proveedores.pdf) para responder sobre volumen de compras y metricas de operacion.',
-  3: 'Bienvenido al modulo de Deteccion de Riesgos. Recuperare la matriz documental de alertas criticas y retrasos logísticos (alertas_criticas.pdf) para informarle sobre quiebres de inventario o proveedores fuera de plazo.',
-  4: 'Bienvenido a Ayuda y Orientacion. Consultare las politicas, manuales y directrices de operacion registradas en Google Drive para guiarle paso a paso en el uso de los modulos de NexoSupply CR.',
+  1: 'Bienvenido al modulo de Consulta de Informacion. El asistente consulta exclusivamente los documentos empresariales, catalogos e informes archivados en Google Drive para responder sus consultas. Indique que informacion documental desea consultar.',
+  2: 'Bienvenido al modulo de Analisis Empresarial. Analizare los reportes ejecutivos, indicadores de compras y evaluaciones de proveedores documentados en el repositorio de Google Drive.',
+  3: 'Bienvenido al modulo de Deteccion de Riesgos y Alertas. Recuperare la matriz documental de alertas operativas, quiebres de inventario proyectados y protocolos de contingencia de Google Drive.',
+  4: 'Bienvenido a Ayuda y Procedimientos. Consultare los manuales del sistema, politicas corporativas y procedimientos operativos estandar (SOP) registrados en Google Drive para orientarle paso a paso.',
 };
 
 export async function createConversacion(
@@ -85,6 +86,9 @@ export async function getConversacion(empresaId: string, conversacionId: string)
   return conversacion;
 }
 
+/**
+ * Procesa la pregunta del usuario consultando EXCLUSIVAMENTE el conocimiento documental de Google Drive via RAG
+ */
 export async function sendMensajeChatbot(
   empresaId: string,
   userId: string,
@@ -95,7 +99,7 @@ export async function sendMensajeChatbot(
     throw new BadRequestError('El contenido del mensaje no puede estar vacio');
   }
 
-  // 1. Validar conversacion y pertenencia a empresa
+  // 1. Validar conversacion y aislamiento por empresa en MySQL (contexto y RBAC)
   const conversacion = await prisma.conversacionChatbot.findFirst({
     where: { id: conversacionId, empresa_id: empresaId },
   });
@@ -104,7 +108,7 @@ export async function sendMensajeChatbot(
     throw new NotFoundError('Conversacion no encontrada para la empresa activa');
   }
 
-  // 2. Guardar mensaje del usuario
+  // 2. Guardar mensaje del usuario en MySQL
   await prisma.mensajeChatbot.create({
     data: {
       conversacion_id: conversacionId,
@@ -113,8 +117,63 @@ export async function sendMensajeChatbot(
     },
   });
 
-  // 3. RECUPERACION DOCUMENTAL RAG DESDE GOOGLE DRIVE
-  // Consulta exclusivamente el indice vectorial y documental de Google Drive de la empresa
+  // 3. IDENTIFICAR DOMINIO DE PROVEEDORES: CONSULTA DIRECTA AL TXT DE GOOGLE DRIVE CON DEEPSEEK
+  // (Flujo exclusivo sin intervención de Qdrant, sin embeddings y sin consultas directas a tablas MySQL)
+  if (deepSeekDriveProveedoresService.isSupplierQuery(contenido.trim())) {
+    const supplierResult = await deepSeekDriveProveedoresService.processSupplierQuery(
+      empresaId,
+      contenido.trim()
+    );
+
+    const respuestaFinal = supplierResult.respuesta;
+    const tokensUsados = supplierResult.tokensUsed;
+
+    const asistenteMsg = await prisma.mensajeChatbot.create({
+      data: {
+        conversacion_id: conversacionId,
+        remitente: 'ASISTENTE',
+        contenido: respuestaFinal,
+        tokens_usados: tokensUsados,
+      },
+    });
+
+    await prisma.conversacionChatbot.update({
+      where: { id: conversacionId },
+      data: { updatedAt: new Date() },
+    });
+
+    await prisma.consultaChatbotLog.create({
+      data: {
+        empresa_id: empresaId,
+        usuario_id: userId,
+        pregunta: contenido.trim(),
+        respuesta_resumen: respuestaFinal.slice(0, 500),
+        tokens_usados: asistenteMsg.tokens_usados,
+        fue_exitosa: supplierResult.estado !== 'ERROR',
+      },
+    });
+
+    return {
+      mensaje: asistenteMsg,
+      tokensUsed: asistenteMsg.tokens_usados,
+      ragResult: {
+        respuesta: respuestaFinal,
+        fuentes: [
+          {
+            nombreDocumento: 'informe_proveedores.txt',
+            numeroFragmento: 1,
+            relevanciaScore: 1.0,
+            urlDocumento: `https://drive.google.com/file/d/${supplierResult.documentoId}/view`,
+            fechaActualizacion: supplierResult.fechaModificacionDrive,
+          },
+        ],
+        estado: supplierResult.estado,
+      },
+    };
+  }
+
+  // 4. Si no es de proveedores, consultar el conocimiento documental general mediante RAG
+  // (Sin desvio a consultas directas de tablas operativas MySQL)
   const ragResult = await ragService.queryRag(
     empresaId,
     userId,
@@ -122,37 +181,39 @@ export async function sendMensajeChatbot(
     conversacionId
   );
 
-  // 4. Formatear respuesta con citas y fuentes verificables
   let respuestaFinal = ragResult.respuesta;
+  let tokensUsados = 120;
 
-  if (ragResult.fuentes.length > 0) {
+  // Si hay fuentes documentales recuperadas, adjuntar citas formales verificables
+  if (ragResult.fuentes && ragResult.fuentes.length > 0) {
     const fuentesTexto = ragResult.fuentes
       .map((f: RagSourceCitation) => {
-        const link = f.urlDocumento ? ` [Ver en Drive](${f.urlDocumento})` : '';
+        const link = f.urlDocumento ? ` [Abrir en Google Drive](${f.urlDocumento})` : '';
         return `* **Documento:** ${f.nombreDocumento} (Fragmento #${f.numeroFragmento}, Relevancia: ${(f.relevanciaScore * 100).toFixed(0)}%)${link}\n  *Actualizado: ${new Date(f.fechaActualizacion || Date.now()).toLocaleString('es-CR')}*`;
       })
       .join('\n\n');
 
     respuestaFinal += `\n\n---\n**Fuentes Documentales de Google Drive:**\n\n${fuentesTexto}`;
+    tokensUsados = ragResult.fuentes.reduce((sum: number) => sum + 150, 200);
   }
 
-  // 5. Guardar respuesta del asistente en MySQL
+  // 4. Guardar respuesta del asistente en MySQL
   const asistenteMsg = await prisma.mensajeChatbot.create({
     data: {
       conversacion_id: conversacionId,
       remitente: 'ASISTENTE',
       contenido: respuestaFinal,
-      tokens_usados: ragResult.fuentes.reduce((sum, f) => sum + 150, 200),
+      tokens_usados: tokensUsados,
     },
   });
 
-  // 6. Actualizar timestamp de conversacion
+  // 5. Actualizar timestamp de conversacion
   await prisma.conversacionChatbot.update({
     where: { id: conversacionId },
     data: { updatedAt: new Date() },
   });
 
-  // 7. Registro de auditoria historica
+  // 6. Registro de auditoria historica en MySQL
   await prisma.consultaChatbotLog.create({
     data: {
       empresa_id: empresaId,
@@ -160,7 +221,7 @@ export async function sendMensajeChatbot(
       pregunta: contenido.trim(),
       respuesta_resumen: respuestaFinal.slice(0, 500),
       tokens_usados: asistenteMsg.tokens_usados,
-      fue_exitosa: ragResult.estado === 'EXITOSO',
+      fue_exitosa: ragResult.estado !== 'ERROR',
     },
   });
 
@@ -174,10 +235,11 @@ export async function sendMensajeChatbot(
 export async function getChatbotStatus() {
   return {
     disponible: true,
-    motor: 'Motor Documental RAG (Google Drive)',
-    proveedor: 'NexoSupply RAG Core',
+    motor: 'NexoSupply Documental Intelligence Engine (Google Drive RAG + Qdrant)',
+    proveedor: 'NexoSupply Core Documental',
     activo: true,
     aislamientoMultiTenant: true,
     categoriasDisponibles: CATEGORIAS_MENU,
+    fuenteExclusiva: 'Google Drive Documental Repository (NexoSupply-Root)',
   };
 }

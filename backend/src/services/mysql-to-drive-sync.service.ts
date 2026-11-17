@@ -1,4 +1,5 @@
 import PDFDocument from 'pdfkit';
+import crypto from 'crypto';
 import { prisma } from '../config/database';
 import { googleDriveService } from './google-drive.service';
 
@@ -143,6 +144,8 @@ export class MysqlToDriveSyncService {
           }
         }
 
+        const sha256 = crypto.createHash('sha256').update(doc.buffer).digest('hex');
+
         // Registrar o actualizar documento en tabla DocumentoDrive
         const docRecord = await prisma.documentoDrive.upsert({
           where: {
@@ -155,6 +158,8 @@ export class MysqlToDriveSyncService {
             tipo_mime: doc.mimeType,
             tamanio_bytes: BigInt(doc.buffer.length),
             url_web_view: webViewLink,
+            hash_contenido: sha256,
+            version: 'v1.0',
             estado_indexacion: 'PENDIENTE', // Listo para que el pipeline RAG lo procese
             fecha_modificacion_drive: new Date(),
             fecha_sincronizacion: new Date(),
@@ -168,6 +173,8 @@ export class MysqlToDriveSyncService {
             tipo_mime: doc.mimeType,
             tamanio_bytes: BigInt(doc.buffer.length),
             url_web_view: webViewLink,
+            hash_contenido: sha256,
+            version: 'v1.0',
             estado_indexacion: 'PENDIENTE',
             fecha_modificacion_drive: new Date(),
             fecha_sincronizacion: new Date(),

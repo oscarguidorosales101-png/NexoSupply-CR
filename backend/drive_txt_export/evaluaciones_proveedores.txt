@@ -1,0 +1,441 @@
+================================================================================
+NEXOSUPPLY CR - EVALUACIONES DE RENDIMIENTO DE PROVEEDORES
+================================================================================
+Empresa: Distribuidora del Pacífico (e1a2b3c4-d5e6-4f7a-8b9c-0d1e2f3a4b5c)
+Total Evaluaciones Registradas: 48
+Fecha: 2026-11-17
+Fuente: MySQL (tabla evaluaciones_proveedor)
+
+METRICAS DETERMINISTAS DE PROVEEDORES:
+
+Proveedor: Aceros del Atlántico
+Periodo Evaluado: 2026-TEST
+Calificacion Global: 79.67 / 100 (CONFIABLE)
+- Puntualidad (OTD): 100%
+- Cumplimiento de Cantidades (OFR): 63.33%
+- Incidencias: 70%
+- Precios: 100%
+- Ordenes Evaluadas: 7
+
+Proveedor: Herramientas Atlas S.A.
+Periodo Evaluado: 2026-Q1
+Calificacion Global: 92.5 / 100 (CONFIABLE)
+- Puntualidad (OTD): 92%
+- Cumplimiento de Cantidades (OFR): 93%
+- Incidencias: 98%
+- Precios: 95%
+- Ordenes Evaluadas: 6
+
+Proveedor: Herramientas Atlas S.A.
+Periodo Evaluado: 2025-Q4
+Calificacion Global: 92.5 / 100 (CONFIABLE)
+- Puntualidad (OTD): 92%
+- Cumplimiento de Cantidades (OFR): 93%
+- Incidencias: 98%
+- Precios: 95%
+- Ordenes Evaluadas: 6
+
+Proveedor: Herramientas Atlas S.A.
+Periodo Evaluado: 2025-Q3
+Calificacion Global: 92.5 / 100 (CONFIABLE)
+- Puntualidad (OTD): 92%
+- Cumplimiento de Cantidades (OFR): 93%
+- Incidencias: 98%
+- Precios: 95%
+- Ordenes Evaluadas: 6
+
+Proveedor: Adhesivos & Cintas Industriales
+Periodo Evaluado: 2026-Q1
+Calificacion Global: 92 / 100 (CONFIABLE)
+- Puntualidad (OTD): 91%
+- Cumplimiento de Cantidades (OFR): 93%
+- Incidencias: 98%
+- Precios: 95%
+- Ordenes Evaluadas: 6
+
+Proveedor: Adhesivos & Cintas Industriales
+Periodo Evaluado: 2025-Q4
+Calificacion Global: 92 / 100 (CONFIABLE)
+- Puntualidad (OTD): 91%
+- Cumplimiento de Cantidades (OFR): 93%
+- Incidencias: 98%
+- Precios: 95%
+- Ordenes Evaluadas: 6
+
+Proveedor: Adhesivos & Cintas Industriales
+Periodo Evaluado: 2025-Q3
+Calificacion Global: 92 / 100 (CONFIABLE)
+- Puntualidad (OTD): 91%
+- Cumplimiento de Cantidades (OFR): 93%
+- Incidencias: 98%
+- Precios: 95%
+- Ordenes Evaluadas: 6
+
+Proveedor: Importadora Centroamericana
+Periodo Evaluado: 2026-Q1
+Calificacion Global: 91.5 / 100 (CONFIABLE)
+- Puntualidad (OTD): 90%
+- Cumplimiento de Cantidades (OFR): 93%
+- Incidencias: 98%
+- Precios: 95%
+- Ordenes Evaluadas: 6
+
+Proveedor: Importadora Centroamericana
+Periodo Evaluado: 2025-Q4
+Calificacion Global: 91.5 / 100 (CONFIABLE)
+- Puntualidad (OTD): 90%
+- Cumplimiento de Cantidades (OFR): 93%
+- Incidencias: 98%
+- Precios: 95%
+- Ordenes Evaluadas: 6
+
+Proveedor: Importadora Centroamericana
+Periodo Evaluado: 2025-Q3
+Calificacion Global: 91.5 / 100 (CONFIABLE)
+- Puntualidad (OTD): 90%
+- Cumplimiento de Cantidades (OFR): 93%
+- Incidencias: 98%
+- Precios: 95%
+- Ordenes Evaluadas: 6
+
+Proveedor: BioSuministros del Norte
+Periodo Evaluado: 2026-Q1
+Calificacion Global: 91 / 100 (CONFIABLE)
+- Puntualidad (OTD): 89%
+- Cumplimiento de Cantidades (OFR): 93%
+- Incidencias: 98%
+- Precios: 95%
+- Ordenes Evaluadas: 6
+
+Proveedor: BioSuministros del Norte
+Periodo Evaluado: 2025-Q4
+Calificacion Global: 91 / 100 (CONFIABLE)
+- Puntualidad (OTD): 89%
+- Cumplimiento de Cantidades (OFR): 93%
+- Incidencias: 98%
+- Precios: 95%
+- Ordenes Evaluadas: 6
+
+Proveedor: BioSuministros del Norte
+Periodo Evaluado: 2025-Q3
+Calificacion Global: 91 / 100 (CONFIABLE)
+- Puntualidad (OTD): 89%
+- Cumplimiento de Cantidades (OFR): 93%
+- Incidencias: 98%
+- Precios: 95%
+- Ordenes Evaluadas: 6
+
+Proveedor: Insumos Médicos San José
+Periodo Evaluado: 2026-Q1
+Calificacion Global: 90.5 / 100 (CONFIABLE)
+- Puntualidad (OTD): 88%
+- Cumplimiento de Cantidades (OFR): 93%
+- Incidencias: 98%
+- Precios: 95%
+- Ordenes Evaluadas: 6
+
+Proveedor: Insumos Médicos San José
+Periodo Evaluado: 2025-Q4
+Calificacion Global: 90.5 / 100 (CONFIABLE)
+- Puntualidad (OTD): 88%
+- Cumplimiento de Cantidades (OFR): 93%
+- Incidencias: 98%
+- Precios: 95%
+- Ordenes Evaluadas: 6
+
+Proveedor: Insumos Médicos San José
+Periodo Evaluado: 2025-Q3
+Calificacion Global: 90.5 / 100 (CONFIABLE)
+- Puntualidad (OTD): 88%
+- Cumplimiento de Cantidades (OFR): 93%
+- Incidencias: 98%
+- Precios: 95%
+- Ordenes Evaluadas: 6
+
+Proveedor: ElectroTecnia Industrial
+Periodo Evaluado: 2026-Q1
+Calificacion Global: 94.5 / 100 (CONFIABLE)
+- Puntualidad (OTD): 97%
+- Cumplimiento de Cantidades (OFR): 92%
+- Incidencias: 98%
+- Precios: 95%
+- Ordenes Evaluadas: 6
+
+Proveedor: ElectroTecnia Industrial
+Periodo Evaluado: 2025-Q4
+Calificacion Global: 94.5 / 100 (CONFIABLE)
+- Puntualidad (OTD): 97%
+- Cumplimiento de Cantidades (OFR): 92%
+- Incidencias: 98%
+- Precios: 95%
+- Ordenes Evaluadas: 6
+
+Proveedor: ElectroTecnia Industrial
+Periodo Evaluado: 2025-Q3
+Calificacion Global: 94.5 / 100 (CONFIABLE)
+- Puntualidad (OTD): 97%
+- Cumplimiento de Cantidades (OFR): 92%
+- Incidencias: 98%
+- Precios: 95%
+- Ordenes Evaluadas: 6
+
+Proveedor: Distribuidora Continental
+Periodo Evaluado: 2026-Q1
+Calificacion Global: 94 / 100 (CONFIABLE)
+- Puntualidad (OTD): 96%
+- Cumplimiento de Cantidades (OFR): 92%
+- Incidencias: 98%
+- Precios: 95%
+- Ordenes Evaluadas: 6
+
+Proveedor: Distribuidora Continental
+Periodo Evaluado: 2025-Q4
+Calificacion Global: 94 / 100 (CONFIABLE)
+- Puntualidad (OTD): 96%
+- Cumplimiento de Cantidades (OFR): 92%
+- Incidencias: 98%
+- Precios: 95%
+- Ordenes Evaluadas: 6
+
+Proveedor: Distribuidora Continental
+Periodo Evaluado: 2025-Q3
+Calificacion Global: 94 / 100 (CONFIABLE)
+- Puntualidad (OTD): 96%
+- Cumplimiento de Cantidades (OFR): 92%
+- Incidencias: 98%
+- Precios: 95%
+- Ordenes Evaluadas: 6
+
+Proveedor: Aceros del Atlántico
+Periodo Evaluado: 2026-Q1
+Calificacion Global: 93.5 / 100 (CONFIABLE)
+- Puntualidad (OTD): 95%
+- Cumplimiento de Cantidades (OFR): 92%
+- Incidencias: 98%
+- Precios: 95%
+- Ordenes Evaluadas: 6
+
+Proveedor: Aceros del Atlántico
+Periodo Evaluado: 2025-Q4
+Calificacion Global: 93.5 / 100 (CONFIABLE)
+- Puntualidad (OTD): 95%
+- Cumplimiento de Cantidades (OFR): 92%
+- Incidencias: 98%
+- Precios: 95%
+- Ordenes Evaluadas: 6
+
+Proveedor: Aceros del Atlántico
+Periodo Evaluado: 2025-Q3
+Calificacion Global: 93.5 / 100 (CONFIABLE)
+- Puntualidad (OTD): 95%
+- Cumplimiento de Cantidades (OFR): 92%
+- Incidencias: 98%
+- Precios: 95%
+- Ordenes Evaluadas: 6
+
+Proveedor: Plásticos & Cajas de Costa Rica
+Periodo Evaluado: 2026-Q1
+Calificacion Global: 93 / 100 (CONFIABLE)
+- Puntualidad (OTD): 94%
+- Cumplimiento de Cantidades (OFR): 92%
+- Incidencias: 98%
+- Precios: 95%
+- Ordenes Evaluadas: 6
+
+Proveedor: Plásticos & Cajas de Costa Rica
+Periodo Evaluado: 2025-Q4
+Calificacion Global: 93 / 100 (CONFIABLE)
+- Puntualidad (OTD): 94%
+- Cumplimiento de Cantidades (OFR): 92%
+- Incidencias: 98%
+- Precios: 95%
+- Ordenes Evaluadas: 6
+
+Proveedor: Plásticos & Cajas de Costa Rica
+Periodo Evaluado: 2025-Q3
+Calificacion Global: 93 / 100 (CONFIABLE)
+- Puntualidad (OTD): 94%
+- Cumplimiento de Cantidades (OFR): 92%
+- Incidencias: 98%
+- Precios: 95%
+- Ordenes Evaluadas: 6
+
+Proveedor: Equipos Biomédicos del Valle
+Periodo Evaluado: 2026-Q1
+Calificacion Global: 92.5 / 100 (CONFIABLE)
+- Puntualidad (OTD): 93%
+- Cumplimiento de Cantidades (OFR): 92%
+- Incidencias: 98%
+- Precios: 95%
+- Ordenes Evaluadas: 6
+
+Proveedor: Equipos Biomédicos del Valle
+Periodo Evaluado: 2025-Q4
+Calificacion Global: 92.5 / 100 (CONFIABLE)
+- Puntualidad (OTD): 93%
+- Cumplimiento de Cantidades (OFR): 92%
+- Incidencias: 98%
+- Precios: 95%
+- Ordenes Evaluadas: 6
+
+Proveedor: Equipos Biomédicos del Valle
+Periodo Evaluado: 2025-Q3
+Calificacion Global: 92.5 / 100 (CONFIABLE)
+- Puntualidad (OTD): 93%
+- Cumplimiento de Cantidades (OFR): 92%
+- Incidencias: 98%
+- Precios: 95%
+- Ordenes Evaluadas: 6
+
+Proveedor: Química del Pacífico
+Periodo Evaluado: 2026-Q1
+Calificacion Global: 92 / 100 (CONFIABLE)
+- Puntualidad (OTD): 92%
+- Cumplimiento de Cantidades (OFR): 92%
+- Incidencias: 98%
+- Precios: 95%
+- Ordenes Evaluadas: 6
+
+Proveedor: Química del Pacífico
+Periodo Evaluado: 2025-Q4
+Calificacion Global: 92 / 100 (CONFIABLE)
+- Puntualidad (OTD): 92%
+- Cumplimiento de Cantidades (OFR): 92%
+- Incidencias: 98%
+- Precios: 95%
+- Ordenes Evaluadas: 6
+
+Proveedor: Química del Pacífico
+Periodo Evaluado: 2025-Q3
+Calificacion Global: 92 / 100 (CONFIABLE)
+- Puntualidad (OTD): 92%
+- Cumplimiento de Cantidades (OFR): 92%
+- Incidencias: 98%
+- Precios: 95%
+- Ordenes Evaluadas: 6
+
+Proveedor: Ferretería & Repuestos Industriales
+Periodo Evaluado: 2026-Q1
+Calificacion Global: 91.5 / 100 (CONFIABLE)
+- Puntualidad (OTD): 91%
+- Cumplimiento de Cantidades (OFR): 92%
+- Incidencias: 98%
+- Precios: 95%
+- Ordenes Evaluadas: 6
+
+Proveedor: Ferretería & Repuestos Industriales
+Periodo Evaluado: 2025-Q4
+Calificacion Global: 91.5 / 100 (CONFIABLE)
+- Puntualidad (OTD): 91%
+- Cumplimiento de Cantidades (OFR): 92%
+- Incidencias: 98%
+- Precios: 95%
+- Ordenes Evaluadas: 6
+
+Proveedor: Ferretería & Repuestos Industriales
+Periodo Evaluado: 2025-Q3
+Calificacion Global: 91.5 / 100 (CONFIABLE)
+- Puntualidad (OTD): 91%
+- Cumplimiento de Cantidades (OFR): 92%
+- Incidencias: 98%
+- Precios: 95%
+- Ordenes Evaluadas: 6
+
+Proveedor: Global Packing Logistics
+Periodo Evaluado: 2026-Q1
+Calificacion Global: 91 / 100 (CONFIABLE)
+- Puntualidad (OTD): 90%
+- Cumplimiento de Cantidades (OFR): 92%
+- Incidencias: 98%
+- Precios: 95%
+- Ordenes Evaluadas: 6
+
+Proveedor: Global Packing Logistics
+Periodo Evaluado: 2025-Q4
+Calificacion Global: 91 / 100 (CONFIABLE)
+- Puntualidad (OTD): 90%
+- Cumplimiento de Cantidades (OFR): 92%
+- Incidencias: 98%
+- Precios: 95%
+- Ordenes Evaluadas: 6
+
+Proveedor: Global Packing Logistics
+Periodo Evaluado: 2025-Q3
+Calificacion Global: 91 / 100 (CONFIABLE)
+- Puntualidad (OTD): 90%
+- Cumplimiento de Cantidades (OFR): 92%
+- Incidencias: 98%
+- Precios: 95%
+- Ordenes Evaluadas: 6
+
+Proveedor: DisCaribe Distribuciones
+Periodo Evaluado: 2026-Q1
+Calificacion Global: 90.5 / 100 (CONFIABLE)
+- Puntualidad (OTD): 89%
+- Cumplimiento de Cantidades (OFR): 92%
+- Incidencias: 98%
+- Precios: 95%
+- Ordenes Evaluadas: 6
+
+Proveedor: DisCaribe Distribuciones
+Periodo Evaluado: 2025-Q4
+Calificacion Global: 90.5 / 100 (CONFIABLE)
+- Puntualidad (OTD): 89%
+- Cumplimiento de Cantidades (OFR): 92%
+- Incidencias: 98%
+- Precios: 95%
+- Ordenes Evaluadas: 6
+
+Proveedor: DisCaribe Distribuciones
+Periodo Evaluado: 2025-Q3
+Calificacion Global: 90.5 / 100 (CONFIABLE)
+- Puntualidad (OTD): 89%
+- Cumplimiento de Cantidades (OFR): 92%
+- Incidencias: 98%
+- Precios: 95%
+- Ordenes Evaluadas: 6
+
+Proveedor: SumiMed CR Internacional
+Periodo Evaluado: 2026-Q1
+Calificacion Global: 90 / 100 (CONFIABLE)
+- Puntualidad (OTD): 88%
+- Cumplimiento de Cantidades (OFR): 92%
+- Incidencias: 98%
+- Precios: 95%
+- Ordenes Evaluadas: 6
+
+Proveedor: SumiMed CR Internacional
+Periodo Evaluado: 2025-Q4
+Calificacion Global: 90 / 100 (CONFIABLE)
+- Puntualidad (OTD): 88%
+- Cumplimiento de Cantidades (OFR): 92%
+- Incidencias: 98%
+- Precios: 95%
+- Ordenes Evaluadas: 6
+
+Proveedor: SumiMed CR Internacional
+Periodo Evaluado: 2025-Q3
+Calificacion Global: 90 / 100 (CONFIABLE)
+- Puntualidad (OTD): 88%
+- Cumplimiento de Cantidades (OFR): 92%
+- Incidencias: 98%
+- Precios: 95%
+- Ordenes Evaluadas: 6
+
+Proveedor: DisCaribe
+Periodo Evaluado: 2026-TEST
+Calificacion Global: 79 / 100 (CONFIABLE)
+- Puntualidad (OTD): 100%
+- Cumplimiento de Cantidades (OFR): 40%
+- Incidencias: 100%
+- Precios: 100%
+- Ordenes Evaluadas: 2
+
+Proveedor: SumiMed CR
+Periodo Evaluado: 2026-11
+Calificacion Global: 96.5 / 100 (EXCELENTE)
+- Puntualidad (OTD): 98%
+- Cumplimiento de Cantidades (OFR): 95%
+- Incidencias: 100%
+- Precios: 94%
+- Ordenes Evaluadas: 4

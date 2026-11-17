@@ -8,6 +8,7 @@ import {
   meHandler,
   switchTenantHandler,
   changePasswordHandler,
+  googleOAuthCallbackHandler,
 } from '../controllers/auth.controller';
 import { authenticate } from '../middlewares/auth.middleware';
 import { validateBody } from '../middlewares/validate.middleware';
@@ -31,5 +32,6 @@ router.post('/logout', authenticate, logoutHandler);
 router.get('/me', authenticate, meHandler);
 router.post('/switch-tenant', authenticate, validateBody(switchTenantSchema), switchTenantHandler);
 router.post('/change-password', authenticate, validateBody(changePasswordSchema), changePasswordHandler);
+router.get('/google/callback', googleOAuthCallbackHandler);
 
 export default router;

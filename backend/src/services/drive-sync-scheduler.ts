@@ -1,6 +1,7 @@
 import { env } from '../config/env';
 import { prisma } from '../config/database';
 import { ragService } from './rag.service';
+import { centralDocumentSyncService } from './central-document-sync.service';
 
 export class DriveSyncScheduler {
   private intervalTimer: NodeJS.Timeout | null = null;
@@ -51,6 +52,9 @@ export class DriveSyncScheduler {
 
       for (const emp of empresas) {
         try {
+          // 1. Ejecutar generación y Outbox documental para todas las 29 carpetas
+          await centralDocumentSyncService.executeFullSync(emp.id);
+          // 2. Procesar pipeline RAG e indexación
           await ragService.syncAndIndexEnterprise(emp.id);
         } catch (err: any) {
           console.warn(`[SCHEDULER] Error en sincronización de ${emp.razon_social}:`, err.message);

@@ -4,6 +4,7 @@ import { Sidebar } from './Sidebar';
 import { Topbar } from './Topbar';
 import { ChatbotWidget } from '../chatbot/ChatbotWidget';
 import { Modal } from '../common/Modal';
+import { ErrorBoundary } from '../common/ErrorBoundary';
 import { useAuth } from '../../context/AuthContext';
 import { Building2, Check } from 'lucide-react';
 
@@ -37,7 +38,9 @@ export const AppLayout: React.FC = () => {
         />
 
         <main className="flex-1 overflow-y-auto p-4 sm:p-6 md:p-8 custom-scrollbar">
-          <Outlet />
+          <ErrorBoundary fallbackTitle="Error al renderizar el módulo actual">
+            <Outlet />
+          </ErrorBoundary>
         </main>
       </div>
 

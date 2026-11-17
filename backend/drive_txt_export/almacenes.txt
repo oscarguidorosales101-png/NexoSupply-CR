@@ -1,0 +1,29 @@
+================================================================================
+NEXOSUPPLY CR - RED DE ALMACENES Y BODEGAS
+================================================================================
+Empresa: Distribuidora del Pacífico (e1a2b3c4-d5e6-4f7a-8b9c-0d1e2f3a4b5c)
+Total Almacenes: 5
+Fecha: 2026-11-17
+Fuente: MySQL (tabla almacenes)
+
+ALMACENES OPERATIVOS:
+
+Almacen: Almacén Central Alajuela (Codigo: ALM-CENTRAL)
+Ubicacion: Radial Francisco J. Orlich, Alajuela | Principal: SI
+Estado: OPERATIVO
+
+Almacen: Centro de Distribución Puntarenas (Codigo: ALM-PACIFICO)
+Ubicacion: Zona Franca El Roble, Puntarenas | Principal: NO
+Estado: OPERATIVO
+
+Almacen: Almacén Central (Distribuidora del Pacífico) (Codigo: E1-ALM-01)
+Ubicacion: Sector Industrial E1 | Principal: SI
+Estado: OPERATIVO
+
+Almacen: Centro de Distribución Logística (Codigo: E1-ALM-02)
+Ubicacion: Sector Industrial E1 | Principal: NO
+Estado: OPERATIVO
+
+Almacen: Bodega de Respuesto y Tránsito (Codigo: E1-ALM-03)
+Ubicacion: Sector Industrial E1 | Principal: NO
+Estado: OPERATIVO

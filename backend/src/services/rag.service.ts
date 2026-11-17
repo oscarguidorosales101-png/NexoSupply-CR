@@ -258,12 +258,40 @@ export class RagService {
     const queryEmb = await embeddingService.generateEmbedding(pregunta);
 
     // 2. Búsqueda semántica en Vector Store con filtro obligatorio de empresa
-    const matches = await vectorStoreService.searchSimilar(
-      queryEmb.vector,
-      empresaId,
-      5,    // top 5 fragmentos más relevantes
-      0.06  // umbral mínimo de similitud para embeddings semánticos locales
-    );
+    let matches: any[] = [];
+    try {
+      matches = await vectorStoreService.searchSimilar(
+        queryEmb.vector,
+        empresaId,
+        5,    // top 5 fragmentos más relevantes
+        0.06  // umbral mínimo de similitud
+      );
+    } catch (err: any) {
+      if (err.name === 'VectorStoreUnavailableError' || err.message?.includes('Qdrant')) {
+        const respuestaOffline = 'El motor vectorial Qdrant no se encuentra activo en http://localhost:6333. La consulta de conocimiento documental empresarial de Google Drive se encuentra temporalmente suspendida hasta la reactivacion del servicio vectorial.';
+        
+        await this.saveAuditLog({
+          empresaId,
+          usuarioId,
+          conversacionId,
+          pregunta,
+          respuesta: respuestaOffline,
+          estadoRecuperacion: 'ERROR',
+          tiempoMs: Date.now() - startTime,
+          fuentes: [],
+        });
+
+        return {
+          respuesta: respuestaOffline,
+          estado: 'ERROR',
+          fuentes: [],
+          tiempoRespuestaMs: Date.now() - startTime,
+          modeloUtilizado: 'Qdrant Vector Engine (Offline)',
+          totalFuentesEncontradas: 0,
+        };
+      }
+      throw err;
+    }
 
     // Verificar si hay coincidencia semántica sustantiva en los fragmentos
     const stopWords = new Set([

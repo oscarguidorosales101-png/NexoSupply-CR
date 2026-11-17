@@ -1,0 +1,388 @@
+================================================================================
+NEXOSUPPLY CR - CATALOGO DE PRODUCTOS
+================================================================================
+Empresa: Distribuidora del Pacífico (e1a2b3c4-d5e6-4f7a-8b9c-0d1e2f3a4b5c)
+Total Productos Catalogados: 63
+Fecha de Generacion: 2026-11-17
+Fuente: MySQL (tabla productos)
+Vigencia: VIGENTE (DEMO)
+
+DETALLE DE PRODUCTOS:
+
+SKU: E1-PRD-001 | Nombre: Ítem Operativo E1 #1 (Material)
+Categoria: Material Médico y Quirúrgico E1 | Unidad: UND
+Costo Promedio: CRC 3750.00 | Precio Referencia: CRC 5062.50
+Stock Minimo Global: 25 | Stock Seguridad: 10 | Stock Actual Disponible: 159
+Estado: ACTIVO
+
+SKU: E1-PRD-002 | Nombre: Ítem Operativo E1 #2 (Empaque)
+Categoria: Empaque y Embalaje E1 | Unidad: UND
+Costo Promedio: CRC 5000.00 | Precio Referencia: CRC 6750.00
+Stock Minimo Global: 30 | Stock Seguridad: 12 | Stock Actual Disponible: 198
+Estado: ACTIVO
+
+SKU: E1-PRD-003 | Nombre: Ítem Operativo E1 #3 (Herramientas)
+Categoria: Herramientas y Repuestos E1 | Unidad: UND
+Costo Promedio: CRC 6250.00 | Precio Referencia: CRC 8437.50
+Stock Minimo Global: 35 | Stock Seguridad: 14 | Stock Actual Disponible: 237
+Estado: ACTIVO
+
+SKU: E1-PRD-004 | Nombre: Ítem Operativo E1 #4 (Químicos)
+Categoria: Químicos y Reactivos E1 | Unidad: UND
+Costo Promedio: CRC 7500.00 | Precio Referencia: CRC 10125.00
+Stock Minimo Global: 40 | Stock Seguridad: 16 | Stock Actual Disponible: 276
+Estado: ACTIVO
+
+SKU: E1-PRD-005 | Nombre: Ítem Operativo E1 #5 (Materia)
+Categoria: Materia Prima e Insumos E1 | Unidad: UND
+Costo Promedio: CRC 8750.00 | Precio Referencia: CRC 11812.50
+Stock Minimo Global: 45 | Stock Seguridad: 18 | Stock Actual Disponible: 315
+Estado: ACTIVO
+
+SKU: E1-PRD-006 | Nombre: Ítem Operativo E1 #6 (Material)
+Categoria: Material Médico y Quirúrgico E1 | Unidad: UND
+Costo Promedio: CRC 10000.00 | Precio Referencia: CRC 13500.00
+Stock Minimo Global: 50 | Stock Seguridad: 20 | Stock Actual Disponible: 354
+Estado: ACTIVO
+
+SKU: E1-PRD-007 | Nombre: Ítem Operativo E1 #7 (Empaque)
+Categoria: Empaque y Embalaje E1 | Unidad: UND
+Costo Promedio: CRC 11250.00 | Precio Referencia: CRC 15187.50
+Stock Minimo Global: 55 | Stock Seguridad: 22 | Stock Actual Disponible: 81
+Estado: ACTIVO
+
+SKU: E1-PRD-008 | Nombre: Ítem Operativo E1 #8 (Herramientas)
+Categoria: Herramientas y Repuestos E1 | Unidad: UND
+Costo Promedio: CRC 12500.00 | Precio Referencia: CRC 16875.00
+Stock Minimo Global: 60 | Stock Seguridad: 24 | Stock Actual Disponible: 432
+Estado: ACTIVO
+
+SKU: E1-PRD-009 | Nombre: Ítem Operativo E1 #9 (Químicos)
+Categoria: Químicos y Reactivos E1 | Unidad: UND
+Costo Promedio: CRC 13750.00 | Precio Referencia: CRC 18562.50
+Stock Minimo Global: 65 | Stock Seguridad: 26 | Stock Actual Disponible: 471
+Estado: ACTIVO
+
+SKU: E1-PRD-010 | Nombre: Ítem Operativo E1 #10 (Materia)
+Categoria: Materia Prima e Insumos E1 | Unidad: UND
+Costo Promedio: CRC 15000.00 | Precio Referencia: CRC 20250.00
+Stock Minimo Global: 70 | Stock Seguridad: 28 | Stock Actual Disponible: 510
+Estado: ACTIVO
+
+SKU: E1-PRD-011 | Nombre: Ítem Operativo E1 #11 (Material)
+Categoria: Material Médico y Quirúrgico E1 | Unidad: UND
+Costo Promedio: CRC 16250.00 | Precio Referencia: CRC 21937.50
+Stock Minimo Global: 75 | Stock Seguridad: 30 | Stock Actual Disponible: 549
+Estado: ACTIVO
+
+SKU: E1-PRD-012 | Nombre: Ítem Operativo E1 #12 (Empaque)
+Categoria: Empaque y Embalaje E1 | Unidad: UND
+Costo Promedio: CRC 17500.00 | Precio Referencia: CRC 23625.00
+Stock Minimo Global: 80 | Stock Seguridad: 32 | Stock Actual Disponible: 588
+Estado: ACTIVO
+
+SKU: E1-PRD-013 | Nombre: Ítem Operativo E1 #13 (Herramientas)
+Categoria: Herramientas y Repuestos E1 | Unidad: UND
+Costo Promedio: CRC 18750.00 | Precio Referencia: CRC 25312.50
+Stock Minimo Global: 85 | Stock Seguridad: 34 | Stock Actual Disponible: 627
+Estado: ACTIVO
+
+SKU: E1-PRD-014 | Nombre: Ítem Operativo E1 #14 (Químicos)
+Categoria: Químicos y Reactivos E1 | Unidad: UND
+Costo Promedio: CRC 20000.00 | Precio Referencia: CRC 27000.00
+Stock Minimo Global: 90 | Stock Seguridad: 36 | Stock Actual Disponible: 135
+Estado: ACTIVO
+
+SKU: E1-PRD-015 | Nombre: Ítem Operativo E1 #15 (Materia)
+Categoria: Materia Prima e Insumos E1 | Unidad: UND
+Costo Promedio: CRC 21250.00 | Precio Referencia: CRC 28687.50
+Stock Minimo Global: 20 | Stock Seguridad: 8 | Stock Actual Disponible: 255
+Estado: ACTIVO
+
+SKU: E1-PRD-016 | Nombre: Ítem Operativo E1 #16 (Material)
+Categoria: Material Médico y Quirúrgico E1 | Unidad: UND
+Costo Promedio: CRC 22500.00 | Precio Referencia: CRC 30375.00
+Stock Minimo Global: 25 | Stock Seguridad: 10 | Stock Actual Disponible: 294
+Estado: ACTIVO
+
+SKU: E1-PRD-017 | Nombre: Ítem Operativo E1 #17 (Empaque)
+Categoria: Empaque y Embalaje E1 | Unidad: UND
+Costo Promedio: CRC 23750.00 | Precio Referencia: CRC 32062.50
+Stock Minimo Global: 30 | Stock Seguridad: 12 | Stock Actual Disponible: 333
+Estado: ACTIVO
+
+SKU: E1-PRD-018 | Nombre: Ítem Operativo E1 #18 (Herramientas)
+Categoria: Herramientas y Repuestos E1 | Unidad: UND
+Costo Promedio: CRC 25000.00 | Precio Referencia: CRC 33750.00
+Stock Minimo Global: 35 | Stock Seguridad: 14 | Stock Actual Disponible: 372
+Estado: ACTIVO
+
+SKU: E1-PRD-019 | Nombre: Ítem Operativo E1 #19 (Químicos)
+Categoria: Químicos y Reactivos E1 | Unidad: UND
+Costo Promedio: CRC 26250.00 | Precio Referencia: CRC 35437.50
+Stock Minimo Global: 40 | Stock Seguridad: 16 | Stock Actual Disponible: 411
+Estado: ACTIVO
+
+SKU: E1-PRD-020 | Nombre: Ítem Operativo E1 #20 (Materia)
+Categoria: Materia Prima e Insumos E1 | Unidad: UND
+Costo Promedio: CRC 27500.00 | Precio Referencia: CRC 37125.00
+Stock Minimo Global: 45 | Stock Seguridad: 18 | Stock Actual Disponible: 450
+Estado: ACTIVO
+
+SKU: E1-PRD-021 | Nombre: Ítem Operativo E1 #21 (Material)
+Categoria: Material Médico y Quirúrgico E1 | Unidad: UND
+Costo Promedio: CRC 28750.00 | Precio Referencia: CRC 38812.50
+Stock Minimo Global: 50 | Stock Seguridad: 20 | Stock Actual Disponible: 75
+Estado: ACTIVO
+
+SKU: E1-PRD-022 | Nombre: Ítem Operativo E1 #22 (Empaque)
+Categoria: Empaque y Embalaje E1 | Unidad: UND
+Costo Promedio: CRC 30000.00 | Precio Referencia: CRC 40500.00
+Stock Minimo Global: 55 | Stock Seguridad: 22 | Stock Actual Disponible: 528
+Estado: ACTIVO
+
+SKU: E1-PRD-023 | Nombre: Ítem Operativo E1 #23 (Herramientas)
+Categoria: Herramientas y Repuestos E1 | Unidad: UND
+Costo Promedio: CRC 31250.00 | Precio Referencia: CRC 42187.50
+Stock Minimo Global: 60 | Stock Seguridad: 24 | Stock Actual Disponible: 567
+Estado: ACTIVO
+
+SKU: E1-PRD-024 | Nombre: Ítem Operativo E1 #24 (Químicos)
+Categoria: Químicos y Reactivos E1 | Unidad: UND
+Costo Promedio: CRC 32500.00 | Precio Referencia: CRC 43875.00
+Stock Minimo Global: 65 | Stock Seguridad: 26 | Stock Actual Disponible: 606
+Estado: ACTIVO
+
+SKU: E1-PRD-025 | Nombre: Ítem Operativo E1 #25 (Materia)
+Categoria: Materia Prima e Insumos E1 | Unidad: UND
+Costo Promedio: CRC 33750.00 | Precio Referencia: CRC 45562.50
+Stock Minimo Global: 70 | Stock Seguridad: 28 | Stock Actual Disponible: 645
+Estado: ACTIVO
+
+SKU: E1-PRD-026 | Nombre: Ítem Operativo E1 #26 (Material)
+Categoria: Material Médico y Quirúrgico E1 | Unidad: UND
+Costo Promedio: CRC 35000.00 | Precio Referencia: CRC 47250.00
+Stock Minimo Global: 75 | Stock Seguridad: 30 | Stock Actual Disponible: 684
+Estado: ACTIVO
+
+SKU: E1-PRD-027 | Nombre: Ítem Operativo E1 #27 (Empaque)
+Categoria: Empaque y Embalaje E1 | Unidad: UND
+Costo Promedio: CRC 36250.00 | Precio Referencia: CRC 48937.50
+Stock Minimo Global: 80 | Stock Seguridad: 32 | Stock Actual Disponible: 723
+Estado: ACTIVO
+
+SKU: E1-PRD-028 | Nombre: Ítem Operativo E1 #28 (Herramientas)
+Categoria: Herramientas y Repuestos E1 | Unidad: UND
+Costo Promedio: CRC 37500.00 | Precio Referencia: CRC 50625.00
+Stock Minimo Global: 85 | Stock Seguridad: 34 | Stock Actual Disponible: 126
+Estado: ACTIVO
+
+SKU: E1-PRD-029 | Nombre: Ítem Operativo E1 #29 (Químicos)
+Categoria: Químicos y Reactivos E1 | Unidad: UND
+Costo Promedio: CRC 38750.00 | Precio Referencia: CRC 52312.50
+Stock Minimo Global: 90 | Stock Seguridad: 36 | Stock Actual Disponible: 801
+Estado: ACTIVO
+
+SKU: E1-PRD-030 | Nombre: Ítem Operativo E1 #30 (Materia)
+Categoria: Materia Prima e Insumos E1 | Unidad: UND
+Costo Promedio: CRC 2500.00 | Precio Referencia: CRC 3375.00
+Stock Minimo Global: 20 | Stock Seguridad: 8 | Stock Actual Disponible: 390
+Estado: ACTIVO
+
+SKU: E1-PRD-031 | Nombre: Ítem Operativo E1 #31 (Material)
+Categoria: Material Médico y Quirúrgico E1 | Unidad: UND
+Costo Promedio: CRC 3750.00 | Precio Referencia: CRC 5062.50
+Stock Minimo Global: 25 | Stock Seguridad: 10 | Stock Actual Disponible: 429
+Estado: ACTIVO
+
+SKU: E1-PRD-032 | Nombre: Ítem Operativo E1 #32 (Empaque)
+Categoria: Empaque y Embalaje E1 | Unidad: UND
+Costo Promedio: CRC 5000.00 | Precio Referencia: CRC 6750.00
+Stock Minimo Global: 30 | Stock Seguridad: 12 | Stock Actual Disponible: 468
+Estado: ACTIVO
+
+SKU: E1-PRD-033 | Nombre: Ítem Operativo E1 #33 (Herramientas)
+Categoria: Herramientas y Repuestos E1 | Unidad: UND
+Costo Promedio: CRC 6250.00 | Precio Referencia: CRC 8437.50
+Stock Minimo Global: 35 | Stock Seguridad: 14 | Stock Actual Disponible: 507
+Estado: ACTIVO
+
+SKU: E1-PRD-034 | Nombre: Ítem Operativo E1 #34 (Químicos)
+Categoria: Químicos y Reactivos E1 | Unidad: UND
+Costo Promedio: CRC 7500.00 | Precio Referencia: CRC 10125.00
+Stock Minimo Global: 40 | Stock Seguridad: 16 | Stock Actual Disponible: 546
+Estado: ACTIVO
+
+SKU: E1-PRD-035 | Nombre: Ítem Operativo E1 #35 (Materia)
+Categoria: Materia Prima e Insumos E1 | Unidad: UND
+Costo Promedio: CRC 8750.00 | Precio Referencia: CRC 11812.50
+Stock Minimo Global: 45 | Stock Seguridad: 18 | Stock Actual Disponible: 66
+Estado: ACTIVO
+
+SKU: E1-PRD-036 | Nombre: Ítem Operativo E1 #36 (Material)
+Categoria: Material Médico y Quirúrgico E1 | Unidad: UND
+Costo Promedio: CRC 10000.00 | Precio Referencia: CRC 13500.00
+Stock Minimo Global: 50 | Stock Seguridad: 20 | Stock Actual Disponible: 624
+Estado: ACTIVO
+
+SKU: E1-PRD-037 | Nombre: Ítem Operativo E1 #37 (Empaque)
+Categoria: Empaque y Embalaje E1 | Unidad: UND
+Costo Promedio: CRC 11250.00 | Precio Referencia: CRC 15187.50
+Stock Minimo Global: 55 | Stock Seguridad: 22 | Stock Actual Disponible: 663
+Estado: ACTIVO
+
+SKU: E1-PRD-038 | Nombre: Ítem Operativo E1 #38 (Herramientas)
+Categoria: Herramientas y Repuestos E1 | Unidad: UND
+Costo Promedio: CRC 12500.00 | Precio Referencia: CRC 16875.00
+Stock Minimo Global: 60 | Stock Seguridad: 24 | Stock Actual Disponible: 702
+Estado: ACTIVO
+
+SKU: E1-PRD-039 | Nombre: Ítem Operativo E1 #39 (Químicos)
+Categoria: Químicos y Reactivos E1 | Unidad: UND
+Costo Promedio: CRC 13750.00 | Precio Referencia: CRC 18562.50
+Stock Minimo Global: 65 | Stock Seguridad: 26 | Stock Actual Disponible: 741
+Estado: ACTIVO
+
+SKU: E1-PRD-040 | Nombre: Ítem Operativo E1 #40 (Materia)
+Categoria: Materia Prima e Insumos E1 | Unidad: UND
+Costo Promedio: CRC 15000.00 | Precio Referencia: CRC 20250.00
+Stock Minimo Global: 70 | Stock Seguridad: 28 | Stock Actual Disponible: 780
+Estado: ACTIVO
+
+SKU: E1-PRD-041 | Nombre: Ítem Operativo E1 #41 (Material)
+Categoria: Material Médico y Quirúrgico E1 | Unidad: UND
+Costo Promedio: CRC 16250.00 | Precio Referencia: CRC 21937.50
+Stock Minimo Global: 75 | Stock Seguridad: 30 | Stock Actual Disponible: 819
+Estado: ACTIVO
+
+SKU: E1-PRD-042 | Nombre: Ítem Operativo E1 #42 (Empaque)
+Categoria: Empaque y Embalaje E1 | Unidad: UND
+Costo Promedio: CRC 17500.00 | Precio Referencia: CRC 23625.00
+Stock Minimo Global: 80 | Stock Seguridad: 32 | Stock Actual Disponible: 120
+Estado: ACTIVO
+
+SKU: E1-PRD-043 | Nombre: Ítem Operativo E1 #43 (Herramientas)
+Categoria: Herramientas y Repuestos E1 | Unidad: UND
+Costo Promedio: CRC 18750.00 | Precio Referencia: CRC 25312.50
+Stock Minimo Global: 85 | Stock Seguridad: 34 | Stock Actual Disponible: 897
+Estado: ACTIVO
+
+SKU: E1-PRD-044 | Nombre: Ítem Operativo E1 #44 (Químicos)
+Categoria: Químicos y Reactivos E1 | Unidad: UND
+Costo Promedio: CRC 20000.00 | Precio Referencia: CRC 27000.00
+Stock Minimo Global: 90 | Stock Seguridad: 36 | Stock Actual Disponible: 936
+Estado: ACTIVO
+
+SKU: E1-PRD-045 | Nombre: Ítem Operativo E1 #45 (Materia)
+Categoria: Materia Prima e Insumos E1 | Unidad: UND
+Costo Promedio: CRC 21250.00 | Precio Referencia: CRC 28687.50
+Stock Minimo Global: 20 | Stock Seguridad: 8 | Stock Actual Disponible: 525
+Estado: ACTIVO
+
+SKU: E1-PRD-046 | Nombre: Ítem Operativo E1 #46 (Material)
+Categoria: Material Médico y Quirúrgico E1 | Unidad: UND
+Costo Promedio: CRC 22500.00 | Precio Referencia: CRC 30375.00
+Stock Minimo Global: 25 | Stock Seguridad: 10 | Stock Actual Disponible: 564
+Estado: ACTIVO
+
+SKU: E1-PRD-047 | Nombre: Ítem Operativo E1 #47 (Empaque)
+Categoria: Empaque y Embalaje E1 | Unidad: UND
+Costo Promedio: CRC 23750.00 | Precio Referencia: CRC 32062.50
+Stock Minimo Global: 30 | Stock Seguridad: 12 | Stock Actual Disponible: 603
+Estado: ACTIVO
+
+SKU: E1-PRD-048 | Nombre: Ítem Operativo E1 #48 (Herramientas)
+Categoria: Herramientas y Repuestos E1 | Unidad: UND
+Costo Promedio: CRC 25000.00 | Precio Referencia: CRC 33750.00
+Stock Minimo Global: 35 | Stock Seguridad: 14 | Stock Actual Disponible: 642
+Estado: ACTIVO
+
+SKU: E1-PRD-049 | Nombre: Ítem Operativo E1 #49 (Químicos)
+Categoria: Químicos y Reactivos E1 | Unidad: UND
+Costo Promedio: CRC 26250.00 | Precio Referencia: CRC 35437.50
+Stock Minimo Global: 40 | Stock Seguridad: 16 | Stock Actual Disponible: 60
+Estado: ACTIVO
+
+SKU: E1-PRD-050 | Nombre: Ítem Operativo E1 #50 (Materia)
+Categoria: Materia Prima e Insumos E1 | Unidad: UND
+Costo Promedio: CRC 27500.00 | Precio Referencia: CRC 37125.00
+Stock Minimo Global: 45 | Stock Seguridad: 18 | Stock Actual Disponible: 720
+Estado: ACTIVO
+
+SKU: E1-PRD-051 | Nombre: Ítem Operativo E1 #51 (Material)
+Categoria: Material Médico y Quirúrgico E1 | Unidad: UND
+Costo Promedio: CRC 28750.00 | Precio Referencia: CRC 38812.50
+Stock Minimo Global: 50 | Stock Seguridad: 20 | Stock Actual Disponible: 759
+Estado: ACTIVO
+
+SKU: E1-PRD-052 | Nombre: Ítem Operativo E1 #52 (Empaque)
+Categoria: Empaque y Embalaje E1 | Unidad: UND
+Costo Promedio: CRC 30000.00 | Precio Referencia: CRC 40500.00
+Stock Minimo Global: 55 | Stock Seguridad: 22 | Stock Actual Disponible: 798
+Estado: ACTIVO
+
+SKU: E1-PRD-053 | Nombre: Ítem Operativo E1 #53 (Herramientas)
+Categoria: Herramientas y Repuestos E1 | Unidad: UND
+Costo Promedio: CRC 31250.00 | Precio Referencia: CRC 42187.50
+Stock Minimo Global: 60 | Stock Seguridad: 24 | Stock Actual Disponible: 837
+Estado: ACTIVO
+
+SKU: E1-PRD-054 | Nombre: Ítem Operativo E1 #54 (Químicos)
+Categoria: Químicos y Reactivos E1 | Unidad: UND
+Costo Promedio: CRC 32500.00 | Precio Referencia: CRC 43875.00
+Stock Minimo Global: 65 | Stock Seguridad: 26 | Stock Actual Disponible: 876
+Estado: ACTIVO
+
+SKU: E1-PRD-055 | Nombre: Ítem Operativo E1 #55 (Materia)
+Categoria: Materia Prima e Insumos E1 | Unidad: UND
+Costo Promedio: CRC 33750.00 | Precio Referencia: CRC 45562.50
+Stock Minimo Global: 70 | Stock Seguridad: 28 | Stock Actual Disponible: 915
+Estado: ACTIVO
+
+SKU: E1-PRD-056 | Nombre: Ítem Operativo E1 #56 (Material)
+Categoria: Material Médico y Quirúrgico E1 | Unidad: UND
+Costo Promedio: CRC 35000.00 | Precio Referencia: CRC 47250.00
+Stock Minimo Global: 75 | Stock Seguridad: 30 | Stock Actual Disponible: 111
+Estado: ACTIVO
+
+SKU: E1-PRD-057 | Nombre: Ítem Operativo E1 #57 (Empaque)
+Categoria: Empaque y Embalaje E1 | Unidad: UND
+Costo Promedio: CRC 36250.00 | Precio Referencia: CRC 48937.50
+Stock Minimo Global: 80 | Stock Seguridad: 32 | Stock Actual Disponible: 993
+Estado: ACTIVO
+
+SKU: E1-PRD-058 | Nombre: Ítem Operativo E1 #58 (Herramientas)
+Categoria: Herramientas y Repuestos E1 | Unidad: UND
+Costo Promedio: CRC 37500.00 | Precio Referencia: CRC 50625.00
+Stock Minimo Global: 85 | Stock Seguridad: 34 | Stock Actual Disponible: 1032
+Estado: ACTIVO
+
+SKU: E1-PRD-059 | Nombre: Ítem Operativo E1 #59 (Químicos)
+Categoria: Químicos y Reactivos E1 | Unidad: UND
+Costo Promedio: CRC 38750.00 | Precio Referencia: CRC 52312.50
+Stock Minimo Global: 90 | Stock Seguridad: 36 | Stock Actual Disponible: 1071
+Estado: ACTIVO
+
+SKU: E1-PRD-060 | Nombre: Ítem Operativo E1 #60 (Materia)
+Categoria: Materia Prima e Insumos E1 | Unidad: UND
+Costo Promedio: CRC 2500.00 | Precio Referencia: CRC 3375.00
+Stock Minimo Global: 20 | Stock Seguridad: 8 | Stock Actual Disponible: 660
+Estado: ACTIVO
+
+SKU: FER-CINT-01 | Nombre: Cinta de Embalaje Industrial 48mm x 100m Transparente
+Categoria: Materiales de Embalaje y Logística | Unidad: UND
+Costo Promedio: CRC 1150.00 | Precio Referencia: CRC 1800.00
+Stock Minimo Global: 50 | Stock Seguridad: 15 | Stock Actual Disponible: 185
+Estado: ACTIVO
+
+SKU: MED-GUAN-01 | Nombre: Guantes de Nitrilo Grado Médico Caja x 100
+Categoria: Insumos Hospitalarios y Bioseguridad | Unidad: CJ
+Costo Promedio: CRC 3200.00 | Precio Referencia: CRC 4500.00
+Stock Minimo Global: 100 | Stock Seguridad: 30 | Stock Actual Disponible: 350
+Estado: ACTIVO
+
+SKU: MED-MASC-02 | Nombre: Mascarillas Quirúrgicas Triple Capa Caja x 50
+Categoria: Insumos Hospitalarios y Bioseguridad | Unidad: CJ
+Costo Promedio: CRC 1850.00 | Precio Referencia: CRC 2800.00
+Stock Minimo Global: 80 | Stock Seguridad: 25 | Stock Actual Disponible: 0
+Estado: ACTIVO

@@ -31,7 +31,9 @@ export function Table<T>({
     );
   }
 
-  if (data.length === 0) {
+  const rows = Array.isArray(data) ? data : [];
+
+  if (rows.length === 0) {
     return (
       <div className="w-full bg-white rounded-xl border border-slate-100 p-12 text-center">
         <p className="text-sm text-slate-500 font-medium">{emptyMessage}</p>
@@ -58,7 +60,7 @@ export function Table<T>({
             </tr>
           </thead>
           <tbody className="divide-y divide-slate-100">
-            {data.map((row, rowIdx) => (
+            {rows.map((row, rowIdx) => (
               <tr
                 key={rowIdx}
                 onClick={() => onRowClick && onRowClick(row)}

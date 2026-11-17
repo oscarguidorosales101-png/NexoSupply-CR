@@ -1,0 +1,19 @@
+================================================================================
+NEXOSUPPLY CR - FICHA EMPRESARIAL OFICIAL
+================================================================================
+Identificador de Empresa: e1a2b3c4-d5e6-4f7a-8b9c-0d1e2f3a4b5c
+Razon Social: Distribuidora Central del Pacífico S.A. [DEMO]
+Nombre Comercial: Distribuidora del Pacífico
+Cedula Juridica / RFC: 3-101-789456
+Moneda Base: CRC
+Correo de Contacto: contacto@pacificocr-demo.com
+Telefono: +506 2440-1000
+Direccion Fisica: Parque Empresarial del Este, Bodega 14, Alajuela, Costa Rica
+Estado de Vigencia: ACTIVA (ENTORNO DEMO EMPRESARIAL)
+Fuente de Datos: MySQL Database (nexosupply_cr - tabla empresas)
+Fecha de Generacion: 2026-11-17
+Ultima Actualizacion: 2026-11-16T19:57:17.420Z
+
+DESCRIPCION OPERATIVA:
+Empresa lider en comercializacion y distribucion mayorista de suministros medicos,
+materiales quirurgicos y equipos de proteccion en Costa Rica.

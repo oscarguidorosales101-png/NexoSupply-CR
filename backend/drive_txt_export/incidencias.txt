@@ -1,0 +1,56 @@
+================================================================================
+NEXOSUPPLY CR - BITACORA DE INCIDENCIAS DE ABASTECIMIENTO
+================================================================================
+Empresa: Distribuidora del Pacífico (e1a2b3c4-d5e6-4f7a-8b9c-0d1e2f3a4b5c)
+Fecha: 2026-11-17
+Fuente: MySQL (evaluaciones y alertas)
+
+INCIDENCIAS DETECTADAS:
+- Observacion en proveedor Aceros del Atlántico: Cálculo automático determinista sobre 7 orden(es) y 2 incidencia(s) registradas. (Periodo: 2026-TEST).
+- Observacion en proveedor Herramientas Atlas S.A.: Evaluación de desempeño trimestral consolidada para Herramientas Atlas S.A. S.A. [DEMO] (Periodo: 2026-Q1).
+- Observacion en proveedor Herramientas Atlas S.A.: Evaluación de desempeño trimestral consolidada para Herramientas Atlas S.A. S.A. [DEMO] (Periodo: 2025-Q4).
+- Observacion en proveedor Herramientas Atlas S.A.: Evaluación de desempeño trimestral consolidada para Herramientas Atlas S.A. S.A. [DEMO] (Periodo: 2025-Q3).
+- Observacion en proveedor Adhesivos & Cintas Industriales: Evaluación de desempeño trimestral consolidada para Adhesivos & Cintas Industriales S.A. [DEMO] (Periodo: 2026-Q1).
+- Observacion en proveedor Adhesivos & Cintas Industriales: Evaluación de desempeño trimestral consolidada para Adhesivos & Cintas Industriales S.A. [DEMO] (Periodo: 2025-Q4).
+- Observacion en proveedor Adhesivos & Cintas Industriales: Evaluación de desempeño trimestral consolidada para Adhesivos & Cintas Industriales S.A. [DEMO] (Periodo: 2025-Q3).
+- Observacion en proveedor Importadora Centroamericana: Evaluación de desempeño trimestral consolidada para Importadora Centroamericana S.A. [DEMO] (Periodo: 2026-Q1).
+- Observacion en proveedor Importadora Centroamericana: Evaluación de desempeño trimestral consolidada para Importadora Centroamericana S.A. [DEMO] (Periodo: 2025-Q4).
+- Observacion en proveedor Importadora Centroamericana: Evaluación de desempeño trimestral consolidada para Importadora Centroamericana S.A. [DEMO] (Periodo: 2025-Q3).
+- Observacion en proveedor BioSuministros del Norte: Evaluación de desempeño trimestral consolidada para BioSuministros del Norte S.A. [DEMO] (Periodo: 2026-Q1).
+- Observacion en proveedor BioSuministros del Norte: Evaluación de desempeño trimestral consolidada para BioSuministros del Norte S.A. [DEMO] (Periodo: 2025-Q4).
+- Observacion en proveedor BioSuministros del Norte: Evaluación de desempeño trimestral consolidada para BioSuministros del Norte S.A. [DEMO] (Periodo: 2025-Q3).
+- Observacion en proveedor Insumos Médicos San José: Evaluación de desempeño trimestral consolidada para Insumos Médicos San José S.A. [DEMO] (Periodo: 2026-Q1).
+- Observacion en proveedor Insumos Médicos San José: Evaluación de desempeño trimestral consolidada para Insumos Médicos San José S.A. [DEMO] (Periodo: 2025-Q4).
+- Observacion en proveedor Insumos Médicos San José: Evaluación de desempeño trimestral consolidada para Insumos Médicos San José S.A. [DEMO] (Periodo: 2025-Q3).
+- Observacion en proveedor ElectroTecnia Industrial: Evaluación de desempeño trimestral consolidada para ElectroTecnia Industrial S.A. [DEMO] (Periodo: 2026-Q1).
+- Observacion en proveedor ElectroTecnia Industrial: Evaluación de desempeño trimestral consolidada para ElectroTecnia Industrial S.A. [DEMO] (Periodo: 2025-Q4).
+- Observacion en proveedor ElectroTecnia Industrial: Evaluación de desempeño trimestral consolidada para ElectroTecnia Industrial S.A. [DEMO] (Periodo: 2025-Q3).
+- Observacion en proveedor Distribuidora Continental: Evaluación de desempeño trimestral consolidada para Distribuidora Continental S.A. [DEMO] (Periodo: 2026-Q1).
+- Observacion en proveedor Distribuidora Continental: Evaluación de desempeño trimestral consolidada para Distribuidora Continental S.A. [DEMO] (Periodo: 2025-Q4).
+- Observacion en proveedor Distribuidora Continental: Evaluación de desempeño trimestral consolidada para Distribuidora Continental S.A. [DEMO] (Periodo: 2025-Q3).
+- Observacion en proveedor Aceros del Atlántico: Evaluación de desempeño trimestral consolidada para Aceros del Atlántico S.A. [DEMO] (Periodo: 2026-Q1).
+- Observacion en proveedor Aceros del Atlántico: Evaluación de desempeño trimestral consolidada para Aceros del Atlántico S.A. [DEMO] (Periodo: 2025-Q4).
+- Observacion en proveedor Aceros del Atlántico: Evaluación de desempeño trimestral consolidada para Aceros del Atlántico S.A. [DEMO] (Periodo: 2025-Q3).
+- Observacion en proveedor Plásticos & Cajas de Costa Rica: Evaluación de desempeño trimestral consolidada para Plásticos & Cajas de Costa Rica S.A. [DEMO] (Periodo: 2026-Q1).
+- Observacion en proveedor Plásticos & Cajas de Costa Rica: Evaluación de desempeño trimestral consolidada para Plásticos & Cajas de Costa Rica S.A. [DEMO] (Periodo: 2025-Q4).
+- Observacion en proveedor Plásticos & Cajas de Costa Rica: Evaluación de desempeño trimestral consolidada para Plásticos & Cajas de Costa Rica S.A. [DEMO] (Periodo: 2025-Q3).
+- Observacion en proveedor Equipos Biomédicos del Valle: Evaluación de desempeño trimestral consolidada para Equipos Biomédicos del Valle S.A. [DEMO] (Periodo: 2026-Q1).
+- Observacion en proveedor Equipos Biomédicos del Valle: Evaluación de desempeño trimestral consolidada para Equipos Biomédicos del Valle S.A. [DEMO] (Periodo: 2025-Q4).
+- Observacion en proveedor Equipos Biomédicos del Valle: Evaluación de desempeño trimestral consolidada para Equipos Biomédicos del Valle S.A. [DEMO] (Periodo: 2025-Q3).
+- Observacion en proveedor Química del Pacífico: Evaluación de desempeño trimestral consolidada para Química del Pacífico S.A. [DEMO] (Periodo: 2026-Q1).
+- Observacion en proveedor Química del Pacífico: Evaluación de desempeño trimestral consolidada para Química del Pacífico S.A. [DEMO] (Periodo: 2025-Q4).
+- Observacion en proveedor Química del Pacífico: Evaluación de desempeño trimestral consolidada para Química del Pacífico S.A. [DEMO] (Periodo: 2025-Q3).
+- Observacion en proveedor Ferretería & Repuestos Industriales: Evaluación de desempeño trimestral consolidada para Ferretería & Repuestos Industriales S.A. [DEMO] (Periodo: 2026-Q1).
+- Observacion en proveedor Ferretería & Repuestos Industriales: Evaluación de desempeño trimestral consolidada para Ferretería & Repuestos Industriales S.A. [DEMO] (Periodo: 2025-Q4).
+- Observacion en proveedor Ferretería & Repuestos Industriales: Evaluación de desempeño trimestral consolidada para Ferretería & Repuestos Industriales S.A. [DEMO] (Periodo: 2025-Q3).
+- Observacion en proveedor Global Packing Logistics: Evaluación de desempeño trimestral consolidada para Global Packing Logistics S.A. [DEMO] (Periodo: 2026-Q1).
+- Observacion en proveedor Global Packing Logistics: Evaluación de desempeño trimestral consolidada para Global Packing Logistics S.A. [DEMO] (Periodo: 2025-Q4).
+- Observacion en proveedor Global Packing Logistics: Evaluación de desempeño trimestral consolidada para Global Packing Logistics S.A. [DEMO] (Periodo: 2025-Q3).
+- Observacion en proveedor DisCaribe Distribuciones: Evaluación de desempeño trimestral consolidada para DisCaribe Distribuciones S.A. [DEMO] (Periodo: 2026-Q1).
+- Observacion en proveedor DisCaribe Distribuciones: Evaluación de desempeño trimestral consolidada para DisCaribe Distribuciones S.A. [DEMO] (Periodo: 2025-Q4).
+- Observacion en proveedor DisCaribe Distribuciones: Evaluación de desempeño trimestral consolidada para DisCaribe Distribuciones S.A. [DEMO] (Periodo: 2025-Q3).
+- Observacion en proveedor SumiMed CR Internacional: Evaluación de desempeño trimestral consolidada para SumiMed CR Internacional S.A. [DEMO] (Periodo: 2026-Q1).
+- Observacion en proveedor SumiMed CR Internacional: Evaluación de desempeño trimestral consolidada para SumiMed CR Internacional S.A. [DEMO] (Periodo: 2025-Q4).
+- Observacion en proveedor SumiMed CR Internacional: Evaluación de desempeño trimestral consolidada para SumiMed CR Internacional S.A. [DEMO] (Periodo: 2025-Q3).
+- Observacion en proveedor DisCaribe: Cálculo automático determinista sobre 2 orden(es) y 0 incidencia(s) registradas. (Periodo: 2026-TEST).
+- Observacion en proveedor SumiMed CR: Desempeño sobresaliente en lead time y calidad de empaque durante el período. (Periodo: 2026-11).

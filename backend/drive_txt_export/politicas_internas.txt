@@ -1,0 +1,25 @@
+================================================================================
+NEXOSUPPLY CR - MANUAL DE PROCEDIMIENTOS Y POLITICAS OPERATIVAS
+================================================================================
+Empresa: Distribuidora del Pacífico (e1a2b3c4-d5e6-4f7a-8b9c-0d1e2f3a4b5c)
+Vigencia: POLITICA VIGENTE REGISTRADA EN GOOGLE DRIVE
+Fecha: 2026-11-17
+
+1. PROCEDIMIENTO DE SOLICITUD DE COMPRA:
+- Cualquier usuario autorizado puede generar una solicitud de compra cuando el stock de un producto alcance el punto de reorden.
+- La solicitud debe contener justificacion operativa, cantidades y fecha requerida.
+- Estados de la solicitud: PENDIENTE, APROBADA, RECHAZADA.
+
+2. PROCEDIMIENTO DE APROBACION (RN-04):
+- Solamente usuarios con rol de Administrador o Aprobador de Compras pueden aprobar solicitudes.
+- Al aprobar una solicitud, se genera automaticamente una Orden de Compra oficial en estado EMITIDA vinculada al proveedor preferente.
+
+3. PROCEDIMIENTO DE RECEPCION Y KARDEX (RN-09):
+- Las recepciones fisicas se registran en bodega mediante conteo ciego o cotejo contra la Orden de Compra.
+- Se permiten recepciones parciales.
+- Cada entrada fisica genera un asiento transaccional inmutable en el Kardex y actualiza el saldo disponible en tiempo real.
+- No se permiten salidas que provoquen saldo negativo (RN-09).
+
+4. POLITICA DE EVALUACION DE PROVEEDORES:
+- Mensualmente se calcula el indice OTD (On-Time Delivery) y OFR (Order Fill Rate).
+- Proveedores con calificacion inferior a 70 puntos entran en plan de mejora obligatoria.

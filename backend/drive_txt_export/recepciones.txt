@@ -1,0 +1,265 @@
+================================================================================
+NEXOSUPPLY CR - HISTORIAL DE RECEPCIONES FISICAS DE COMPRA
+================================================================================
+Empresa: Distribuidora del Pacífico (e1a2b3c4-d5e6-4f7a-8b9c-0d1e2f3a4b5c)
+Total Recepciones: 32
+Fecha: 2026-11-17
+Fuente: MySQL (tabla recepciones_compra)
+
+RECEPCIONES REALIZADAS:
+
+Recepcion #: TEST-REC-1794879136637
+Orden de Compra Asociada: TEST-OC-1794879136605
+Almacen de Entrada: Almacén Central Alajuela
+Fecha de Recepcion: 2026-11-17
+Estado: CON_DIFERENCIAS
+Guia / Factura: FAC-ELECT-TEST-001
+Observaciones: Recepción parcial automatizada para prueba de Kardex
+
+Recepcion #: TEST-REC-1794878589424
+Orden de Compra Asociada: TEST-OC-1794878589397
+Almacen de Entrada: Almacén Central Alajuela
+Fecha de Recepcion: 2026-11-17
+Estado: CON_DIFERENCIAS
+Guia / Factura: FAC-ELECT-TEST-001
+Observaciones: Recepción parcial automatizada para prueba de Kardex
+
+Recepcion #: TEST-REC-1794877730211
+Orden de Compra Asociada: TEST-OC-1794877730184
+Almacen de Entrada: Almacén Central Alajuela
+Fecha de Recepcion: 2026-11-17
+Estado: CON_DIFERENCIAS
+Guia / Factura: FAC-ELECT-TEST-001
+Observaciones: Recepción parcial automatizada para prueba de Kardex
+
+Recepcion #: TEST-REC-1794859755899
+Orden de Compra Asociada: TEST-OC-1794859755840
+Almacen de Entrada: Almacén Central Alajuela
+Fecha de Recepcion: 2026-11-16
+Estado: CON_DIFERENCIAS
+Guia / Factura: FAC-ELECT-TEST-001
+Observaciones: Recepción parcial automatizada para prueba de Kardex
+
+Recepcion #: TEST-REC-1794859167195
+Orden de Compra Asociada: TEST-OC-1794859167137
+Almacen de Entrada: Almacén Central Alajuela
+Fecha de Recepcion: 2026-11-16
+Estado: CON_DIFERENCIAS
+Guia / Factura: FAC-ELECT-TEST-001
+Observaciones: Recepción parcial automatizada para prueba de Kardex
+
+Recepcion #: TEST-REC-1794857090187
+Orden de Compra Asociada: TEST-OC-1794857090158
+Almacen de Entrada: Almacén Central Alajuela
+Fecha de Recepcion: 2026-11-16
+Estado: CON_DIFERENCIAS
+Guia / Factura: FAC-ELECT-TEST-001
+Observaciones: Recepción parcial automatizada para prueba de Kardex
+
+Recepcion #: TEST-REC-1794855031208
+Orden de Compra Asociada: TEST-OC-1794855031167
+Almacen de Entrada: Almacén Central Alajuela
+Fecha de Recepcion: 2026-11-16
+Estado: CON_DIFERENCIAS
+Guia / Factura: FAC-ELECT-TEST-001
+Observaciones: Recepción parcial automatizada para prueba de Kardex
+
+Recepcion #: REC-2026-0001
+Orden de Compra Asociada: OC-2026-0001
+Almacen de Entrada: Almacén Central Alajuela
+Fecha de Recepcion: 2026-11-16
+Estado: CONFORME
+Guia / Factura: GUIA-SM-9021
+Observaciones: Primera entrega parcial de 120 cajas recibidas en perfecto estado.
+
+Recepcion #: E1-REC-0024
+Orden de Compra Asociada: E1-OC-0024
+Almacen de Entrada: Almacén Central (Distribuidora del Pacífico)
+Fecha de Recepcion: 2026-10-08
+Estado: CONFORME
+Guia / Factura: FAC-PROV-1024
+Observaciones: Recepción conforme con inspección de calidad aprobada.
+
+Recepcion #: E1-REC-0023
+Orden de Compra Asociada: E1-OC-0023
+Almacen de Entrada: Bodega de Respuesto y Tránsito
+Fecha de Recepcion: 2026-10-04
+Estado: CONFORME
+Guia / Factura: FAC-PROV-1023
+Observaciones: Recepción conforme con inspección de calidad aprobada.
+
+Recepcion #: E1-REC-0022
+Orden de Compra Asociada: E1-OC-0022
+Almacen de Entrada: Centro de Distribución Logística
+Fecha de Recepcion: 2026-09-29
+Estado: CONFORME
+Guia / Factura: FAC-PROV-1022
+Observaciones: Recepción conforme con inspección de calidad aprobada.
+
+Recepcion #: E1-REC-0021
+Orden de Compra Asociada: E1-OC-0021
+Almacen de Entrada: Almacén Central (Distribuidora del Pacífico)
+Fecha de Recepcion: 2026-09-25
+Estado: CONFORME
+Guia / Factura: FAC-PROV-1021
+Observaciones: Recepción conforme con inspección de calidad aprobada.
+
+Recepcion #: E1-REC-0020
+Orden de Compra Asociada: E1-OC-0020
+Almacen de Entrada: Bodega de Respuesto y Tránsito
+Fecha de Recepcion: 2026-09-20
+Estado: CONFORME
+Guia / Factura: FAC-PROV-1020
+Observaciones: Recepción conforme con inspección de calidad aprobada.
+
+Recepcion #: E1-REC-0019
+Orden de Compra Asociada: E1-OC-0019
+Almacen de Entrada: Centro de Distribución Logística
+Fecha de Recepcion: 2026-09-16
+Estado: CONFORME
+Guia / Factura: FAC-PROV-1019
+Observaciones: Recepción conforme con inspección de calidad aprobada.
+
+Recepcion #: E1-REC-0018
+Orden de Compra Asociada: E1-OC-0018
+Almacen de Entrada: Almacén Central (Distribuidora del Pacífico)
+Fecha de Recepcion: 2026-09-11
+Estado: CONFORME
+Guia / Factura: FAC-PROV-1018
+Observaciones: Recepción conforme con inspección de calidad aprobada.
+
+Recepcion #: E1-REC-0017
+Orden de Compra Asociada: E1-OC-0017
+Almacen de Entrada: Bodega de Respuesto y Tránsito
+Fecha de Recepcion: 2026-09-07
+Estado: CONFORME
+Guia / Factura: FAC-PROV-1017
+Observaciones: Recepción conforme con inspección de calidad aprobada.
+
+Recepcion #: E1-REC-0016
+Orden de Compra Asociada: E1-OC-0016
+Almacen de Entrada: Centro de Distribución Logística
+Fecha de Recepcion: 2026-09-02
+Estado: CONFORME
+Guia / Factura: FAC-PROV-1016
+Observaciones: Recepción conforme con inspección de calidad aprobada.
+
+Recepcion #: E1-REC-0015
+Orden de Compra Asociada: E1-OC-0015
+Almacen de Entrada: Almacén Central (Distribuidora del Pacífico)
+Fecha de Recepcion: 2026-08-29
+Estado: CONFORME
+Guia / Factura: FAC-PROV-1015
+Observaciones: Recepción conforme con inspección de calidad aprobada.
+
+Recepcion #: E1-REC-0014
+Orden de Compra Asociada: E1-OC-0014
+Almacen de Entrada: Bodega de Respuesto y Tránsito
+Fecha de Recepcion: 2026-08-24
+Estado: CONFORME
+Guia / Factura: FAC-PROV-1014
+Observaciones: Recepción conforme con inspección de calidad aprobada.
+
+Recepcion #: E1-REC-0013
+Orden de Compra Asociada: E1-OC-0013
+Almacen de Entrada: Centro de Distribución Logística
+Fecha de Recepcion: 2026-08-20
+Estado: CONFORME
+Guia / Factura: FAC-PROV-1013
+Observaciones: Recepción conforme con inspección de calidad aprobada.
+
+Recepcion #: E1-REC-0012
+Orden de Compra Asociada: E1-OC-0012
+Almacen de Entrada: Almacén Central (Distribuidora del Pacífico)
+Fecha de Recepcion: 2026-08-15
+Estado: CONFORME
+Guia / Factura: FAC-PROV-1012
+Observaciones: Recepción conforme con inspección de calidad aprobada.
+
+Recepcion #: E1-REC-0011
+Orden de Compra Asociada: E1-OC-0011
+Almacen de Entrada: Bodega de Respuesto y Tránsito
+Fecha de Recepcion: 2026-08-11
+Estado: CONFORME
+Guia / Factura: FAC-PROV-1011
+Observaciones: Recepción conforme con inspección de calidad aprobada.
+
+Recepcion #: E1-REC-0010
+Orden de Compra Asociada: E1-OC-0010
+Almacen de Entrada: Centro de Distribución Logística
+Fecha de Recepcion: 2026-08-06
+Estado: CONFORME
+Guia / Factura: FAC-PROV-1010
+Observaciones: Recepción conforme con inspección de calidad aprobada.
+
+Recepcion #: E1-REC-0009
+Orden de Compra Asociada: E1-OC-0009
+Almacen de Entrada: Almacén Central (Distribuidora del Pacífico)
+Fecha de Recepcion: 2026-08-02
+Estado: CONFORME
+Guia / Factura: FAC-PROV-1009
+Observaciones: Recepción conforme con inspección de calidad aprobada.
+
+Recepcion #: E1-REC-0008
+Orden de Compra Asociada: E1-OC-0008
+Almacen de Entrada: Bodega de Respuesto y Tránsito
+Fecha de Recepcion: 2026-07-28
+Estado: CONFORME
+Guia / Factura: FAC-PROV-1008
+Observaciones: Recepción conforme con inspección de calidad aprobada.
+
+Recepcion #: E1-REC-0007
+Orden de Compra Asociada: E1-OC-0007
+Almacen de Entrada: Centro de Distribución Logística
+Fecha de Recepcion: 2026-07-24
+Estado: CONFORME
+Guia / Factura: FAC-PROV-1007
+Observaciones: Recepción conforme con inspección de calidad aprobada.
+
+Recepcion #: E1-REC-0006
+Orden de Compra Asociada: E1-OC-0006
+Almacen de Entrada: Almacén Central (Distribuidora del Pacífico)
+Fecha de Recepcion: 2026-07-19
+Estado: CONFORME
+Guia / Factura: FAC-PROV-1006
+Observaciones: Recepción conforme con inspección de calidad aprobada.
+
+Recepcion #: E1-REC-0005
+Orden de Compra Asociada: E1-OC-0005
+Almacen de Entrada: Bodega de Respuesto y Tránsito
+Fecha de Recepcion: 2026-07-15
+Estado: CONFORME
+Guia / Factura: FAC-PROV-1005
+Observaciones: Recepción conforme con inspección de calidad aprobada.
+
+Recepcion #: E1-REC-0004
+Orden de Compra Asociada: E1-OC-0004
+Almacen de Entrada: Centro de Distribución Logística
+Fecha de Recepcion: 2026-07-10
+Estado: CONFORME
+Guia / Factura: FAC-PROV-1004
+Observaciones: Recepción conforme con inspección de calidad aprobada.
+
+Recepcion #: E1-REC-0003
+Orden de Compra Asociada: E1-OC-0003
+Almacen de Entrada: Almacén Central (Distribuidora del Pacífico)
+Fecha de Recepcion: 2026-07-06
+Estado: CONFORME
+Guia / Factura: FAC-PROV-1003
+Observaciones: Recepción conforme con inspección de calidad aprobada.
+
+Recepcion #: E1-REC-0002
+Orden de Compra Asociada: E1-OC-0002
+Almacen de Entrada: Bodega de Respuesto y Tránsito
+Fecha de Recepcion: 2026-07-01
+Estado: CONFORME
+Guia / Factura: FAC-PROV-1002
+Observaciones: Recepción conforme con inspección de calidad aprobada.
+
+Recepcion #: E1-REC-0001
+Orden de Compra Asociada: E1-OC-0001
+Almacen de Entrada: Centro de Distribución Logística
+Fecha de Recepcion: 2026-06-27
+Estado: CONFORME
+Guia / Factura: FAC-PROV-1001
+Observaciones: Recepción conforme con inspección de calidad aprobada.

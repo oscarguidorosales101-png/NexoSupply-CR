@@ -1,0 +1,346 @@
+================================================================================
+NEXOSUPPLY CR - REGISTRO DE ORDENES DE COMPRA
+================================================================================
+Empresa: Distribuidora del Pacífico (e1a2b3c4-d5e6-4f7a-8b9c-0d1e2f3a4b5c)
+Total Ordenes Registradas: 42
+Fecha: 2026-11-17
+Fuente: MySQL (tabla ordenes_compra)
+Vigencia: ACTUALIZADO (DEMO)
+
+ORDENES DE COMPRA:
+
+Numero de Orden: TEST-OC-1794879136605
+Proveedor: Aceros del Atlántico
+Estado: PARCIALMENTE_RECIBIDA
+Fecha Emision: 2026-11-17 | Entrega Esperada: 2026-11-22
+Total: CRC 64975.00
+Lineas de la Orden:
+  * Cinta de Embalaje Industrial 48mm x 100m Transparente | Cantidad: 50 | Precio: CRC 1150.00 | Recibido: 20
+
+Numero de Orden: TEST-OC-1794878589397
+Proveedor: Aceros del Atlántico
+Estado: PARCIALMENTE_RECIBIDA
+Fecha Emision: 2026-11-17 | Entrega Esperada: 2026-11-22
+Total: CRC 64975.00
+Lineas de la Orden:
+  * Cinta de Embalaje Industrial 48mm x 100m Transparente | Cantidad: 50 | Precio: CRC 1150.00 | Recibido: 20
+
+Numero de Orden: TEST-OC-1794877730184
+Proveedor: Aceros del Atlántico
+Estado: PARCIALMENTE_RECIBIDA
+Fecha Emision: 2026-11-17 | Entrega Esperada: 2026-11-22
+Total: CRC 64975.00
+Lineas de la Orden:
+  * Cinta de Embalaje Industrial 48mm x 100m Transparente | Cantidad: 50 | Precio: CRC 1150.00 | Recibido: 20
+
+Numero de Orden: TEST-OC-1794859755840
+Proveedor: Aceros del Atlántico
+Estado: PARCIALMENTE_RECIBIDA
+Fecha Emision: 2026-11-16 | Entrega Esperada: 2026-11-21
+Total: CRC 64975.00
+Lineas de la Orden:
+  * Cinta de Embalaje Industrial 48mm x 100m Transparente | Cantidad: 50 | Precio: CRC 1150.00 | Recibido: 20
+
+Numero de Orden: TEST-OC-1794859167137
+Proveedor: Aceros del Atlántico
+Estado: PARCIALMENTE_RECIBIDA
+Fecha Emision: 2026-11-16 | Entrega Esperada: 2026-11-21
+Total: CRC 64975.00
+Lineas de la Orden:
+  * Cinta de Embalaje Industrial 48mm x 100m Transparente | Cantidad: 50 | Precio: CRC 1150.00 | Recibido: 20
+
+Numero de Orden: E1-OC-0034
+Proveedor: Química del Pacífico
+Estado: BORRADOR
+Fecha Emision: 2026-11-16 | Entrega Esperada: 2026-11-23
+Total: CRC 1384250.00
+Lineas de la Orden:
+  * Ítem Operativo E1 #35 (Materia) | Cantidad: 140 | Precio: CRC 8750.00 | Recibido: 0
+
+Numero de Orden: TEST-OC-1794857090158
+Proveedor: DisCaribe
+Estado: PARCIALMENTE_RECIBIDA
+Fecha Emision: 2026-11-16 | Entrega Esperada: 2026-11-21
+Total: CRC 64975.00
+Lineas de la Orden:
+  * Cinta de Embalaje Industrial 48mm x 100m Transparente | Cantidad: 50 | Precio: CRC 1150.00 | Recibido: 20
+
+Numero de Orden: TEST-OC-1794855031167
+Proveedor: DisCaribe
+Estado: PARCIALMENTE_RECIBIDA
+Fecha Emision: 2026-11-16 | Entrega Esperada: 2026-11-21
+Total: CRC 64975.00
+Lineas de la Orden:
+  * Cinta de Embalaje Industrial 48mm x 100m Transparente | Cantidad: 50 | Precio: CRC 1150.00 | Recibido: 20
+
+Numero de Orden: OC-2026-0001
+Proveedor: SumiMed CR
+Estado: PARCIALMENTE_RECIBIDA
+Fecha Emision: 2026-11-16 | Entrega Esperada: 2026-11-19
+Total: CRC 711900.00
+Lineas de la Orden:
+  * Guantes de Nitrilo Grado Médico Caja x 100 | Cantidad: 200 | Precio: CRC 3150.00 | Recibido: 120
+
+Numero de Orden: E1-OC-0033
+Proveedor: Ferretería & Repuestos Industriales
+Estado: BORRADOR
+Fecha Emision: 2026-11-12 | Entrega Esperada: 2026-11-19
+Total: CRC 1101750.00
+Lineas de la Orden:
+  * Ítem Operativo E1 #34 (Químicos) | Cantidad: 130 | Precio: CRC 7500.00 | Recibido: 0
+
+Numero de Orden: E1-OC-0032
+Proveedor: Global Packing Logistics
+Estado: EMITIDA
+Fecha Emision: 2026-11-07 | Entrega Esperada: 2026-11-14
+Total: CRC 847500.00
+Lineas de la Orden:
+  * Ítem Operativo E1 #33 (Herramientas) | Cantidad: 120 | Precio: CRC 6250.00 | Recibido: 0
+
+Numero de Orden: E1-OC-0031
+Proveedor: DisCaribe Distribuciones
+Estado: EMITIDA
+Fecha Emision: 2026-11-03 | Entrega Esperada: 2026-11-10
+Total: CRC 621500.00
+Lineas de la Orden:
+  * Ítem Operativo E1 #32 (Empaque) | Cantidad: 110 | Precio: CRC 5000.00 | Recibido: 0
+
+Numero de Orden: E1-OC-0030
+Proveedor: SumiMed CR Internacional
+Estado: EMITIDA
+Fecha Emision: 2026-10-29 | Entrega Esperada: 2026-11-05
+Total: CRC 423750.00
+Lineas de la Orden:
+  * Ítem Operativo E1 #31 (Material) | Cantidad: 100 | Precio: CRC 3750.00 | Recibido: 0
+
+Numero de Orden: E1-OC-0029
+Proveedor: Herramientas Atlas S.A.
+Estado: EN_TRANSITO
+Fecha Emision: 2026-10-25 | Entrega Esperada: 2026-11-01
+Total: CRC 536750.00
+Lineas de la Orden:
+  * Ítem Operativo E1 #30 (Materia) | Cantidad: 190 | Precio: CRC 2500.00 | Recibido: 0
+
+Numero de Orden: E1-OC-0028
+Proveedor: Adhesivos & Cintas Industriales
+Estado: EN_TRANSITO
+Fecha Emision: 2026-10-20 | Entrega Esperada: 2026-10-27
+Total: CRC 7881750.00
+Lineas de la Orden:
+  * Ítem Operativo E1 #29 (Químicos) | Cantidad: 180 | Precio: CRC 38750.00 | Recibido: 0
+
+Numero de Orden: E1-OC-0027
+Proveedor: Importadora Centroamericana
+Estado: EN_TRANSITO
+Fecha Emision: 2026-10-16 | Entrega Esperada: 2026-10-23
+Total: CRC 7203750.00
+Lineas de la Orden:
+  * Ítem Operativo E1 #28 (Herramientas) | Cantidad: 170 | Precio: CRC 37500.00 | Recibido: 0
+
+Numero de Orden: E1-OC-0026
+Proveedor: BioSuministros del Norte
+Estado: EN_TRANSITO
+Fecha Emision: 2026-10-11 | Entrega Esperada: 2026-10-18
+Total: CRC 6554000.00
+Lineas de la Orden:
+  * Ítem Operativo E1 #27 (Empaque) | Cantidad: 160 | Precio: CRC 36250.00 | Recibido: 0
+
+Numero de Orden: E1-OC-0025
+Proveedor: Insumos Médicos San José
+Estado: EN_TRANSITO
+Fecha Emision: 2026-10-07 | Entrega Esperada: 2026-10-14
+Total: CRC 5932500.00
+Lineas de la Orden:
+  * Ítem Operativo E1 #26 (Material) | Cantidad: 150 | Precio: CRC 35000.00 | Recibido: 0
+
+Numero de Orden: E1-OC-0024
+Proveedor: ElectroTecnia Industrial
+Estado: PARCIALMENTE_RECIBIDA
+Fecha Emision: 2026-10-02 | Entrega Esperada: 2026-10-09
+Total: CRC 5339250.00
+Lineas de la Orden:
+  * Ítem Operativo E1 #25 (Materia) | Cantidad: 140 | Precio: CRC 33750.00 | Recibido: 84
+
+Numero de Orden: E1-OC-0023
+Proveedor: Distribuidora Continental
+Estado: PARCIALMENTE_RECIBIDA
+Fecha Emision: 2026-09-28 | Entrega Esperada: 2026-10-05
+Total: CRC 4774250.00
+Lineas de la Orden:
+  * Ítem Operativo E1 #24 (Químicos) | Cantidad: 130 | Precio: CRC 32500.00 | Recibido: 78
+
+Numero de Orden: E1-OC-0022
+Proveedor: Aceros del Atlántico
+Estado: PARCIALMENTE_RECIBIDA
+Fecha Emision: 2026-09-23 | Entrega Esperada: 2026-09-30
+Total: CRC 4237500.00
+Lineas de la Orden:
+  * Ítem Operativo E1 #23 (Herramientas) | Cantidad: 120 | Precio: CRC 31250.00 | Recibido: 72
+
+Numero de Orden: E1-OC-0021
+Proveedor: Plásticos & Cajas de Costa Rica
+Estado: PARCIALMENTE_RECIBIDA
+Fecha Emision: 2026-09-19 | Entrega Esperada: 2026-09-26
+Total: CRC 3729000.00
+Lineas de la Orden:
+  * Ítem Operativo E1 #22 (Empaque) | Cantidad: 110 | Precio: CRC 30000.00 | Recibido: 66
+
+Numero de Orden: E1-OC-0020
+Proveedor: Equipos Biomédicos del Valle
+Estado: PARCIALMENTE_RECIBIDA
+Fecha Emision: 2026-09-14 | Entrega Esperada: 2026-09-21
+Total: CRC 3248750.00
+Lineas de la Orden:
+  * Ítem Operativo E1 #21 (Material) | Cantidad: 100 | Precio: CRC 28750.00 | Recibido: 60
+
+Numero de Orden: E1-OC-0019
+Proveedor: Química del Pacífico
+Estado: PARCIALMENTE_RECIBIDA
+Fecha Emision: 2026-09-10 | Entrega Esperada: 2026-09-17
+Total: CRC 5904250.00
+Lineas de la Orden:
+  * Ítem Operativo E1 #20 (Materia) | Cantidad: 190 | Precio: CRC 27500.00 | Recibido: 114
+
+Numero de Orden: E1-OC-0018
+Proveedor: Ferretería & Repuestos Industriales
+Estado: COMPLETADA
+Fecha Emision: 2026-09-05 | Entrega Esperada: 2026-09-12
+Total: CRC 5339250.00
+Lineas de la Orden:
+  * Ítem Operativo E1 #19 (Químicos) | Cantidad: 180 | Precio: CRC 26250.00 | Recibido: 180
+
+Numero de Orden: E1-OC-0017
+Proveedor: Global Packing Logistics
+Estado: COMPLETADA
+Fecha Emision: 2026-09-01 | Entrega Esperada: 2026-09-08
+Total: CRC 4802500.00
+Lineas de la Orden:
+  * Ítem Operativo E1 #18 (Herramientas) | Cantidad: 170 | Precio: CRC 25000.00 | Recibido: 170
+
+Numero de Orden: E1-OC-0016
+Proveedor: DisCaribe Distribuciones
+Estado: COMPLETADA
+Fecha Emision: 2026-08-27 | Entrega Esperada: 2026-09-03
+Total: CRC 4294000.00
+Lineas de la Orden:
+  * Ítem Operativo E1 #17 (Empaque) | Cantidad: 160 | Precio: CRC 23750.00 | Recibido: 160
+
+Numero de Orden: E1-OC-0015
+Proveedor: SumiMed CR Internacional
+Estado: COMPLETADA
+Fecha Emision: 2026-08-23 | Entrega Esperada: 2026-08-30
+Total: CRC 3813750.00
+Lineas de la Orden:
+  * Ítem Operativo E1 #16 (Material) | Cantidad: 150 | Precio: CRC 22500.00 | Recibido: 150
+
+Numero de Orden: E1-OC-0014
+Proveedor: Herramientas Atlas S.A.
+Estado: COMPLETADA
+Fecha Emision: 2026-08-18 | Entrega Esperada: 2026-08-25
+Total: CRC 3361750.00
+Lineas de la Orden:
+  * Ítem Operativo E1 #15 (Materia) | Cantidad: 140 | Precio: CRC 21250.00 | Recibido: 140
+
+Numero de Orden: E1-OC-0013
+Proveedor: Adhesivos & Cintas Industriales
+Estado: COMPLETADA
+Fecha Emision: 2026-08-14 | Entrega Esperada: 2026-08-21
+Total: CRC 2938000.00
+Lineas de la Orden:
+  * Ítem Operativo E1 #14 (Químicos) | Cantidad: 130 | Precio: CRC 20000.00 | Recibido: 130
+
+Numero de Orden: E1-OC-0012
+Proveedor: Importadora Centroamericana
+Estado: COMPLETADA
+Fecha Emision: 2026-08-09 | Entrega Esperada: 2026-08-16
+Total: CRC 2542500.00
+Lineas de la Orden:
+  * Ítem Operativo E1 #13 (Herramientas) | Cantidad: 120 | Precio: CRC 18750.00 | Recibido: 120
+
+Numero de Orden: E1-OC-0011
+Proveedor: BioSuministros del Norte
+Estado: COMPLETADA
+Fecha Emision: 2026-08-05 | Entrega Esperada: 2026-08-12
+Total: CRC 2175250.00
+Lineas de la Orden:
+  * Ítem Operativo E1 #12 (Empaque) | Cantidad: 110 | Precio: CRC 17500.00 | Recibido: 110
+
+Numero de Orden: E1-OC-0010
+Proveedor: Insumos Médicos San José
+Estado: COMPLETADA
+Fecha Emision: 2026-07-31 | Entrega Esperada: 2026-08-07
+Total: CRC 1836250.00
+Lineas de la Orden:
+  * Ítem Operativo E1 #11 (Material) | Cantidad: 100 | Precio: CRC 16250.00 | Recibido: 100
+
+Numero de Orden: E1-OC-0009
+Proveedor: ElectroTecnia Industrial
+Estado: COMPLETADA
+Fecha Emision: 2026-07-27 | Entrega Esperada: 2026-08-03
+Total: CRC 3220500.00
+Lineas de la Orden:
+  * Ítem Operativo E1 #10 (Materia) | Cantidad: 190 | Precio: CRC 15000.00 | Recibido: 190
+
+Numero de Orden: E1-OC-0008
+Proveedor: Distribuidora Continental
+Estado: COMPLETADA
+Fecha Emision: 2026-07-22 | Entrega Esperada: 2026-07-29
+Total: CRC 2796750.00
+Lineas de la Orden:
+  * Ítem Operativo E1 #9 (Químicos) | Cantidad: 180 | Precio: CRC 13750.00 | Recibido: 180
+
+Numero de Orden: E1-OC-0007
+Proveedor: Aceros del Atlántico
+Estado: COMPLETADA
+Fecha Emision: 2026-07-18 | Entrega Esperada: 2026-07-25
+Total: CRC 2401250.00
+Lineas de la Orden:
+  * Ítem Operativo E1 #8 (Herramientas) | Cantidad: 170 | Precio: CRC 12500.00 | Recibido: 170
+
+Numero de Orden: E1-OC-0006
+Proveedor: Plásticos & Cajas de Costa Rica
+Estado: COMPLETADA
+Fecha Emision: 2026-07-13 | Entrega Esperada: 2026-07-20
+Total: CRC 2034000.00
+Lineas de la Orden:
+  * Ítem Operativo E1 #7 (Empaque) | Cantidad: 160 | Precio: CRC 11250.00 | Recibido: 160
+
+Numero de Orden: E1-OC-0005
+Proveedor: Equipos Biomédicos del Valle
+Estado: COMPLETADA
+Fecha Emision: 2026-07-09 | Entrega Esperada: 2026-07-16
+Total: CRC 1695000.00
+Lineas de la Orden:
+  * Ítem Operativo E1 #6 (Material) | Cantidad: 150 | Precio: CRC 10000.00 | Recibido: 150
+
+Numero de Orden: E1-OC-0004
+Proveedor: Química del Pacífico
+Estado: COMPLETADA
+Fecha Emision: 2026-07-04 | Entrega Esperada: 2026-07-11
+Total: CRC 1384250.00
+Lineas de la Orden:
+  * Ítem Operativo E1 #5 (Materia) | Cantidad: 140 | Precio: CRC 8750.00 | Recibido: 140
+
+Numero de Orden: E1-OC-0003
+Proveedor: Ferretería & Repuestos Industriales
+Estado: COMPLETADA
+Fecha Emision: 2026-06-30 | Entrega Esperada: 2026-07-07
+Total: CRC 1101750.00
+Lineas de la Orden:
+  * Ítem Operativo E1 #4 (Químicos) | Cantidad: 130 | Precio: CRC 7500.00 | Recibido: 130
+
+Numero de Orden: E1-OC-0002
+Proveedor: Global Packing Logistics
+Estado: COMPLETADA
+Fecha Emision: 2026-06-25 | Entrega Esperada: 2026-07-02
+Total: CRC 847500.00
+Lineas de la Orden:
+  * Ítem Operativo E1 #3 (Herramientas) | Cantidad: 120 | Precio: CRC 6250.00 | Recibido: 120
+
+Numero de Orden: E1-OC-0001
+Proveedor: DisCaribe Distribuciones
+Estado: COMPLETADA
+Fecha Emision: 2026-06-21 | Entrega Esperada: 2026-06-28
+Total: CRC 621500.00
+Lineas de la Orden:
+  * Ítem Operativo E1 #2 (Empaque) | Cantidad: 110 | Precio: CRC 5000.00 | Recibido: 110

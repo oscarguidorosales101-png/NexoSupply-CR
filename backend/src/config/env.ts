@@ -14,6 +14,8 @@ const envSchema = z.object({
   CORS_ORIGIN: z.string().default('http://localhost:5173'),
   AI_API_KEY: z.string().optional().default(''),
   DEEPSEEK_API_KEY: z.string().optional().default(''),
+  DEEPSEEK_MODEL: z.string().optional().default('deepseek-chat'),
+  DEEPSEEK_BASE_URL: z.string().optional().default('https://api.deepseek.com'),
   GOOGLE_APPLICATION_CREDENTIALS: z.string().optional().default('../nexosupply-cr-209e6cfebcda (1).json'),
   GOOGLE_DRIVE_ROOT_FOLDER_ID: z.string().optional().default(''),
   GOOGLE_DRIVE_SYNC_ENABLED: z.string().default('true').transform((val) => val === 'true'),
@@ -29,6 +31,10 @@ const envSchema = z.object({
   SMTP_USER: z.string().optional().default(''),
   SMTP_PASS: z.string().optional().default(''),
   SMTP_FROM: z.string().optional().default('noreply@nexosupply.cr'),
+  GOOGLE_CLIENT_ID: z.string().optional().default(''),
+  GOOGLE_CLIENT_SECRET: z.string().optional().default(''),
+  GOOGLE_REDIRECT_URI: z.string().optional().default('http://localhost:4000/api/v1/auth/google/callback'),
+  GOOGLE_OAUTH_OWNER_EMAIL: z.string().optional().default('oscarguidorosales101@gmail.com'),
 });
 
 const parsed = envSchema.safeParse(process.env);

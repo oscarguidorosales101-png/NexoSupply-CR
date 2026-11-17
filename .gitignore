@@ -27,7 +27,7 @@ coverage/
 !frontend/.env.example
 !backend/.env.example
 
-# Archivos de credenciales y claves de servicio (Google Cloud, AWS, JWT secrets)
+# Archivos de credenciales y claves de servicio (Google Cloud, AWS, JWT secrets, OAuth)
 *.pem
 *.key
 *.cert
@@ -35,10 +35,18 @@ coverage/
 *.pfx
 *.p12
 *.id_rsa
+nexosupply-cr*.json
 nexosupply-cr-*.json
+client_secret*.json
+client_secret_*.json
+*secret*.json
+*credentials*.json
+*credential*.json
 service_account*.json
 credentials*.json
 secrets*.json
+*.oauth.json
+*.token.json
 
 # Logs y trazas de ejecución
 logs/
